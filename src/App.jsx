@@ -1282,7 +1282,7 @@ function DiagramSlideshow({ diagrams, moduleLabel, backHash }) {
           fontFamily: T.sans, letterSpacing: "0.06em", textTransform: "uppercase", padding: 0,
         }}>← {moduleLabel}</button>
         <span style={{ fontSize: 9, color: T.textFaint, letterSpacing: "0.06em" }}>
-          {moduleLabel} — {total} diagrams
+          {moduleLabel} — {total} diagram{total !== 1 ? "s" : ""}
         </span>
       </div>
 
@@ -1595,7 +1595,7 @@ export default function PortfolioGuide() {
               <span
                 onClick={() => navigate("#/diagrams/casestudy")}
                 style={{
-                  fontSize: 12, color: T.steel, cursor: "pointer",
+                  fontSize: 11, color: T.steel, cursor: "pointer",
                   borderBottom: `1px solid ${T.steel}40`, paddingBottom: 2,
                   transition: "color 0.15s ease, border-color 0.15s ease",
                   fontFamily: T.sans, letterSpacing: "0.01em", lineHeight: 1.8,
@@ -1603,7 +1603,7 @@ export default function PortfolioGuide() {
                 onMouseEnter={(e) => { e.currentTarget.style.color = T.steelLight; e.currentTarget.style.borderColor = `${T.steelLight}`; }}
                 onMouseLeave={(e) => { e.currentTarget.style.color = T.steel; e.currentTarget.style.borderColor = `${T.steel}40`; }}
               >
-                Diagrams — {diagrams.map((d, i) => d.title).join(", ")}
+                Diagram — {diagrams.map((d, i) => d.title).join(", ")}
               </span>
             </div>
           )}
@@ -1712,7 +1712,7 @@ export default function PortfolioGuide() {
             <span
               onClick={() => navigate(`#/diagrams/${mod.id}`)}
               style={{
-                fontSize: 12, color: T.steel, cursor: "pointer",
+                fontSize: 11, color: T.steel, cursor: "pointer",
                 borderBottom: `1px solid ${T.steel}40`, paddingBottom: 2,
                 transition: "color 0.15s ease, border-color 0.15s ease",
                 fontFamily: T.sans, letterSpacing: "0.01em", lineHeight: 1.8,
@@ -1720,7 +1720,7 @@ export default function PortfolioGuide() {
               onMouseEnter={(e) => { e.currentTarget.style.color = T.steelLight; e.currentTarget.style.borderColor = `${T.steelLight}`; }}
               onMouseLeave={(e) => { e.currentTarget.style.color = T.steel; e.currentTarget.style.borderColor = `${T.steel}40`; }}
             >
-              Diagrams {String(mod.id).padStart(2, "0")} — {diagrams.map((d) => d.title).join(", ")}
+              Diagram {String(mod.id).padStart(2, "0")} — {diagrams.map((d) => d.title).join(", ")}
             </span>
           </div>
         )}
