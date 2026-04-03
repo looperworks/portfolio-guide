@@ -1244,7 +1244,7 @@ export default function PortfolioGuide() {
               <p key={i} style={{ fontSize: 12, lineHeight: 1.8, color: T.textMid, margin: "0 0 14px", letterSpacing: "0.01em" }}>{p}</p>
             ))}
             <div style={{ marginTop: 32, paddingTop: 20, borderTop: `1px solid ${T.border}` }}>
-              <p style={{ fontSize: 10, color: T.textLight, margin: 0, lineHeight: 1.7, letterSpacing: "0.01em" }}>
+              <p style={{ fontSize: 12, color: T.textLight, margin: 0, lineHeight: 1.8, letterSpacing: "0.01em" }}>
                 Seth Looper<br />
                 Kent State University · College of Architecture and Environmental Design<br />
                 <a href="mailto:slooper@kent.edu" style={{ color: T.textMuted, textDecoration: "none" }}>slooper@kent.edu</a>
