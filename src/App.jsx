@@ -982,7 +982,7 @@ function DiagramSlideshow({ diagrams, moduleLabel, backHash }) {
     const onWheel = (e) => {
       if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
         e.preventDefault();
-        container.scrollLeft += e.deltaY * 2;
+        container.scrollLeft += e.deltaY * 4;
       }
     };
     container.addEventListener("wheel", onWheel, { passive: false });
@@ -1050,10 +1050,10 @@ function DiagramSlideshow({ diagrams, moduleLabel, backHash }) {
             >
               {/* Uniform grey card */}
               <div style={{
-                width: "75vh", height: "55vh",
+                width: "85vh", height: "65vh",
                 background: T.bgAlt,
                 display: "flex", alignItems: "center", justifyContent: "center",
-                padding: 32, boxSizing: "border-box",
+                padding: 24, boxSizing: "border-box",
                 overflow: "hidden",
               }}>
                 {isImage ? (
@@ -1068,7 +1068,7 @@ function DiagramSlideshow({ diagrams, moduleLabel, backHash }) {
                     }}
                   />
                 ) : DiagramComp ? (
-                  <div style={{ width: "100%", maxWidth: 420 }}>
+                  <div style={{ width: "100%", maxWidth: "90%" }}>
                     <DiagramComp />
                   </div>
                 ) : null}
