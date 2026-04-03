@@ -788,9 +788,9 @@ function DiagramParentPages() {
 /* ─── Diagram map: moduleId → [{component, title}] ─── */
 const DIAGRAM_MAP = {
   1: [
+    { image: "class-pdf/academic-portfolio-example.png", title: "Academic Portfolio Example", alt: "Jiayao Li — Conceptual Box Model spread showing process diagrams, artifact scans, and analytical drawings" },
+    { image: "class-pdf/professional-portfolio-example.png", title: "Professional Portfolio Example", alt: "Nick McIntosh — Generative Housing spread showing rendering, floor plan, and building section" },
     { image: "class-pdf/class1-portfolio-anatomy.png", title: "Portfolio Anatomy", alt: "Portfolio document structure — Cover, Inside Front Cover, TOC, Section Divider, Introduction Pages, Project Pages, Resume, Back Cover" },
-    { component: DiagramTwoSpeed, title: "Two-Speed Reading" },
-    { component: DiagramAudienceLens, title: "Audience Lens" },
   ],
   2: [
     { component: DiagramNarrativeArc, title: "Three-Act Narrative Arc" },
