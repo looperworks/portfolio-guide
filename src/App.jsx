@@ -875,7 +875,6 @@ function navigate(hash) {
 const ABOUT_TEXT = [
   "Portfolio as Narrative is a workshop resource for architecture and design students learning to construct portfolios that argue rather than archive.",
   "The guide covers thirteen modules across three parts — from finding your Red Thread and writing project statements (Narrative), to building grid systems and selecting typography (Grid), to finalizing visual systems and completing self-editing audits (Production). Each module pairs pedagogical text with reference diagrams drawn from real student portfolios and professional practice.",
-  "A special case study explores Stefan DiLeo's portfolio for Toshiko Mori's Advanced Studios at Harvard GSD, demonstrating how every principle applies to a single project.",
   "The material originates from the Portfolio Workshop at Kent State University's College of Architecture and Environmental Design, taught by Seth Looper. It synthesizes principles from the Threshold Architecture Career Toolkit with methods developed through years of portfolio pedagogy, admissions consulting, and design education.",
   "Whether you are preparing for graduate school applications, professional interviews, or scholarship reviews, the framework here applies. A portfolio is not a binder. It is an argument — and this guide shows you how to build one.",
 ];
