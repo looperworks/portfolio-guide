@@ -896,7 +896,7 @@ function navigate(hash) {
 /* ─── About content ─── */
 const ABOUT_TEXT = [
   "Portfolio as Narrative is a workshop resource for architecture and design students learning to construct portfolios that argue rather than archive.",
-  "The guide covers thirteen modules across three parts — from finding your Red Thread and writing project statements (Narrative), to building grid systems and selecting typography (The Page), to finalizing visual systems and completing self-editing audits (Production). Each module pairs pedagogical text with reference diagrams drawn from real student portfolios and professional practice.",
+  "The guide covers thirteen modules across three parts — from finding your Red Thread and writing project statements (Narrative), to building grid systems and selecting typography (Grid), to finalizing visual systems and completing self-editing audits (Production). Each module pairs pedagogical text with reference diagrams drawn from real student portfolios and professional practice.",
   "A special case study explores Stefan DiLeo's portfolio for Toshiko Mori's Advanced Studios at Harvard GSD, demonstrating how every principle applies to a single project.",
   "The material originates from the Portfolio Workshop at Kent State University's College of Architecture and Environmental Design, taught by Seth Looper. It synthesizes principles from the Threshold Architecture Career Toolkit with methods developed through years of portfolio pedagogy, admissions consulting, and design education.",
   "Whether you are preparing for graduate school applications, professional interviews, or scholarship reviews, the framework here applies. A portfolio is not a binder. It is an argument — and this guide shows you how to build one.",
@@ -1373,6 +1373,11 @@ export default function PortfolioGuide() {
           </div>
         </div>
 
+      <footer style={{ padding: "28px 40px", display: "flex", justifyContent: "space-between", fontSize: 9, color: T.textFaint, fontFamily: T.sans, letterSpacing: "0.04em" }}>
+        <span>Kent State University · CAED</span>
+        <a href="https://thresholdarch.com" target="_blank" rel="noopener noreferrer" style={{ color: T.textFaint, textDecoration: "none" }}>thresholdarch.com</a>
+      </footer>
+
       </div>
     );
   }
@@ -1471,25 +1476,28 @@ export default function PortfolioGuide() {
         {/* Interactive Checklist for module 13 */}
         {mod.id === 13 && <InteractiveChecklist moduleId={mod.id} />}
 
-        {/* Prev / Next */}
-        <div style={{ display: "flex", justifyContent: "space-between", marginTop: 48, paddingTop: 20, borderTop: `1px solid ${T.border}` }}>
-          {mod.id > 1 ? (
-            <button onClick={() => handleNavClick(MODULES[mod.id - 2])} style={{
-              background: "none", border: "none", fontSize: 10, color: T.textMuted, cursor: "pointer", fontFamily: T.sans, padding: 0, textAlign: "left", letterSpacing: "0.02em",
-            }}>
-              <span style={{ display: "block", fontSize: 8, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 3, color: T.textFaint }}>Previous</span>
-              {String(mod.id - 1).padStart(2, "0")} — {MODULES[mod.id - 2].title}
-            </button>
-          ) : <div />}
-          {mod.id < MODULES.length ? (
-            <button onClick={() => handleNavClick(MODULES[mod.id])} style={{
-              background: "none", border: "none", fontSize: 10, color: T.textMuted, cursor: "pointer", fontFamily: T.sans, padding: 0, textAlign: "right", letterSpacing: "0.02em",
-            }}>
-              <span style={{ display: "block", fontSize: 8, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 3, color: T.textFaint }}>Next</span>
-              {String(mod.id + 1).padStart(2, "0")} — {MODULES[mod.id].title}
-            </button>
-          ) : <div />}
-        </div>
+        {/* Prev / Next (wraps at boundaries) */}
+        {(() => {
+          const curIdx = MODULES.findIndex(m => m.id === mod.id);
+          const prevMod = MODULES[(curIdx - 1 + MODULES.length) % MODULES.length];
+          const nextMod = MODULES[(curIdx + 1) % MODULES.length];
+          return (
+            <div style={{ display: "flex", justifyContent: "space-between", marginTop: 48, paddingTop: 20, borderTop: `1px solid ${T.border}` }}>
+              <button onClick={() => handleNavClick(prevMod)} style={{
+                background: "none", border: "none", fontSize: 10, color: T.textMuted, cursor: "pointer", fontFamily: T.sans, padding: 0, textAlign: "left", letterSpacing: "0.02em",
+              }}>
+                <span style={{ display: "block", fontSize: 8, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 3, color: T.textFaint }}>Previous</span>
+                {String(prevMod.id).padStart(2, "0")} — {prevMod.title}
+              </button>
+              <button onClick={() => handleNavClick(nextMod)} style={{
+                background: "none", border: "none", fontSize: 10, color: T.textMuted, cursor: "pointer", fontFamily: T.sans, padding: 0, textAlign: "right", letterSpacing: "0.02em",
+              }}>
+                <span style={{ display: "block", fontSize: 8, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 3, color: T.textFaint }}>Next</span>
+                {String(nextMod.id).padStart(2, "0")} — {nextMod.title}
+              </button>
+            </div>
+          );
+        })()}
       </div>
 
       <footer style={{ padding: "28px 40px", display: "flex", justifyContent: "space-between", fontSize: 9, color: T.textFaint, fontFamily: T.sans, letterSpacing: "0.04em" }}>
