@@ -553,21 +553,60 @@ function DiagramInitialsAndFinals() {
   );
 }
 
-/* ─── Diagram map: moduleId → [Component1, Component2] ─── */
+/* ─── Diagram map: moduleId → [{component, title}] ─── */
 const DIAGRAM_MAP = {
-  1: [DiagramTwoTrack, DiagramAudienceMatrix],
-  2: [DiagramNarrativeArc, DiagramChronVsNarrative],
-  3: [DiagramFourImageTypes, DiagramImageMapping],
-  4: [DiagramNarrativeFailures, DiagramInitialsAndFinals],
-  5: [DiagramCompression, DiagramWeakVsStrong],
-  6: [DiagramSequenceStructures, DiagramTwoTrack],
-  7: [DiagramTypography, DiagramSizeHierarchy],
-  8: [DiagramGridAnatomy, DiagramFourGridTypes],
-  9: [Diagram12Point, DiagramGridAnatomy],
-  10: [DiagramColorPalettes, DiagramColorPalettes],
-  11: [DiagramCoverTypes, DiagramCoverTypes],
-  12: [DiagramChecklist, DiagramExportStandards],
-  casestudy: [DiagramImageMapping, DiagramCompression],
+  1: [
+    { component: DiagramTwoTrack, title: "Two-Track Reading System" },
+    { component: DiagramAudienceMatrix, title: "Audience Matrix" },
+  ],
+  2: [
+    { component: DiagramNarrativeArc, title: "Three-Act Narrative Arc" },
+    { component: DiagramChronVsNarrative, title: "Chronological vs. Narrative" },
+  ],
+  3: [
+    { component: DiagramFourImageTypes, title: "Four Image Types" },
+    { component: DiagramImageMapping, title: "Image Type Mapping Across Spreads" },
+  ],
+  4: [
+    { component: DiagramNarrativeFailures, title: "Diagnosing Narrative Failure" },
+    { component: DiagramInitialsAndFinals, title: "Initials-and-Finals Sequence" },
+  ],
+  5: [
+    { component: DiagramCompression, title: "The Compression Exercise" },
+    { component: DiagramWeakVsStrong, title: "Weak vs. Strong Statements" },
+  ],
+  6: [
+    { component: DiagramWeakVsStrong, title: "Weak vs. Strong Statements" },
+    { component: DiagramCompression, title: "The Compression Exercise" },
+  ],
+  7: [
+    { component: DiagramSequenceStructures, title: "Sequence Structures" },
+    { component: DiagramTwoTrack, title: "Two-Track Reading System" },
+  ],
+  8: [
+    { component: DiagramTypography, title: "Typography Categories" },
+    { component: DiagramSizeHierarchy, title: "Typographic Hierarchy" },
+  ],
+  9: [
+    { component: DiagramGridAnatomy, title: "Grid Anatomy Overview" },
+    { component: DiagramFourGridTypes, title: "Four Grid Types" },
+  ],
+  10: [
+    { component: Diagram12Point, title: "Document Setup — 12-Point System" },
+    { component: DiagramGridAnatomy, title: "Grid Anatomy Overview" },
+  ],
+  11: [
+    { component: DiagramCoverTypes, title: "Seven Cover Typologies" },
+    { component: DiagramPageLength, title: "Page Length Guidelines" },
+  ],
+  12: [
+    { component: DiagramChecklist, title: "Four-Level Audit Framework" },
+    { component: DiagramExportStandards, title: "File Export Standards" },
+  ],
+  casestudy: [
+    { component: DiagramImageMapping, title: "Image Type Mapping Across Spreads" },
+    { component: DiagramCompression, title: "The Compression Exercise" },
+  ],
 };
 
 /* ─── Module content ─── */
@@ -576,13 +615,13 @@ const MODULES = [
     id: 1,
     title: "The Portfolio as Argument",
     part: "Narrative",
-    overview: `A portfolio is not a binder of coursework or a personal design journal. It is a curatorial act and a communication tool. Every decision you make about what to include, how to sequence it, and where to place it on the page is an act of design. The portfolio is not separate from your work. It is your work, reframed for an audience.
+    overview: `A portfolio is not a binder of coursework or a personal design journal. It is a curatorial act — a designed artifact that reframes your work for a specific audience. Every decision about what to include, how to sequence it, and where to place it on the page is an act of design. The portfolio is not separate from your work. It is your work, argued.
 
-A portfolio operates on two tracks simultaneously. At skim speed — thirty seconds — the image hierarchy, cover, and sequencing must tell a story. At read speed — two to five minutes — the project statements, captions, and visual details must deepen that story without contradicting it.
+This guide focuses on the PDF portfolio: the format most graduate programs and professional firms request. Whether submitted digitally or printed for an interview, the PDF is the primary vehicle through which your work is evaluated. The principles here apply to physical books and web portfolios as well, but the PDF is the baseline.
 
-Portfolio content should shift based on audience type. An academic reviewer prioritizes sketches, diagrams, and dead ends that reveal process depth. A professional reviewer at a large firm leads with resolved, publication-quality work and technical proficiency. A boutique firm values design sensibility and philosophical alignment. Knowing these roles is the difference between a page that documents and a page that argues.
+A portfolio operates on two tracks simultaneously. At skim speed — thirty to ninety seconds — the image hierarchy, cover, and sequencing must tell a story. At study speed — five to fifteen minutes — the project statements, captions, and visual details must deepen that story without contradicting it. Both tracks must function independently. A reviewer who only skims should still grasp your position. A reviewer who reads closely should find that every detail reinforces it.
 
-Before you walk into a review, an interview, or a scholarship committee, your portfolio has already made its case. Reviewers often spend thirty seconds on an initial scan. In that window, the sequencing of images, the hierarchy of information, and the clarity of layout have either earned deeper attention or lost it. The best portfolios tell a story about how you design, not just what you designed.`,
+Portfolio content should shift based on audience. An academic reviewer values sketches, diagrams, and dead ends that reveal process depth. A professional reviewer at a large firm prioritizes resolved, publication-quality deliverables and technical proficiency. A boutique firm looks for design sensibility and philosophical alignment. Before you begin designing spreads, identify who will read this portfolio and what they are looking for.`,
     keyInsight: `"A portfolio is not an archive. It is an argument."`,
   },
   {
@@ -593,16 +632,16 @@ Before you walk into a review, an interview, or a scholarship committee, your po
 
 Setup: The opening spread establishes context — who you are as a designer, what territory your work occupies, and what questions drive it. This is the overture. A strong setup creates a lens through which a reviewer reads everything that follows.
 
-Confrontation: The middle projects develop your case. Each one should introduce a new dimension of your thinking, not simply repeat the same strength. Repetition without development signals a limited range.
+Confrontation: The middle projects develop your case. Each one should introduce a new dimension of your thinking — a different scale, method, or question — not simply repeat the same strength. Here is a diagnostic: if you can swap the order of two middle projects and the portfolio reads identically, you are repeating, not developing.
 
 Synthesis: The closing projects demonstrate convergence. Technical resolution, professional awareness, and design maturity come together. A reviewer should leave the final spread with a sense of direction, not just skill.`,
-    keyInsight: `"The narrative arc determines what a viewer encounters. The grid determines how each encounter is constructed on the page."`,
+    keyInsight: `"Structure is not decoration. It is how the argument lands."`,
   },
   {
     id: 3,
     title: "Four Image Types",
     part: "Narrative",
-    overview: `Every image in a portfolio performs one of four roles. Knowing these roles is the difference between a page that documents and a page that argues.
+    overview: `Every image in a portfolio performs one of four roles. Naming these roles transforms a page from documentation into argument.
 
 Concept: The diagram, collage, or sketch that captures the governing idea. It tells a reviewer what you were thinking before you started drawing plans. Concept images belong early in a project sequence.
 
@@ -610,10 +649,12 @@ Process: Iterations, massing studies, model photographs. Process images are evid
 
 Outcome: The final rendering, the technical drawing, the detail section. Outcome images prove feasibility and demonstrate professional fluency.
 
-Context: The site photograph, the street elevation, the existing condition. Context images ground the work in real-world constraints and opportunities. Without context, even the most elegant proposal reads as autonomous fancy.
+Context: The site photograph, the street elevation, the existing condition. Context images ground the work in real-world constraints and opportunities. Without context, even the most elegant proposal reads as untethered speculation.
 
-The sequence matters. Concept first. Context second. Process and Outcome weave together based on the project's narrative logic. A portfolio that leads with Outcome is a catalog. A portfolio that sequences concept → context → process → outcome is an argument.`,
-    keyInsight: `"Every image should earn its place. If you cannot articulate what it communicates, remove it."`,
+The recommended sequence: concept → context → process → outcome. Concept establishes the idea. Context grounds it. Process shows the work of developing it. Outcome proves the resolution. A portfolio that leads with Outcome is a catalog. A portfolio that leads with Concept is an argument.
+
+Some images serve dual roles — a site model can function as both concept and context. When that happens, ask which role is primary for the narrative. Place the image where it serves the argument, not where it fits chronologically.`,
+    keyInsight: `"Name the role each image plays. If you cannot, the image does not belong."`,
   },
   {
     id: 4,
@@ -623,7 +664,7 @@ The sequence matters. Concept first. Context second. Process and Outcome weave t
 
 This violates chronological thinking, which is why so many portfolios fail. Chronological portfolios place the earliest, weakest studio exercise first and bury the thesis project at page twenty. That arrangement is a buried lede — a journalism term for burying the most newsworthy information below the fold.
 
-The Initials-and-Finals principle reorders work to maximize impact. The opening project should be the strongest single demonstration of your design thinking. Not your most technically accomplished work, but the work that most clearly telegraphs your position. This is the initial statement.
+The Initials-and-Finals principle reorders work to maximize impact. The opening project should be the strongest single demonstration of your design thinking. Not your most technically accomplished work — your most revealing work. A hand-drawn sectional study that shows how you think about ground may be a stronger opener than a polished rendering that shows what software you know. This is the initial statement.
 
 The middle projects build case through evidence, complexity, and range. Each advances the argument without repeating it.
 
@@ -642,9 +683,9 @@ Step 1 — One Paragraph: Write a project statement of four to six sentences cov
 
 Step 2 — One Sentence: Compress that paragraph. What survives? A weak sentence describes. A strong sentence declares.
 
-Step 3 — One Word: Threshold. Tension. Porosity. Absence. Erosion. The word is not a label — it is a lens. It describes the design position that recurs across projects.
+Step 3 — One Word: Threshold. Erosion. Layering. Displacement. Porosity. The word is not a label — it is a lens. It names the design position that recurs across projects.
 
-Step 4 — The Thread Test: Repeat for every project. When the same word keeps surfacing, you have found your Red Thread.`,
+Step 4 — The Thread Test: Repeat for every project. When the same word keeps surfacing, you have found your Red Thread. When the words scatter — light here, community there, materiality elsewhere — the portfolio has range but not position. Go back and look for the deeper connection.`,
     keyInsight: `"If the word is the same across three or more projects, the portfolio has a position. If it scatters, it needs one."`,
   },
   {
@@ -653,18 +694,20 @@ Step 4 — The Thread Test: Repeat for every project. When the same word keeps s
     part: "Narrative",
     overview: `The project statement is not a description of what you built. It is a declaration of what you investigated and why it matters. Weak statements describe — "This project explores light." Strong statements declare — "This project tests whether a single aperture can structure an entire domestic sequence."
 
-Two-paragraph format: Paragraph one covers context, intent, and thesis in four to six sentences. Paragraph two covers development and outcome with evidence. Tone should be clear, active voice. Present tense for design intent, past tense for process.
+Two-paragraph format: Paragraph one covers context, intent, and thesis in four to six sentences. Paragraph two covers development and outcome with evidence. Use present tense for design intent ("The building negotiates the slope through a series of carved terraces") and past tense for process ("Early iterations tested three distinct massing strategies before the final configuration emerged"). Active voice throughout — avoid "was explored" or "is being investigated."
 
-The concept sentence is the compressed version: one line a reviewer reads in five seconds. This sentence should distill the position you are testing and make it specific and testable. It becomes the key insight for this project — the single claim that ties all images to one idea.
+The concept sentence is the compressed version: one line a reviewer reads in five seconds. This sentence should distill the position you are testing and make it specific and testable. It becomes the anchor for the project — the single claim that ties all images to one idea.
 
-Once written, check your statement against the Red Thread. Does this project address the same fundamental question as your other work? Does it extend the argument into new territory? If a statement describes a one-off experiment with no connection to the larger portfolio position, ask whether the project belongs in the portfolio at all.`,
+Check the finished statement against your Red Thread. If the project does not extend the portfolio's central argument into new territory, question whether it belongs.`,
     keyInsight: `"Strong statements are specific. They make a testable claim. They are worth arguing about."`,
   },
   {
     id: 7,
     title: "Storyboarding & Visual Sequencing",
     part: "The Page",
-    overview: `Each image must introduce a new dimension of the project without repeating what the opening already established. Three project-level sequence structures govern how images unfold:
+    overview: `With the narrative strategy established, we turn to the page itself. Storyboarding is the bridge between narrative thinking and visual layout — the practice of planning your spread sequence before committing to final design. Print your key images as thumbnails, arrange them on a table or wall, and test different orders. What reads clearly at arm's length? Where does the energy drop? Storyboarding at thumbnail scale reveals problems that full-size layouts hide.
+
+Three project-level sequence structures govern how images unfold across spreads:
 
 Linear Narrative: Site → concept → development → resolution. The most common structure, following design process chronologically but with editorial selection.
 
@@ -672,20 +715,20 @@ Comparative Narrative: Before and after, existing and proposed. This structure w
 
 Thematic Narrative: Organized around a design principle rather than chronology. Best for projects where the governing idea matters more than the timeline.
 
-The Two-Track Reading System ensures the portfolio works at both speeds. Track 1 — Skim (30–90 seconds): Large images, clear hierarchy, minimal text. Track 2 — Study (5–15 minutes): Captions, process, analytical detail. Text and image should complete each other rather than duplicate. The image shows what cannot be said. The text says what cannot be shown.`,
+Recall the two-track reading system from Module 01. Every spread must work at both speeds. Track 1 — Skim (30–90 seconds): Large images, clear hierarchy, minimal text. Track 2 — Study (5–15 minutes): Captions, process detail, analytical depth. Text and image should complete each other rather than duplicate. The image shows what cannot be said. The text says what cannot be shown.`,
     keyInsight: `"A sequence is not a collection. Each image should advance, not repeat."`,
   },
   {
     id: 8,
     title: "Typography as Architectural Voice",
     part: "The Page",
-    overview: `Typography is how your portfolio speaks when you are not in the room. Limit to two to three complementary fonts. Establish clear size relationships and use weight and style strategically.
+    overview: `Typography is how your portfolio speaks when you are not in the room. Limit to two typefaces maximum — one for headings and one for body text. A common pairing strategy: a sans-serif for headings with a serif for body, or a single family used across weights. Three typefaces is the upper limit; beyond that, the page loses coherence.
 
 Modernist Workhorses: Helvetica, Futura, DIN, Univers — proven, neutral, versatile. Humanist and Contemporary: Avenir, Söhne, Gill Sans, Circular — warmer, more approachable. Editorial and Stylistic: Neue Montreal, GT Alpina, Minion Pro — personality with restraint.
 
-Size standards for print: Titles at 24–48 pt, subheadings at 14–20 pt, body text at 9–11 pt, captions at 7–8 pt. These map to the hierarchy of information on the page, ensuring the reader encounters content in the correct order. The visual hierarchy should feel intuitive, not arbitrary.
+Size standards for PDF portfolios: Titles at 24–48 pt, subheadings at 14–20 pt, body text at 9–11 pt, captions at 7–8 pt. Set body text leading (line spacing) at 130–150% of point size — this is the single most common typography mistake in student portfolios. Tight leading feels cramped; generous leading lets the page breathe.
 
-Typography reinforces the portfolio argument. Choose typefaces that align with the design position. A minimalist architect should choose typography that feels restrained. A designer interested in craft should choose typefaces with history and detail.`,
+Typography reinforces the portfolio argument. A minimalist architect should choose typography that feels restrained. A designer interested in craft should choose typefaces with history and visible detail. The typeface is a design decision, not a default.`,
     keyInsight: `"Typography is how your portfolio speaks when you are not in the room."`,
   },
   {
@@ -698,7 +741,7 @@ Four grid types, one decision: Manuscript Grid — single text block, simplest s
 
 The choice is not aesthetic preference — it is a structural decision that determines how the reader navigates the page. A modular grid ensures consistency while allowing flexibility. Every page should derive from the same grid logic, creating visual coherence across the portfolio.
 
-The grid should be invisible. If a reviewer stops to analyze the grid structure, you have failed. The grid should support the argument without announcing itself. It is the skeleton that gives the portfolio posture and clarity.`,
+The grid succeeds when the reader feels clarity without analyzing why. It should support the argument without announcing itself — the skeleton that gives the portfolio posture. That said, intentional grid breaks are a legitimate design tool. A full-bleed image that spans the gutter, or a caption that steps outside the column, can create emphasis precisely because the underlying structure is consistent. Break the grid only when you can articulate what the break communicates.`,
     keyInsight: `"A portfolio without a grid is like a building without a structural system."`,
   },
   {
@@ -707,11 +750,11 @@ The grid should be invisible. If a reviewer stops to analyze the grid structure,
     part: "The Page",
     overview: `A grid is only as coherent as its underlying mathematics. Every measurement derives from a single value: 12 points. Margins, gutters, column widths, row heights, and baseline increments are all multiples of 12. Nothing on the page is arbitrary.
 
-Document Setup: Page size 600 × 840 pt. Margins at 48/60/48/36 pt (top, bottom, inside, outside). Six columns with 12 pt gutters. Eight rows with 12 pt gutters. Baseline grid at 12 pt increments.
+Document Setup: Page size 600 × 840 pt — a 5:7 proportion that offers more vertical real estate than Letter format while remaining compatible with standard print workflows. Margins at 48/60/48/36 pt (top, bottom, inside, outside). Six columns with 12 pt gutters. Eight rows with 12 pt gutters. Baseline grid at 12 pt increments. In InDesign, set these values under Layout > Margins and Columns and Preferences > Grids. The same logic adapts to Figma, Illustrator, or any layout tool that supports guides.
 
-The modular grid and baseline grid operate as complementary systems. The modular grid governs placement and proportion. The baseline grid governs the internal rhythm of text. Together, they achieve precision and clarity. Six columns and eight rows produce 48 modules per page — limitless layout possibilities from a single structural foundation.
+The modular grid and baseline grid operate as complementary systems. The modular grid governs placement and proportion. The baseline grid governs the internal rhythm of text. Together, they produce 48 modules per page — enough variation for any layout from a single structural foundation.
 
-This system is not restrictive. It is generative. The more tightly constrained the grid, the more creative the solutions within it. Designers working on a 12-point system find endless variation through careful composition.`,
+This system is not restrictive. It is generative. The more tightly constrained the grid, the more creative the solutions within it. Constraint produces invention — the same principle that governs design studio.`,
     keyInsight: `"Every measurement is a multiple of 12. Nothing on the page is arbitrary."`,
   },
   {
@@ -724,8 +767,8 @@ Each typology suits a different portfolio personality. Pure Minimal signals rest
 
 The choice of cover should reinforce the same design position that runs through the entire portfolio — another expression of the Red Thread. A minimalist architect's cover should feel architectural. A designer interested in systems should choose a cover that demonstrates systematic thinking.
 
-The Table of Contents should match the cover in visual language. The TOC is not decorative — it is informational architecture. How you organize and present the contents signals to a reviewer what you value and how you think.`,
-    keyInsight: `"The cover is the first design decision a reviewer encounters."`,
+The Table of Contents is information architecture — the structural map of your portfolio. It should match the cover in visual language while serving a clear navigational purpose. Decide whether to use thumbnail previews alongside project titles or a text-only list; either works, but the choice signals how you balance image and information. Include page numbers for print versions. Consider whether section dividers between project groups reinforce the three-act structure or create unnecessary interruption. The TOC tells a reviewer how you organize your thinking before they see a single project.`,
+    keyInsight: `"The cover earns the first three seconds. The TOC earns the next ten."`,
   },
   {
     id: 12,
@@ -739,27 +782,25 @@ Muted Contemporary: Pale cyan, lavender, coral. Softer palettes that create visu
 
 Industrial Neutrals: Deep grays, charcoals, blacks. The most common choice — it disappears and lets the work speak.
 
-Tonal unity across spreads matters. When images from different projects sit side by side, their differences can distract. A consistent color treatment — whether desaturation, unified white balance, or limited tonal palette — binds disparate images into a single visual language.
+Tonal unity across spreads matters. When images from different projects sit side by side, their differences can distract. A consistent color treatment — whether desaturation, unified white balance, or limited tonal palette — binds disparate images into a single visual language. In post-production, normalize white balance and exposure across all project images before placing them in the layout. Use color when it advances the argument. Suppress it when it distracts.
 
-Consider neutral mixed color temperatures. Studio work photographed under different lighting conditions (warm tungsten, cool fluorescent, variable daylight) creates visual discord. Desaturation as a unifying device helps. Alternatively, apply a consistent color cast that equalizes temperature variation. When to use color versus suppress it: use color when it advances the argument. Suppress it when it distracts.
-
-Guidance on color: Tonal consistency provides chromatic unity. Choose color systems that feel intentional, not accidental. Update images in post-production to ensure consistent color families across projects.`,
-    keyInsight: `"Tonal consistency provides chromatic unity across the grid."`,
+The test: open any two consecutive spreads in your PDF. If they look like they came from different portfolios — one warm-toned, one cool, one high-contrast, one flat — the color system needs work. Consistency is not about uniformity. It is about creating a visual temperature that feels intentional across the entire document.`,
+    keyInsight: `"If two spreads side by side look like different portfolios, the color system needs work."`,
   },
   {
     id: 13,
     title: "Self-Editing Checklist",
     part: "Production",
-    overview: `Before submission, audit your portfolio at four levels. Use this checklist to catch oversights and strengthen weak areas.
+    overview: `Before submission, audit your portfolio at four levels. Use this checklist to catch oversights and strengthen weak areas. Then show the portfolio to someone who does not know the projects — a peer, a friend outside architecture, a family member. If they cannot articulate what your portfolio is about after a sixty-second skim, the narrative structure needs revision.
 
-Project-Level: Clear project statement · Narrative-driven sequencing · Each image serves a communicative function · Captions provide non-visual information.
+Project-Level: Clear project statement with a testable claim · Narrative-driven image sequencing · Each image serves a named communicative function (concept, process, outcome, or context) · Captions provide information the image cannot show.
 
 Portfolio-Level: Demonstrates range without losing coherence · Clear logic governing project order · Functions at both skim and study speeds · Red Thread visible across projects.
 
-Visual and Production Quality: 300 DPI minimum for print · Typography consistency · Cohesive color palette · Spelling and proofreading complete.
+Visual and Production Quality: 300 DPI minimum for print · Consistent typography across all spreads · Cohesive color palette with normalized white balance · Spelling and proofreading complete.
 
-Final Production: Separate optimized PDFs — print (300 DPI, CMYK) and digital (150 DPI, RGB, under 10 MB) · All fonts embedded · Website portfolio live and updated.`,
-    keyInsight: `"Every image should earn its place. If you cannot articulate what it communicates, remove it."`,
+Final Production: Separate optimized PDFs — print (300 DPI, CMYK) and digital (150 DPI, RGB, under 10 MB) · All fonts embedded · File named clearly (Lastname_Portfolio_2026.pdf, not "final_v3_FINAL.pdf").`,
+    keyInsight: `"The best self-editing tool is another pair of eyes."`,
   },
 ];
 
@@ -789,35 +830,6 @@ Spread 5 (Synthesis): Interior gallery rendering (Outcome) + floor plans (Proces
 Every image in this portfolio — terrain models, carved sections, embedded galleries — returns to this single word. That is the Red Thread. Every design decision, from the site section to the material palette to the graphic hierarchy, reinforces the same idea. That is how a portfolio argues.`,
   keyInsight: `"Every image should return to the single word. That is the Red Thread."`,
 };
-
-/* ─── Lightbox ─── */
-function Lightbox({ diagram, onClose }) {
-  if (!diagram) return null;
-  const Diagram = diagram;
-  return (
-    <div onClick={onClose} style={{
-      position: "fixed", inset: 0, zIndex: 100,
-      background: "rgba(255,255,255,0.95)",
-      display: "flex", alignItems: "center", justifyContent: "center",
-      cursor: "pointer",
-    }}>
-      <div onClick={(e) => e.stopPropagation()} style={{
-        background: "#fff", maxWidth: 720, width: "90%",
-        padding: "40px 32px", position: "relative",
-        border: `1px solid ${T.border}`,
-      }}>
-        <button onClick={onClose} style={{
-          position: "absolute", top: 12, right: 16,
-          background: "none", border: "none",
-          fontSize: 9, cursor: "pointer", color: T.textMuted,
-          fontFamily: T.sans, letterSpacing: "0.08em",
-          textTransform: "uppercase",
-        }}>Close</button>
-        <Diagram />
-      </div>
-    </div>
-  );
-}
 
 /* ─── Hash routing ─── */
 function useHashRoute() {
@@ -850,7 +862,7 @@ function InteractiveChecklist({ moduleId }) {
     {
       level: "Project-Level",
       color: T.accent,
-      items: ["Clear project statement", "Narrative-driven sequencing", "Each image serves a communicative function", "Captions provide non-visual information"]
+      items: ["Clear project statement with a testable claim", "Narrative-driven image sequencing", "Each image serves a named function (concept, process, outcome, context)", "Captions provide information the image cannot show"]
     },
     {
       level: "Portfolio-Level",
@@ -860,12 +872,12 @@ function InteractiveChecklist({ moduleId }) {
     {
       level: "Visual / Production",
       color: T.coral,
-      items: ["300 DPI minimum for print", "Typography consistency", "Cohesive color palette", "Spelling and proofreading complete"]
+      items: ["300 DPI minimum for print", "Consistent typography across all spreads", "Cohesive color palette with normalized white balance", "Spelling and proofreading complete"]
     },
     {
-      level: "Narrative / Content",
+      level: "Final Production",
       color: T.gold,
-      items: ["Context · Concept · Development · Resolution", "Clear architectural logic", "Project statements are strong", "Visual hierarchy supports argument"]
+      items: ["Each project contains all four image types", "File named clearly (Lastname_Portfolio_Year.pdf)", "Separate PDFs for print (CMYK) and digital (RGB)", "All fonts embedded"]
     },
   ];
 
@@ -925,10 +937,42 @@ function InteractiveChecklist({ moduleId }) {
   );
 }
 
+/* ─── Diagram Gallery Item with hover title ─── */
+function DiagramGalleryItem({ diagram, index, total, moduleLabel }) {
+  const [hovered, setHovered] = useState(false);
+  const DiagramComp = diagram.component;
+  return (
+    <div
+      style={{ position: "relative", marginBottom: index < total - 1 ? 64 : 0 }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <div style={{
+        background: T.bgAlt, border: `1px solid ${T.border}`, padding: "32px 24px",
+        transition: "opacity 0.2s ease",
+      }}>
+        <DiagramComp />
+      </div>
+      <div style={{
+        position: "absolute", bottom: -28, left: 0, right: 0,
+        display: "flex", justifyContent: "space-between", alignItems: "baseline",
+        opacity: hovered ? 1 : 0, transition: "opacity 0.25s ease",
+        pointerEvents: "none",
+      }}>
+        <span style={{ fontSize: 10, color: T.textLight, fontFamily: T.sans, letterSpacing: "0.01em" }}>
+          {diagram.title}
+        </span>
+        <span style={{ fontSize: 9, color: T.textFaint, fontFamily: T.sans, letterSpacing: "0.04em" }}>
+          {moduleLabel} — {index + 1} / {total}
+        </span>
+      </div>
+    </div>
+  );
+}
+
 /* ─── Main App ─── */
 export default function PortfolioGuide() {
   const route = useHashRoute();
-  const [lightboxDiagram, setLightboxDiagram] = useState(null);
   const [visible, setVisible] = useState(true);
   const prevRoute = useRef(route);
 
@@ -936,12 +980,17 @@ export default function PortfolioGuide() {
   let view = "landing";
   let activeModule = null;
   let isCaseStudy = false;
+  let diagramModuleId = null;
 
   if (route === "#/about") {
     view = "about";
   } else if (route === "#/casestudy") {
     view = "casestudy";
     isCaseStudy = true;
+  } else if (route.startsWith("#/diagrams/")) {
+    const rawId = route.split("/")[2];
+    diagramModuleId = rawId === "casestudy" ? "casestudy" : parseInt(rawId, 10);
+    view = "diagrams";
   } else if (route.startsWith("#/module/")) {
     const id = parseInt(route.split("/")[2], 10);
     activeModule = MODULES.find(m => m.id === id) || null;
@@ -1142,23 +1191,24 @@ export default function PortfolioGuide() {
             </div>
           )}
 
-          {/* Inline diagrams */}
-          <div style={{ fontSize: 9, letterSpacing: "0.08em", textTransform: "uppercase", color: T.textMuted, fontWeight: 400, marginBottom: 12 }}>
-            Reference Diagrams
-          </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-            {diagrams.map((DiagramComp, i) => (
-              <div key={i} onClick={() => setLightboxDiagram(() => DiagramComp)} style={{
-                background: T.bgAlt, border: `1px solid ${T.border}`, padding: "16px 12px",
-                cursor: "pointer", transition: "opacity 0.2s ease",
-              }}
-              onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.7"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; }}
+          {/* Diagram hyperlinks */}
+          {diagrams.length > 0 && (
+            <div style={{ marginTop: 32 }}>
+              <span
+                onClick={() => navigate("#/diagrams/casestudy")}
+                style={{
+                  fontSize: 11, color: T.textMid, cursor: "pointer",
+                  borderBottom: `1px solid ${T.border}`, paddingBottom: 1,
+                  transition: "color 0.15s ease, border-color 0.15s ease",
+                  fontFamily: T.sans, letterSpacing: "0.01em",
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = T.text; e.currentTarget.style.borderColor = T.text; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = T.textMid; e.currentTarget.style.borderColor = T.border; }}
               >
-                <DiagramComp />
-              </div>
-            ))}
-          </div>
+                Diagrams — {diagrams.map((d, i) => d.title).join(", ")}
+              </span>
+            </div>
+          )}
 
           {/* Prev / Next */}
           <div style={{ display: "flex", justifyContent: "space-between", marginTop: 48, paddingTop: 20, borderTop: `1px solid ${T.border}` }}>
@@ -1177,7 +1227,62 @@ export default function PortfolioGuide() {
           </div>
         </div>
 
-        <Lightbox diagram={lightboxDiagram} onClose={() => setLightboxDiagram(null)} />
+      </div>
+    );
+  }
+
+  // ─── Diagram Gallery View ───
+  if (view === "diagrams" && diagramModuleId !== null) {
+    const diagrams = DIAGRAM_MAP[diagramModuleId] || [];
+    const isCaseStudyDiagrams = diagramModuleId === "casestudy";
+    const parentModule = isCaseStudyDiagrams ? null : MODULES.find(m => m.id === diagramModuleId);
+    const backHash = isCaseStudyDiagrams ? "#/casestudy" : `#/module/${diagramModuleId}`;
+    const moduleLabel = isCaseStudyDiagrams ? "Case Study" : `Module ${String(diagramModuleId).padStart(2, "0")}`;
+    const pageTitle = isCaseStudyDiagrams ? "Case Study — Erosion" : (parentModule ? parentModule.title : "");
+
+    return (
+      <div style={{ minHeight: "100vh", background: T.bg, fontFamily: T.sans, display: "flex", flexDirection: "column" }}>
+        <header style={{
+          padding: "20px 40px", display: "flex", justifyContent: "space-between", alignItems: "baseline",
+          borderBottom: `1px solid ${T.border}`, position: "sticky", top: 0, background: T.bg, zIndex: 50,
+        }}>
+          <button onClick={() => navigate(backHash)} style={{
+            background: "none", border: "none", fontSize: 10, color: T.textMuted, cursor: "pointer",
+            fontFamily: T.sans, letterSpacing: "0.06em", textTransform: "uppercase", padding: 0,
+          }}>← {moduleLabel}</button>
+          <div style={{ fontSize: 10, color: T.textFaint, letterSpacing: "0.04em" }}>
+            Diagrams
+          </div>
+        </header>
+
+        <div style={{
+          flex: 1, padding: "56px 40px 80px",
+          maxWidth: 640, width: "100%", margin: "0 auto",
+          opacity: visible ? 1 : 0, transition: "opacity 0.22s ease",
+        }}>
+          <div style={{ fontSize: 9, letterSpacing: "0.1em", textTransform: "uppercase", color: T.textFaint, fontWeight: 400, marginBottom: 10 }}>
+            {moduleLabel}
+          </div>
+          <h1 style={{ fontSize: 16, fontWeight: 500, lineHeight: 1.4, color: T.text, margin: "0 0 20px", letterSpacing: "0.01em" }}>
+            {pageTitle}
+          </h1>
+          <div style={{ width: 24, height: 1, background: T.text, marginBottom: 48 }} />
+
+          {diagrams.map((diagram, i) => (
+            <DiagramGalleryItem
+              key={i}
+              diagram={diagram}
+              index={i}
+              total={diagrams.length}
+              moduleLabel={moduleLabel}
+            />
+          ))}
+        </div>
+
+        <footer style={{ padding: "28px 40px", display: "flex", justifyContent: "space-between", fontSize: 9, color: T.textFaint, fontFamily: T.sans, letterSpacing: "0.04em" }}>
+          <span>Kent State University · CAED</span>
+          <a href="https://thresholdarch.com" target="_blank" rel="noopener noreferrer" style={{ color: T.textFaint, textDecoration: "none" }}>thresholdarch.com</a>
+        </footer>
       </div>
     );
   }
@@ -1238,23 +1343,24 @@ export default function PortfolioGuide() {
           </div>
         )}
 
-        {/* Inline diagrams */}
-        <div style={{ fontSize: 9, letterSpacing: "0.08em", textTransform: "uppercase", color: T.textMuted, fontWeight: 400, marginBottom: 12 }}>
-          Reference Diagrams
-        </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-          {diagrams.map((DiagramComp, i) => (
-            <div key={i} onClick={() => setLightboxDiagram(() => DiagramComp)} style={{
-              background: T.bgAlt, border: `1px solid ${T.border}`, padding: "16px 12px",
-              cursor: "pointer", transition: "opacity 0.2s ease",
-            }}
-            onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.7"; }}
-            onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; }}
+        {/* Diagram hyperlinks */}
+        {diagrams.length > 0 && (
+          <div style={{ marginTop: 32 }}>
+            <span
+              onClick={() => navigate(`#/diagrams/${mod.id}`)}
+              style={{
+                fontSize: 11, color: T.textMid, cursor: "pointer",
+                borderBottom: `1px solid ${T.border}`, paddingBottom: 1,
+                transition: "color 0.15s ease, border-color 0.15s ease",
+                fontFamily: T.sans, letterSpacing: "0.01em",
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = T.text; e.currentTarget.style.borderColor = T.text; }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = T.textMid; e.currentTarget.style.borderColor = T.border; }}
             >
-              <DiagramComp />
-            </div>
-          ))}
-        </div>
+              Diagrams {String(mod.id).padStart(2, "0")} — {diagrams.map((d) => d.title).join(", ")}
+            </span>
+          </div>
+        )}
 
         {/* Interactive Checklist for module 13 */}
         {mod.id === 13 && <InteractiveChecklist moduleId={mod.id} />}
@@ -1285,7 +1391,6 @@ export default function PortfolioGuide() {
         <a href="https://thresholdarch.com" target="_blank" rel="noopener noreferrer" style={{ color: T.textFaint, textDecoration: "none" }}>thresholdarch.com</a>
       </footer>
 
-      <Lightbox diagram={lightboxDiagram} onClose={() => setLightboxDiagram(null)} />
     </div>
   );
 }
