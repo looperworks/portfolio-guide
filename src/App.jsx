@@ -971,132 +971,128 @@ function InteractiveChecklist({ moduleId }) {
 /* ─── Diagram Gallery Item with hover title ─── */
 function DiagramSlideshow({ diagrams, moduleLabel, backHash }) {
   const scrollRef = useRef(null);
-  const [current, setCurrent] = useState(0);
+  const [hovered, setHovered] = useState(null);
   const basePath = import.meta.env.BASE_URL || "/";
   const total = diagrams.length;
 
-  // Track which slide is in view via IntersectionObserver
+  // Remap vertical scroll → horizontal scroll
   useEffect(() => {
     const container = scrollRef.current;
     if (!container) return;
-    const slides = container.querySelectorAll("[data-slide]");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setCurrent(Number(entry.target.dataset.slide));
-          }
-        });
-      },
-      { root: container, threshold: 0.6 }
-    );
-    slides.forEach((s) => observer.observe(s));
-    return () => observer.disconnect();
-  }, [diagrams]);
+    const onWheel = (e) => {
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        e.preventDefault();
+        container.scrollLeft += e.deltaY * 2;
+      }
+    };
+    container.addEventListener("wheel", onWheel, { passive: false });
+    return () => container.removeEventListener("wheel", onWheel);
+  }, []);
 
-  // Keyboard nav
+  // Keyboard: left/right arrows scroll, Escape exits
   useEffect(() => {
     const onKey = (e) => {
       const container = scrollRef.current;
       if (!container) return;
-      if (e.key === "ArrowDown" || e.key === " ") {
-        e.preventDefault();
-        const next = Math.min(current + 1, total - 1);
-        container.children[next]?.scrollIntoView({ behavior: "smooth" });
-      }
-      if (e.key === "ArrowUp") {
-        e.preventDefault();
-        const prev = Math.max(current - 1, 0);
-        container.children[prev]?.scrollIntoView({ behavior: "smooth" });
-      }
+      if (e.key === "ArrowRight") { e.preventDefault(); container.scrollLeft += 400; }
+      if (e.key === "ArrowLeft") { e.preventDefault(); container.scrollLeft -= 400; }
       if (e.key === "Escape") navigate(backHash);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [current, total, backHash]);
+  }, [backHash]);
 
   return (
     <div style={{ position: "fixed", inset: 0, zIndex: 100, fontFamily: T.sans, background: T.bg }}>
-      {/* Scroll-snap container */}
+      {/* Fixed top bar */}
+      <div style={{
+        position: "fixed", top: 0, left: 0, right: 0, zIndex: 101,
+        display: "flex", justifyContent: "space-between", alignItems: "baseline",
+        padding: "20px 40px",
+      }}>
+        <button onClick={() => navigate(backHash)} style={{
+          background: "none", border: "none", fontSize: 10, color: T.textMuted, cursor: "pointer",
+          fontFamily: T.sans, letterSpacing: "0.06em", textTransform: "uppercase", padding: 0,
+        }}>← {moduleLabel}</button>
+        <span style={{ fontSize: 9, color: T.textFaint, letterSpacing: "0.06em" }}>
+          {moduleLabel} — {total} diagrams
+        </span>
+      </div>
+
+      {/* Horizontal free-scroll gallery */}
       <div
         ref={scrollRef}
         style={{
           position: "absolute", inset: 0,
-          overflowY: "auto", overflowX: "hidden",
-          scrollSnapType: "y mandatory",
+          overflowX: "auto", overflowY: "hidden",
           WebkitOverflowScrolling: "touch",
+          display: "flex", alignItems: "center",
+          gap: 60,
+          padding: "0 calc(50vw - 240px)",
+          scrollBehavior: "smooth",
+          scrollbarWidth: "none",
+          cursor: "grab",
         }}
       >
         {diagrams.map((diagram, i) => {
           const DiagramComp = diagram.component;
           const isImage = !!diagram.image;
+          const isHovered = hovered === i;
           return (
             <div
               key={i}
-              data-slide={i}
               style={{
-                width: "100%", height: "100vh",
-                scrollSnapAlign: "start",
-                scrollSnapStop: "always",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                padding: "60px 60px",
-                boxSizing: "border-box",
+                flexShrink: 0, position: "relative",
+                maxHeight: "70vh",
+                display: "flex", flexDirection: "column", alignItems: "center",
               }}
+              onMouseEnter={() => setHovered(i)}
+              onMouseLeave={() => setHovered(null)}
             >
-              <div style={{ maxWidth: 720, width: "100%" }}>
-                {isImage ? (
-                  <img
-                    src={`${basePath}images/${diagram.image}`}
-                    alt={diagram.alt || diagram.title}
-                    style={{ width: "100%", height: "auto", display: "block", maxHeight: "calc(100vh - 140px)", objectFit: "contain" }}
-                  />
-                ) : DiagramComp ? (
-                  <div style={{ background: T.bgAlt, border: `1px solid ${T.border}`, padding: "32px 24px" }}>
-                    <DiagramComp />
-                  </div>
-                ) : null}
+              {isImage ? (
+                <img
+                  src={`${basePath}images/${diagram.image}`}
+                  alt={diagram.alt || diagram.title}
+                  draggable={false}
+                  style={{
+                    height: "60vh", width: "auto", maxWidth: "70vw",
+                    display: "block", objectFit: "contain",
+                    userSelect: "none",
+                  }}
+                />
+              ) : DiagramComp ? (
+                <div style={{
+                  background: T.bgAlt, border: `1px solid ${T.border}`, padding: "32px 24px",
+                  height: "50vh", width: "auto", minWidth: 300, maxWidth: "60vw",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  overflow: "hidden",
+                }}>
+                  <div style={{ width: "100%", maxWidth: 480 }}><DiagramComp /></div>
+                </div>
+              ) : null}
+              {/* Title on hover */}
+              <div style={{
+                marginTop: 12, fontSize: 10, color: T.textLight, letterSpacing: "0.01em",
+                textAlign: "center", whiteSpace: "nowrap",
+                opacity: isHovered ? 1 : 0, transition: "opacity 0.2s ease",
+              }}>
+                {diagram.title}
               </div>
             </div>
           );
         })}
+        {/* End spacer */}
+        <div style={{ flexShrink: 0, width: "calc(50vw - 240px)" }} />
       </div>
 
-      {/* Fixed overlay: back + counter (top) */}
+      {/* Fixed bottom bar */}
       <div style={{
-        position: "fixed", top: 0, left: 0, right: 0,
-        display: "flex", justifyContent: "space-between", alignItems: "baseline",
-        padding: "20px 40px", pointerEvents: "none", zIndex: 101,
+        position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 101,
+        display: "flex", justifyContent: "center", padding: "20px 40px",
       }}>
-        <button onClick={() => navigate(backHash)} style={{
-          background: "none", border: "none", fontSize: 10, color: T.textMuted, cursor: "pointer",
-          fontFamily: T.sans, letterSpacing: "0.06em", textTransform: "uppercase", padding: 0,
-          pointerEvents: "auto",
-        }}>← {moduleLabel}</button>
-        <span style={{ fontSize: 9, color: T.textFaint, letterSpacing: "0.06em" }}>
-          {current + 1} / {total}
+        <span style={{ fontSize: 9, color: T.textFaint, letterSpacing: "0.04em" }}>
+          Scroll to browse
         </span>
-      </div>
-
-      {/* Fixed overlay: title + dots (bottom) */}
-      <div style={{
-        position: "fixed", bottom: 0, left: 0, right: 0,
-        display: "flex", justifyContent: "space-between", alignItems: "center",
-        padding: "20px 40px", pointerEvents: "none", zIndex: 101,
-      }}>
-        <span style={{ fontSize: 10, color: T.textLight, letterSpacing: "0.01em" }}>
-          {diagrams[current]?.title}
-        </span>
-        <div style={{ display: "flex", gap: 6, pointerEvents: "auto" }}>
-          {diagrams.map((_, i) => (
-            <div key={i} onClick={() => {
-              scrollRef.current?.children[i]?.scrollIntoView({ behavior: "smooth" });
-            }} style={{
-              width: i === current ? 16 : 6, height: 1.5,
-              background: i === current ? T.text : T.border,
-              transition: "all 0.25s ease", cursor: "pointer",
-            }} />
-          ))}
-        </div>
       </div>
     </div>
   );
