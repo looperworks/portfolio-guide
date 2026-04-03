@@ -240,27 +240,6 @@ function DiagramAudienceMatrix() {
   );
 }
 
-function DiagramPageLength() {
-  const bars = [
-    { label: "Professional sample", pages: 5, max: 30, color: T.navy },
-    { label: "Internship", pages: 12, max: 30, color: T.navyLight },
-    { label: "Students", pages: 25, max: 30, color: T.accent },
-    { label: "Graduate school", pages: 30, max: 30, color: T.coral },
-  ];
-  return (
-    <svg viewBox="0 0 420 110" style={{ width: "100%", height: "auto" }}>
-      <text x="210" y="14" textAnchor="middle" fontSize="7" fontFamily={T.sans} fontWeight="600" fill={T.textMid} letterSpacing="0.12em">PAGE LENGTH GUIDELINES</text>
-      {bars.map((b, i) => (
-        <g key={i}>
-          <text x="120" y={38 + i * 22} textAnchor="end" fontSize="7" fontFamily={T.sans} fill={T.textMid}>{b.label}</text>
-          <rect x="130" y={28 + i * 22} width={(b.pages / b.max) * 250} height="14" rx="2" fill={b.color} opacity="0.8" />
-          <text x={135 + (b.pages / b.max) * 250} y={39 + i * 22} fontSize="7" fontFamily={T.sans} fontWeight="600" fill={b.color}>{b.pages} pp</text>
-        </g>
-      ))}
-    </svg>
-  );
-}
-
 function DiagramTwoTrack() {
   return (
     <svg viewBox="0 0 420 100" style={{ width: "100%", height: "auto" }}>
@@ -614,7 +593,6 @@ const DIAGRAM_MAP = {
   ],
   11: [
     { component: DiagramCoverTypes, title: "Seven Cover Typologies" },
-    { component: DiagramPageLength, title: "Page Length Guidelines" },
     { image: "type01-pure-minimal.jpeg", title: "Cover Type 01 — Pure Minimal", alt: "Text-only composition with asymmetric placement and generous whitespace" },
     { image: "type02-dark-ground.jpeg", title: "Cover Type 02 — Dark Ground", alt: "Light typography on dark textured surface" },
     { image: "type03-hero-image.jpeg", title: "Cover Type 03 — Hero Image", alt: "Central architectural rendering with supporting typography" },
