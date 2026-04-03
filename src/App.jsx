@@ -26,11 +26,11 @@ const T = {
 const PARTS = {
   part1: {
     title: "Narrative",
-    modules: [1, 2, 3, 4, 5, 6],
+    modules: [1, 2, 3, 4, 5, 6, 7],
   },
   part2: {
     title: "Grid",
-    modules: [7, 8, 9, 10, 11],
+    modules: [8, 9, 10, 11],
   },
   part3: {
     title: "Production",
@@ -1451,27 +1451,27 @@ export default function PortfolioGuide() {
                     </div>
                   );
                 })}
+                {/* Case Study after Part I */}
+                {partKey === "part1" && (
+                  <div
+                    onClick={() => navigate("#/casestudy")}
+                    style={{
+                      display: "flex", alignItems: "baseline", gap: 14,
+                      padding: "9px 0", borderBottom: `1px solid ${T.border}`,
+                      cursor: "pointer", transition: "opacity 0.2s ease",
+                      fontStyle: "italic",
+                    }}
+                    onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.5"; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; }}
+                  >
+                    <span style={{ fontSize: 10, color: T.textFaint, minWidth: 20, fontWeight: 400, letterSpacing: "0.02em" }}></span>
+                    <span style={{ fontSize: 12, color: T.text, fontWeight: 400, letterSpacing: "0.01em" }}>
+                      {CASE_STUDY.title}
+                    </span>
+                  </div>
+                )}
               </div>
             ))}
-
-            {/* Case Study */}
-            <div style={{ marginTop: 28, paddingTop: 28, borderTop: `1px solid ${T.border}` }}>
-              <div
-                onClick={() => navigate("#/casestudy")}
-                style={{
-                  display: "flex", alignItems: "baseline", gap: 14,
-                  padding: "9px 0", cursor: "pointer", transition: "opacity 0.2s ease",
-                  fontStyle: "italic",
-                }}
-                onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.5"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; }}
-              >
-                <span style={{ fontSize: 10, color: T.textFaint, minWidth: 20, fontWeight: 400, letterSpacing: "0.02em" }}></span>
-                <span style={{ fontSize: 12, color: T.text, fontWeight: 400, letterSpacing: "0.01em" }}>
-                  {CASE_STUDY.title}
-                </span>
-              </div>
-            </div>
           </div>
         </div>
 
