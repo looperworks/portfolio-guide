@@ -5,15 +5,16 @@
 }
 
 html, body {
-  font-family: 'Playfair Display', Georgia, 'Palatino', serif;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #fafaf8;
-  color: #1a1a1a;
+  background: #fff;
+  color: #222;
+  font-size: 12px;
 }
 
 ::selection {
-  background: #1a2744;
+  background: #222;
   color: #fff;
 }
 
