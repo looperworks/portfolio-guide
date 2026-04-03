@@ -978,7 +978,7 @@ Once written, check your statement against the Red Thread. Does this project add
   {
     id: 7,
     title: "Storyboarding & Spread Sequencing",
-    part: "Grid",
+    part: "Narrative",
     overview: `Now that narrative decisions are made (argument, structure, image taxonomy, and red thread), the work shifts from idea to page. Storyboarding translates project-level sequencing decisions into page-level compositions. Each spread must show what the previous one established and prepare for what comes next.
 
 Each image must introduce a new dimension of the project without repeating what the opening already established. Three project-level sequence structures govern how images unfold:
