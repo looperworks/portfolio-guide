@@ -281,20 +281,20 @@ function DiagramTwoTrack() {
 
 function DiagramSequenceStructures() {
   const structures = [
-    { name: "Linear", desc: "Site → Concept → Development → Resolution", color: T.navy },
+    { name: "Linear", desc: "Site → Concept → Dev → Resolution", color: T.navy },
     { name: "Comparative", desc: "Before/After · Existing/Proposed", color: T.accent },
     { name: "Thematic", desc: "Organized around a design principle", color: T.coral },
   ];
   return (
-    <svg viewBox="0 0 420 90" style={{ width: "100%", height: "auto" }}>
+    <svg viewBox="0 0 440 94" style={{ width: "100%", height: "auto" }}>
       {structures.map((s, i) => (
         <g key={i}>
-          <rect x={8 + i * 138} y="8" width="130" height="56" rx="3" fill="#fff" stroke={s.color} strokeWidth="1.5" />
-          <text x={73 + i * 138} y="30" textAnchor="middle" fontSize="8" fontFamily={T.sans} fontWeight="600" fill={s.color}>{s.name}</text>
-          <text x={73 + i * 138} y="44" textAnchor="middle" fontSize="6.5" fontFamily={T.sans} fill={T.textLight}>{s.desc}</text>
+          <rect x={6 + i * 145} y="8" width="138" height="56" rx="3" fill="#fff" stroke={s.color} strokeWidth="1.5" />
+          <text x={75 + i * 145} y="30" textAnchor="middle" fontSize="8" fontFamily={T.sans} fontWeight="600" fill={s.color}>{s.name}</text>
+          <text x={75 + i * 145} y="44" textAnchor="middle" fontSize="6.5" fontFamily={T.sans} fill={T.textLight}>{s.desc}</text>
         </g>
       ))}
-      <text x="210" y="82" textAnchor="middle" fontSize="6.5" fontFamily={T.sans} fill={T.textMuted} fontStyle="italic">Text and image should complete each other rather than duplicate.</text>
+      <text x="220" y="84" textAnchor="middle" fontSize="6.5" fontFamily={T.sans} fill={T.textMuted} fontStyle="italic">Text and image should complete each other rather than duplicate.</text>
     </svg>
   );
 }

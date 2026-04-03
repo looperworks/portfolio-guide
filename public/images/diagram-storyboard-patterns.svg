@@ -1,4 +1,4 @@
-<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 800 520" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
       text { font-family: Inter, -apple-system, system-ui, sans-serif; }
@@ -99,8 +99,8 @@
   <polygon points="290,457.5 285,454.5 285,460.5" fill="#1a1a1a"/>
 
   <!-- Thumbnail 4 (material - small) -->
-  <rect x="295" y="445" width="30" height="25" fill="#E85D3A" stroke="#E85D3A" stroke-width="1.2" rx="2"/>
-  <text x="310" y="467" font-size="6" fill="#ffffff" text-anchor="middle">Mat</text>
+  <rect x="290" y="438" width="45" height="40" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.2" rx="2"/>
+  <text x="312.5" y="465" font-size="7" fill="#ffffff" text-anchor="middle">Material</text>
 
   <!-- Figure label -->
   <line x1="400" y1="490" x2="400" y2="492" stroke="#ccc" stroke-width="1"/>
