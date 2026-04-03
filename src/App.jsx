@@ -765,7 +765,7 @@ function DiagramParentPages() {
 /* ─── Diagram map: moduleId → [{component, title}] ─── */
 const DIAGRAM_MAP = {
   1: [
-    { component: DiagramPortfolioAnatomy, title: "Portfolio Anatomy" },
+    { image: "class-pdf/class1-portfolio-anatomy.png", title: "Portfolio Anatomy", alt: "Portfolio document structure — Cover, Inside Front Cover, TOC, Section Divider, Introduction Pages, Project Pages, Resume, Back Cover" },
     { component: DiagramTwoSpeed, title: "Two-Speed Reading" },
     { component: DiagramAudienceLens, title: "Audience Lens" },
   ],
