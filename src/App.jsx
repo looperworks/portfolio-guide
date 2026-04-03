@@ -881,7 +881,7 @@ const DIAGRAM_MAP = {
 const MODULES = [
   {
     id: 1,
-    title: "The Portfolio as Critical Argument",
+    title: "The Portfolio as Constructed Argument",
     part: "Narrative",
     overview: `A portfolio is not a collection of coursework. It is a constructed argument. Every decision about what to include, how to sequence it, and where to place it on the page is an act of design. The portfolio is not separate from your work; it is your work, reframed for an audience. It speaks before you do: before you enter a review, an interview, or a committee, the layout has already made your case or lost it. Reviewers typically spend thirty seconds on an initial scan. In that window, you have either earned a closer reading or you have not.
 
