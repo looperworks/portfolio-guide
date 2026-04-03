@@ -555,11 +555,9 @@ const DIAGRAM_MAP = {
   ],
   5: [
     { component: DiagramCompression, title: "The Compression Exercise" },
-    { component: DiagramWeakVsStrong, title: "Weak vs. Strong Statements" },
   ],
   6: [
     { component: DiagramWeakVsStrong, title: "Weak vs. Strong Statements" },
-    { component: DiagramCompression, title: "The Compression Exercise" },
   ],
   7: [
     { component: DiagramSequenceStructures, title: "Sequence Structures" },
@@ -583,7 +581,6 @@ const DIAGRAM_MAP = {
   ],
   9: [
     { component: Diagram12Point, title: "Document Setup — 12-Point System" },
-    { component: DiagramGridAnatomy, title: "Grid Anatomy Overview" },
     { image: "07-modular-baseline-overlay.svg", title: "Modular + Baseline Overlay", alt: "Modular grid overlaid with baseline grid" },
     { image: "12-baseline-math.svg", title: "Baseline Math", alt: "840pt page divided by 12pt gives 70 baseline lines" },
     { image: "13-module-anatomy.svg", title: "Module Anatomy", alt: "Module anatomy showing content lines, gutter zone, and 12pt increments" },
@@ -608,9 +605,12 @@ const DIAGRAM_MAP = {
     { image: "toc06-narrative-list-hybrid.png", title: "TOC — Narrative + List Hybrid", alt: "Essay spread with drawing paired with structured contents list" },
   ],
   12: [
+    { component: DiagramColorPalettes, title: "Three Palette Families" },
+    { image: "diagram-color-strategy.svg", title: "Color Palette Strategies", alt: "Three strategies: Monochrome, Accent, and Project-coded" },
+  ],
+  13: [
     { component: DiagramChecklist, title: "Four-Level Audit Framework" },
     { component: DiagramExportStandards, title: "File Export Standards" },
-    { image: "diagram-color-strategy.svg", title: "Color Palette Strategies", alt: "Three strategies: Monochrome, Accent, and Project-coded" },
   ],
   casestudy: [
     { component: DiagramImageMapping, title: "Image Type Mapping Across Spreads" },
