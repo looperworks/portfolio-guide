@@ -1162,7 +1162,7 @@ The third type is the deliberate void: a spread or half-spread left intentionall
 // Case study content
 const CASE_STUDY = {
   id: "casestudy",
-  title: "Case Study: Erosion",
+  title: "Case Study 1: Erosion",
   part: "Part I Conclusion",
   overview: `This portfolio, from an Advanced Studio at Harvard GSD, proposes converting a decommissioned Cold War bunker at Col du Pillon into an Alpine Museum in Les Diablerets, Switzerland. Five spreads present the project. What follows is a reading of those spreads through the six modules of Part I, showing how each principle operates in practice.
 
@@ -1183,7 +1183,7 @@ const CASE_STUDY = {
 // Case study 2 content (Part II)
 const CASE_STUDY_2 = {
   id: "casestudy2",
-  title: "Case Study: Grid Systems in Practice",
+  title: "Case Study 2: Grid Systems in Practice",
   part: "Part II Conclusion",
   overview: `This portfolio by Case Study 2 contains two projects across twelve spreads. What follows is a reading of those spreads through the four modules of Part II, showing how grid systems, composition, and pacing operate in a real portfolio.
 
