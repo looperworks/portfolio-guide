@@ -981,7 +981,7 @@ Every architecture portfolio shares a common anatomy: cover, table of contents, 
 **The Thread Test:** Repeat the exercise for every project in the portfolio. Write the core words side by side. When the same word keeps surfacing, you have found your Red Thread. When the words scatter, the portfolio lacks a unifying position and needs one.
 
 When you can name your lens, you can use it to curate, sequence, and edit with precision. The exercise turns a vague sense of what your work is about into a single word you can test against every project. See Diagram 02 for a worked example applying this exercise to the Alpine Museum portfolio analyzed in the Case Study at the end of Part I.`,
-    keyInsight: `"If the word is the same across three or more projects, the portfolio has a position. If it scatters, it needs one."`,
+    keyInsight: `"Compression is not reduction. It is clarification."`,
   },
   {
     id: 3,
