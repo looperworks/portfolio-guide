@@ -38,6 +38,13 @@ const PARTS = {
   },
 };
 
+/* ─── Sequential position map: mod.id → display number ─── */
+const MODULE_POSITION = {};
+let _pos = 1;
+Object.values(PARTS).forEach(part => {
+  part.modules.forEach(modId => { MODULE_POSITION[modId] = _pos++; });
+});
+
 /* ─── Inline Diagram Components ─── */
 
 function DiagramNarrativeArc() {
@@ -1514,7 +1521,7 @@ export default function PortfolioGuide() {
                       onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; }}
                     >
                       <span style={{ fontSize: 10, color: T.textFaint, fontVariantNumeric: "tabular-nums", minWidth: 20, fontWeight: 400, letterSpacing: "0.02em" }}>
-                        {String(mod.id).padStart(2, "0")}
+                        {String(MODULE_POSITION[mod.id]).padStart(2, "0")}
                       </span>
                       <span style={{ fontSize: 12, color: T.text, fontWeight: 400, letterSpacing: "0.01em" }}>
                         {mod.title}
@@ -1703,7 +1710,7 @@ export default function PortfolioGuide() {
     const isCaseStudyDiagrams = diagramModuleId === "casestudy";
     const isSpreads = diagramModuleId === "1spreads";
     const backHash = isCaseStudyDiagrams ? "#/casestudy" : isSpreads ? "#/module/1" : `#/module/${diagramModuleId}`;
-    const moduleLabel = isCaseStudyDiagrams ? "Case Study" : isSpreads ? "Case Study Spreads" : `Module ${String(diagramModuleId).padStart(2, "0")}`;
+    const moduleLabel = isCaseStudyDiagrams ? "Case Study" : isSpreads ? "Case Study Spreads" : `Module ${String(MODULE_POSITION[diagramModuleId] || diagramModuleId).padStart(2, "0")}`;
 
     return (
       <DiagramSlideshow
@@ -1753,7 +1760,7 @@ export default function PortfolioGuide() {
         opacity: visible ? 1 : 0, transition: "opacity 0.22s ease",
       }}>
         <div style={{ fontSize: 9, letterSpacing: "0.1em", textTransform: "uppercase", color: T.textFaint, fontWeight: 400, marginBottom: 10 }}>
-          Module {String(mod.id).padStart(2, "0")}
+          Module {String(MODULE_POSITION[mod.id]).padStart(2, "0")}
         </div>
         <h1 style={{ fontSize: 16, fontWeight: 500, lineHeight: 1.4, color: T.text, margin: "0 0 20px", letterSpacing: "0.01em" }}>
           {mod.title}
