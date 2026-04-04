@@ -200,43 +200,54 @@ function DiagramCompression() {
 }
 
 function DiagramCompressionWorked() {
-  const steps = [
-    { step: "Step 1", label: "One Paragraph", color: "#fff", border: T.border, textColor: T.text,
-      content: "The design converts a decommissioned Cold War bunker\ninto an Alpine museum by cutting into eroding\nmountainside terrain, creating a continuous path\nthat makes geological time visible as visitors\nmove between landscape and gallery." },
-    { step: "Step 2", label: "One Sentence", color: "#fff", border: T.border, textColor: T.text,
-      content: "An Alpine museum embeds into eroding terrain\nto make climate change a spatial experience." },
-    { step: "Step 3", label: "One Word", color: "#fff", border: T.border, textColor: T.text,
-      content: "Erosion" },
-    { step: "Step 4", label: "Thread Test", color: T.navy, border: T.navy, textColor: "#fff",
-      content: "Erosion → across landscape, structure,\nmateriality, and visitor path" },
-  ];
+  /* Progressive narrowing: each step's box gets narrower to visualize compression */
+  const cx = 210;
   return (
-    <svg viewBox="0 0 460 320" style={{ width: "100%", height: "auto" }}>
-      <text x="230" y="16" textAnchor="middle" fontSize="7" fontFamily={T.sans} fontWeight="600" fill={T.textMid} letterSpacing="0.12em">WORKED EXAMPLE: THE COMPRESSION EXERCISE</text>
-      <text x="230" y="28" textAnchor="middle" fontSize="6" fontFamily={T.sans} fill={T.textLight} fontStyle="italic">Harvard GSD — Advanced Studio — Alpine Museum Project</text>
-      {steps.map((s, i) => {
-        const y = 44 + i * 68;
-        const lines = s.content.split("\n");
-        return (
-          <g key={i}>
-            <rect x="20" y={y} width="60" height="52" rx="3" fill={s.color} stroke={s.border} strokeWidth="1.5" />
-            <text x="50" y={y + 20} textAnchor="middle" fontSize="6.5" fontFamily={T.sans} fontWeight="600" fill={s.step === "Step 4" ? T.textMid : T.textLight}>{s.step}</text>
-            <text x="50" y={y + 32} textAnchor="middle" fontSize="7" fontFamily={T.sans} fontWeight="600" fill={s.textColor}>{s.label}</text>
-            <rect x="100" y={y} width="340" height="52" rx="3" fill={s.color} stroke={s.border} strokeWidth="1" />
-            {lines.map((line, li) => (
-              <text key={li} x="115" y={y + 16 + li * 11} fontSize={i === 2 ? "10" : "6.5"} fontFamily={T.sans} fill={s.textColor} fontWeight={i === 2 ? "700" : "400"}>{line}</text>
-            ))}
-            {i < 3 && (
-              <g>
-                <line x1="50" y1={y + 52} x2="50" y2={y + 68} stroke={T.textFaint} strokeWidth="1" />
-                <text x="50" y={y + 64} textAnchor="middle" fontSize="10" fill={T.textFaint}>↓</text>
-              </g>
-            )}
-          </g>
-        );
-      })}
-      <line x1="20" y1="310" x2="440" y2="310" stroke={T.coral} strokeWidth="1" strokeDasharray="2,4" />
-      <text x="440" y="318" textAnchor="end" fontSize="6" fontFamily={T.sans} fontWeight="500" fill={T.coral}>COMPRESSION →</text>
+    <svg viewBox="0 0 420 340" style={{ width: "100%", height: "auto" }}>
+      {/* Title */}
+      <text x={cx} y="14" textAnchor="middle" fontSize="7" fontFamily={T.sans} fontWeight="600" fill={T.textMid} letterSpacing="0.12em">WORKED EXAMPLE: COMPRESSION EXERCISE</text>
+      <text x={cx} y="26" textAnchor="middle" fontSize="6" fontFamily={T.sans} fill={T.textLight} fontStyle="italic">Harvard GSD — Advanced Studio — Alpine Museum Project</text>
+
+      {/* Step 1: One Paragraph — widest box */}
+      <rect x="30" y="40" width="360" height="68" rx="4" fill="#fff" stroke={T.border} strokeWidth="1" />
+      <text x="40" y="55" fontSize="6" fontFamily={T.sans} fontWeight="700" fill={T.textLight} letterSpacing="0.08em">STEP 1 — ONE PARAGRAPH</text>
+      <text x="40" y="68" fontSize="7" fontFamily={T.sans} fill={T.text}>The design converts a decommissioned Cold War bunker into an Alpine</text>
+      <text x="40" y="79" fontSize="7" fontFamily={T.sans} fill={T.text}>museum by cutting into eroding mountainside terrain, creating a</text>
+      <text x="40" y="90" fontSize="7" fontFamily={T.sans} fill={T.text}>continuous path that makes geological time visible as visitors move</text>
+      <text x="40" y="101" fontSize="7" fontFamily={T.sans} fill={T.text}>between landscape and gallery.</text>
+
+      {/* Arrow 1→2 */}
+      <line x1={cx} y1="108" x2={cx} y2="124" stroke={T.border} strokeWidth="1" />
+      <polygon points={`${cx - 3},121 ${cx + 3},121 ${cx},127`} fill={T.border} />
+
+      {/* Step 2: One Sentence — narrower */}
+      <rect x="60" y="130" width="300" height="44" rx="4" fill="#fff" stroke={T.border} strokeWidth="1" />
+      <text x="70" y="145" fontSize="6" fontFamily={T.sans} fontWeight="700" fill={T.textLight} letterSpacing="0.08em">STEP 2 — ONE SENTENCE</text>
+      <text x="70" y="160" fontSize="7" fontFamily={T.sans} fill={T.text}>An Alpine museum embeds into eroding terrain to make climate</text>
+      <text x="70" y="170" fontSize="7" fontFamily={T.sans} fill={T.text}>change a spatial experience.</text>
+
+      {/* Arrow 2→3 */}
+      <line x1={cx} y1="174" x2={cx} y2="190" stroke={T.border} strokeWidth="1" />
+      <polygon points={`${cx - 3},187 ${cx + 3},187 ${cx},193`} fill={T.border} />
+
+      {/* Step 3: One Word — narrow, bold focal point */}
+      <rect x="120" y="196" width="180" height="40" rx="4" fill="#fff" stroke={T.text} strokeWidth="1.5" />
+      <text x={cx} y="211" textAnchor="middle" fontSize="6" fontFamily={T.sans} fontWeight="700" fill={T.textLight} letterSpacing="0.08em">STEP 3 — ONE WORD</text>
+      <text x={cx} y="228" textAnchor="middle" fontSize="14" fontFamily={T.sans} fontWeight="700" fill={T.text} letterSpacing="0.05em">Erosion</text>
+
+      {/* Arrow 3→4 */}
+      <line x1={cx} y1="236" x2={cx} y2="252" stroke={T.border} strokeWidth="1" />
+      <polygon points={`${cx - 3},249 ${cx + 3},249 ${cx},255`} fill={T.border} />
+
+      {/* Step 4: Thread Test — navy, narrowest */}
+      <rect x="100" y="258" width="220" height="48" rx="4" fill={T.navy} />
+      <text x={cx} y="273" textAnchor="middle" fontSize="6" fontFamily={T.sans} fontWeight="700" fill="rgba(255,255,255,0.6)" letterSpacing="0.08em">STEP 4 — THREAD TEST</text>
+      <text x={cx} y="287" textAnchor="middle" fontSize="8" fontFamily={T.sans} fontWeight="600" fill="#fff">Erosion → landscape · structure</text>
+      <text x={cx} y="298" textAnchor="middle" fontSize="8" fontFamily={T.sans} fontWeight="600" fill="#fff">materiality · visitor path</text>
+
+      {/* Compression indicator */}
+      <line x1="30" y1="322" x2="390" y2="322" stroke={T.coral} strokeWidth="1" strokeDasharray="2,4" />
+      <text x="390" y="335" textAnchor="end" fontSize="6" fontFamily={T.sans} fontWeight="500" fill={T.coral}>COMPRESSION →</text>
     </svg>
   );
 }
