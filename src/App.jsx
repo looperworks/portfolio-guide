@@ -982,7 +982,7 @@ Every architecture portfolio shares a common anatomy: cover, table of contents, 
   },
   {
     id: 2,
-    title: "Finding Your Position",
+    title: "Position and Statement",
     part: "Narrative",
     overview: `The Red Thread is the single organizing idea that connects all your projects into one argument. It is not a style. It is not a medium. It is a design position: a recurring question, preoccupation, or methodology that surfaces across different projects, scales, and contexts. Most second-year students can talk about their projects at length. They cannot yet say, in one sentence, what their work is about. The Compression Exercise uses progressive reduction to move from description to position.
 
@@ -997,7 +997,7 @@ Every architecture portfolio shares a common anatomy: cover, table of contents, 
 When you can name your lens, you can use it to curate, sequence, and edit with precision. The exercise turns a vague sense of what your work is about into a single word you can test against every project. See Diagram 02 for a worked example applying this exercise to the Alpine Museum portfolio analyzed in the Case Study at the end of Part I.
 
 **Writing the Project Statement:** Once the compression exercise has produced your position, write it up in two paragraphs. Paragraph one covers context, intent, and thesis in four to six sentences. Paragraph two covers development and outcome with evidence. Tone should be clear, active voice. Present tense for design intent, past tense for process. The concept sentence is the compressed version: one line a reviewer reads in five seconds. It should distill the position you are testing and make it specific and testable. Weak statements describe ("This project explores light"). Strong statements declare ("This project tests whether a single aperture can structure an entire domestic sequence"). The concept sentence becomes the key insight for this project — the single claim that ties all images to one idea.`,
-    keyInsight: `Compression is not reduction. It is clarification.`,
+    keyInsight: `A position without a statement is intuition. A statement without a position is description.`,
   },
   {
     id: 3,
@@ -1014,7 +1014,7 @@ Test the outline by reading it without the statement. If a reviewer could recons
   },
   {
     id: 4,
-    title: "The Narrative Arc",
+    title: "Sequencing the Arc",
     part: "Narrative",
     overview: `A graphic outline is a list. A narrative arc turns that list into a story. The difference is pacing, tension, and resolution — the same principles that make a film hold attention or a building sequence feel inevitable. Architects already understand this: a building reveals itself through a sequence of spatial experiences, from threshold to compression to release. A portfolio must do the same through a sequence of pages.
 
