@@ -1058,69 +1058,53 @@ Three sequence structures govern how images unfold across spreads: linear narrat
     id: 8,
     title: "Grid Systems: From Structure to Page",
     part: "Grid",
-    overview: `A portfolio grid is not a graphic style or decorative choice. It is the skeletal structure beneath every page (organizing content, establishing hierarchy, and giving meaning room to read clearly). For architects, the grid is a familiar language (one of the oldest organizing principles in human civilization, from the Hippodamian plan of Alexandria to the Ken module of Japanese architecture to Le Corbusier's Modulor).
+    overview: `A portfolio grid is not a style choice. It is the structural system beneath every page — the invisible framework that organizes content, establishes hierarchy, and gives meaning room to read. Architects already understand this: grids are among the oldest organizing principles in built form, from the urban plan of Miletus to the Ken module of Japanese timber construction to Le Corbusier's Modulor. The logic that connects a building's structural grid to a page grid is direct. A structural column defines rhythm and load-bearing zones. A page column defines rhythm and content zones. Bays correspond to modules. Beam lines correspond to baselines. A building without a grid is a pile of materials; a portfolio without a grid is a collection of images.
 
-The logic connecting a building's structural grid to a page grid is direct. A structural column defines rhythm and load-bearing zones. A page column defines rhythm and content zones. Bays correspond to modules. Beam lines correspond to baselines. A building without a grid is a pile of materials; a portfolio without a grid is a collection of images.
+Four grid types serve portfolio design. Manuscript grids use a single text column — the simplest structure, suited for books and theses. Column grids divide the page vertically, standard for editorial layouts. Modular grids add horizontal flowlines to columns, creating the most versatile framework for mixed architectural content — the recommended choice for portfolios. Hierarchical grids arrange content by visual weight rather than geometric rule, suited for websites and experimental formats. The choice is structural, not aesthetic: it determines how the reader navigates the page.
 
-Four grid types, one decision: Manuscript Grid (single text column, simplest structure, suited for books and theses), Column Grid (vertical divisions, standard for magazines and editorial layouts), Modular Grid (columns plus horizontal flowlines, the most versatile for mixed architectural content, recommended for portfolios), and Hierarchical Grid (content-driven arrangement, suited for websites and experimental posters).
+A modular grid ensures consistency while allowing variation. Every page should derive from the same grid logic, creating coherence across the portfolio without monotony. In Nick McIntosh's Generative Housing spreads, the same six-column grid accommodates a full-bleed floor plan, a rendering paired with a site plan, and a set of unit types beside a sectional model — different content, same underlying structure. The grid makes variety legible.
 
-The choice is not aesthetic preference; it is a structural decision that determines how the reader navigates the page. A modular grid ensures consistency while allowing flexibility. Every page should derive from the same grid logic, creating visual coherence across the portfolio.
-
-The grid should be invisible. If a reviewer stops to analyze the grid structure, you have failed. The grid does not decorate a page; it structures meaning. When the grid works, a reviewer reads the argument, not the layout.
-
-Intentional grid breaks are a legitimate design tool when they serve the narrative. A break should signal emphasis, not confusion. If you break the grid, do so for a reason that a reviewer can understand immediately. The grid is the baseline; breaks are the exception that proves the rule.`,
-    keyInsight: `"A portfolio without a grid is like a building without a structural system."`,
+The grid should be invisible. When it works, a reviewer reads the argument, not the layout. If a reviewer notices the grid, the structure is competing with the content. Intentional breaks are legitimate when they serve the narrative — a full-bleed image, a pull quote crossing a column — but a break should signal emphasis, not confusion. Break the grid for a reason a reviewer can recognize immediately.`,
+    keyInsight: `A portfolio without a grid is a building without a structural system.`,
   },
   {
     id: 9,
     title: "The 12-Point Modular System",
     part: "Grid",
-    overview: `A portfolio without a configured grid is a construction site without foundations. Building the grid is a construction phase (if the previous module was concept, analysis, and precedent, this module is execution). By the end, your InDesign file should function as a prepared construction site (cleared, measured, and structurally framed) ready to receive your architectural content.
+    overview: `The grid concept becomes a grid system when every measurement derives from a single value. In this course, that value is twelve points. Margins, gutters, column widths, row heights, and baseline increments are all multiples of twelve. Nothing on the page is arbitrary. The document opens at 600 × 840 points — a 5:7 proportion that echoes the Golden Section without forcing it. The baseline grid begins at the top margin and increments every twelve points, locking text to a consistent vertical rhythm across every page.
 
-Every measurement derives from a single value: 12 points. Margins, gutters, column widths, row heights, and baseline increments are all multiples of 12. Nothing on the page is arbitrary.
+The construction sequence moves through four phases. First, reset the InDesign workspace to Essentials and activate the panels you will use daily: Pages, Layers, Links, Paragraph Styles, and Align. Second, build a layer architecture — text above images, guides on a separate locked layer hidden in export. This prevents accidental selection and keeps the file navigable as it grows. Third, create parent page templates: one for project introductions and one for content spreads. Editing a parent once updates every child page, eliminating the repetitive formatting that consumes hours in unstructured files.
 
-The construction sequence follows four phases. Phase 1 - Workspace Setup: Reset InDesign to Essentials, activate core panels (Pages, Layers, Links, Align, Paragraph Styles, Properties), organize the dock, and save as a custom workspace. Phase 2 - Layer Architecture: Create three layers (01_Text for titles, descriptions, page numbers; 02_Images for drawings, renders, photos; 03_Guides for non-printing, locked). Text sits above images; guides are hidden in export. Phase 3 - Parent Pages: Build two parent page templates (A-Intro for splash page with title area and date/location; B-Project for content page with header, grid guides, and project title). Change a parent once and all child pages update automatically. Phase 4 - The Structural Grid: Document at 600 × 840 pt (5:7 proportion). Baseline grid starting at 0 pt, relative to top margin, incrementing every 12 pt. Margins at 36/48/36/36 pt (top/bottom/inside/outside). Six columns with 12 pt gutters. Eight rows with 12 pt gutters via Layout > Create Guides.
+Fourth, build the structural grid itself. Six columns with twelve-point gutters. Eight rows with twelve-point gutters. This produces forty-eight modules per page — enough variation for any spread from a single structural foundation. The modular grid governs placement and proportion. The baseline grid governs the internal rhythm of text. Together, they achieve the alignment that separates a professional portfolio from an assembled one. Nick McIntosh's portfolio demonstrates this: unit plans, renderings, sections, and model photographs all sit within the same modular framework, each spread visually distinct but structurally unified.
 
-The modular grid and baseline grid operate as complementary systems. The modular grid governs placement and proportion. The baseline grid governs the internal rhythm of text. Together, they achieve precision and clarity. Six columns and eight rows produce 48 modules per page (enough variation for any spread from a single structural foundation).
-
-This system is not restrictive. It is generative. The more tightly constrained the grid, the more creative the solutions within it.`,
-    keyInsight: `"Every measurement is a multiple of 12. Nothing on the page is arbitrary."`,
+The system is not restrictive. It is generative. The tighter the constraint, the more disciplined the solutions within it — the same principle that makes a sonnet more demanding and more rewarding than free verse. Build the grid first. Fill it after.`,
+    keyInsight: `Every measurement is a multiple of twelve. Nothing on the page is arbitrary.`,
   },
   {
     id: 10,
     title: "Typographic Systems & Architectural Voice",
     part: "Grid",
-    overview: `Typography is how your portfolio speaks when you are not in the room. Limit to two to three complementary fonts. Establish clear size relationships and use weight and style strategically.
+    overview: `Typography is how your portfolio speaks when you are not in the room. Before a reviewer reads a single word, the typeface, size hierarchy, and spacing have already communicated discipline or disorder. Limit the palette to two — at most three — complementary fonts. A serif paired with a sans-serif, or two weights of a single family, creates contrast without chaos. Mixing multiple serif families or multiple display faces signals indecision, not range. The typeface should reinforce the design position: a minimalist architect chooses restrained, geometric forms; a designer invested in material craft chooses typefaces with history and tactile character.
 
-Font Pairing Principles: Choose one serif font paired with one sans-serif font, or use two weights of the same family. This creates contrast without chaos. Avoid mixing multiple serif families or multiple sans-serif families without a clear hierarchy reason.
+Three families cover most architectural portfolios. Modernist workhorses — Helvetica, Futura, DIN, Univers — are proven, neutral, and versatile. Humanist and contemporary faces — Avenir, Söhne, Gill Sans, Circular — feel warmer and more approachable. Editorial faces — Neue Montreal, GT Alpina, Minion Pro — carry personality with restraint. The choice is not about personal taste; it is about alignment between typography and argument.
 
-Modernist Workhorses: Helvetica, Futura, DIN, Univers (proven, neutral, versatile). Humanist and Contemporary: Avenir, Söhne, Gill Sans, Circular (warmer, more approachable). Editorial and Stylistic: Neue Montreal, GT Alpina, Minion Pro (personality with restraint).
+Size hierarchy makes the page scannable. Titles at twenty-four to thirty points, subtitles at fourteen to eighteen, body text at ten to twelve, captions at eight to ten. These sizes map directly to the twelve-point baseline grid from the previous module — body text leading at twelve points locks every line to the grid, ensuring columns align across the spread. Without baseline alignment, text drifts between increments and the portfolio loses the structural precision that distinguishes professional work. In InDesign, the critical setting is Paragraph Styles with Align to Grid set to All Lines.
 
-Size standards for print: Titles at 24/30 pt (size/leading), subtitles at 14/18 pt, body text at 10/12 pt, captions at 8/10 pt. These map to the hierarchy of information on the page, ensuring the reader encounters content in the correct order. The visual hierarchy should feel intuitive, not arbitrary.
-
-In InDesign, define these as Paragraph Styles (Window > Styles > Paragraph Styles). The critical setting is Indents and Spacing > Align to Grid: All Lines. This locks every line of text to the 12-point baseline grid, ensuring lines align across columns (the hallmark of professional typographic control). Without baseline alignment, text drifts between grid increments and the portfolio loses structural precision.
-
-Line spacing (leading) matters for readability. Body text leading at 12 pt matches the baseline grid increment exactly. Tighter leading (100–120%) works for captions and headlines; looser leading (150%+) works for display text. Proper line spacing creates visual breathing room and prevents the portfolio from feeling dense.
-
-Typography reinforces the portfolio argument. Choose typefaces that align with the design position. A minimalist architect should choose typography that feels restrained. A designer interested in craft should choose typefaces with history and detail.`,
-    keyInsight: `"Typography is how your portfolio speaks when you are not in the room."`,
+Line spacing matters more than most students expect. Tight leading works for captions and headlines. Looser leading gives body text room to breathe. The goal is a page that feels open, not dense — a portfolio that invites reading rather than resisting it. Nick McIntosh's title pages demonstrate this: a clear hierarchy from project title to subtitle to body to credits, each level stepping down in size and weight while maintaining baseline alignment across both pages of the spread.`,
+    keyInsight: `Typography is how your portfolio speaks when you are not in the room.`,
   },
   {
     id: 11,
     title: "The Cover Page & Information Architecture",
     part: "Grid",
-    overview: `The cover is the first design decision a reviewer encounters. Seven cover typologies range from Pure Minimal (whitespace as primary element, text under 8% of page area) to Abstract Line compositions with freeform curves and stroke weight hierarchy.
+    overview: `The cover is the first design decision a reviewer encounters, and it frames every page that follows. A cover does not decorate; it declares. It announces the portfolio's design position before the first project appears — through typography, image selection, composition, and restraint. Seven cover typologies recur across professional and academic portfolios: Pure Minimal, Dark Ground, Hero Image, Bleed + Band, Collage, Grid Pattern, and Abstract Line. Each suits a different portfolio personality. Pure Minimal signals focus and confidence. Hero Image leads with a single defining moment. Grid Pattern implies systems thinking. The choice should reinforce the same Red Thread that runs through the project sequence.
 
-Each typology suits a different portfolio personality. Pure Minimal signals restraint and focus (appropriate for portfolios where the work speaks without ornament). Dark Ground provides a frame and controls the viewer's entry. Hero Image leads with a single defining moment. Bleed + Band creates motion through layering. Collage suggests complexity and multiplicity. Grid Pattern implies systems thinking. Abstract Line conveys refinement and gesture.
+The table of contents extends the cover's visual language into informational architecture. How you organize and present the contents signals what you value: visual richness, textual clarity, or a balance of both. Thumbnail formats pair small images with project titles, giving reviewers a visual preview. Text-only formats maintain clean legibility, suited for portfolios exceeding thirty pages. Hybrid formats combine selected images with structured text. The TOC is not filler between cover and content — it is the reader's first act of navigation, and its design teaches the reviewer how to move through your work.
 
-The choice of cover should reinforce the same design position that runs through the entire portfolio (another expression of the Red Thread). A minimalist architect's cover should feel architectural. A designer interested in systems should choose a cover that demonstrates systematic thinking.
+Page numbering is a small decision with outsized consequences for consistency. Academic portfolios typically number from the cover onward. Professional portfolios begin numbering after front matter. Roman numerals mark introductory pages; Arabic numerals mark project pages. The format matters less than the commitment to one system applied without exception. Inconsistent numbering signals a portfolio assembled in haste, regardless of the quality of the work inside.
 
-The Table of Contents should match the cover in visual language. The TOC is not decorative; it is informational architecture. How you organize and present the contents signals to a reviewer what you value and how you think.
-
-TOC Format Options: Thumbnail TOC uses small images of each project spread alongside project titles, showing the viewer what to expect. Text-Only TOC lists project titles and page numbers without images, maintaining a clean, legible format. Hybrid TOC combines a select set of key project images with supporting text. Choose based on portfolio scope (if the portfolio is under 30 pages, thumbnails work well; if larger, text-only TOC prevents overwhelming the viewer).
-
-Page Numbering: Number pages from the cover onward (cover is page 1) for academic portfolios, or begin numbering after the cover and TOC for professional portfolios. Consistency matters more than the choice itself. Roman numerals (i, ii, iii) are traditional for front matter; Arabic numerals (1, 2, 3) for project pages.`,
-    keyInsight: `"The cover is the first design decision a reviewer encounters."`,
+Nick McIntosh's portfolio demonstrates several of these principles at once: a consistent title-page format across both projects, with the same typographic system, image placement, and text structure applied to Generative Housing and Flexible Framework. The repetition is not redundancy — it is information architecture. A reviewer encountering the second project divider already knows where to find the statement, the credits, and the hero image, and can focus entirely on content rather than navigation.`,
+    keyInsight: `The cover is the first design decision a reviewer encounters. Make it argue.`,
   },
   {
     id: 12,
@@ -1139,7 +1123,7 @@ Tonal unity across spreads matters. When images from different projects sit side
 Use color when it advances the argument. Suppress it when it distracts. Every color choice should be deliberate; if you cannot explain why a color is there, remove it. Update images in post-production to ensure consistent color families across projects.
 
 Diagnostic Test: Print your portfolio in grayscale. If the visual hierarchy (emphasis, rhythm, sequencing) still reads clearly without color, then your color is supporting rather than supplanting structure. If the portfolio falls apart in grayscale, the color is doing too much work and structure needs strengthening.`,
-    keyInsight: `"Tonal consistency provides chromatic unity across the grid."`,
+    keyInsight: `Tonal consistency is chromatic unity across the grid.`,
   },
   {
     id: 13,
@@ -1156,7 +1140,7 @@ Visual and Production Quality: 300 DPI minimum for print · Typography consisten
 Final Production: Separate optimized PDFs (print at 300 DPI, CMYK and digital at 150 DPI, RGB, under 10 MB) · All fonts embedded · Website portfolio live and updated · File naming: Lastname_Portfolio_Year.pdf (e.g., Lastname_Portfolio_2025.pdf).
 
 Peer Review: Before finalizing, have two to three trusted colleagues or mentors review the portfolio. Ask them to spend thirty seconds on an initial scan, then take five minutes for deeper reading. Ask: "What story do you think this designer cares about?" Their answer should match your intended position. If not, the portfolio is not yet communicating clearly. Revise and test again.`,
-    keyInsight: `"The audit is not the last step. It is the first honest reading of your own work."`,
+    keyInsight: `The audit is not the last step. It is the first honest reading of your own work.`,
   },
 ];
 // Case study content
