@@ -870,7 +870,6 @@ const DIAGRAM_MAP = {
   3: [
     { component: DiagramNarrativeArc, title: "Three-Act Narrative Arc" },
     { component: DiagramChronVsNarrative, title: "Chronological vs. Narrative" },
-    { component: DiagramFiveNarrativeElements, title: "Five Narrative Elements" },
     { component: DiagramNarrativeConstruction, title: "Narrative Construction Process" },
     { image: "example-narrative-sequence.jpg", title: "Narrative Sequence Example", alt: "Portfolio spread showing sequential facade analysis diagrams" },
   ],
