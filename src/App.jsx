@@ -918,6 +918,20 @@ const DIAGRAM_MAP = {
     { component: DiagramExportStandards, title: "File Export Standards" },
     { image: "diagram-skill-matrix.svg", title: "Project–Skill Coverage Matrix", alt: "Project–skill coverage matrix showing how projects map to different competencies" },
   ],
+  casestudy2: [
+    { image: "class-pdf/casestudy2-spread-1.jpg", title: "Spread 1: Project Title Page (Generative Housing)", alt: "Title page with watercolor hero image, project title, and body text", caption: "The full typographic hierarchy on one page: bold serif title, italic subtitle, body text at reading size, credits at caption scale. The hero image earns equal weight through scale. The grid is mostly empty, and that restraint communicates authority." },
+    { image: "class-pdf/casestudy2-spread-2.jpg", title: "Spread 2: Rendering and Ground Floor Plan", alt: "Exterior rendering on left, ground floor plan on right with captions", caption: "Rendering snaps to the left column group; the plan fills the right. Caption text aligns to the baseline grid below the rendering. The twelve-point system governs every element: image placement, text position, margin clearance." },
+    { image: "class-pdf/casestudy2-spread-3.jpg", title: "Spread 3: Full-Spread Floor Plans", alt: "Two residential floor plans filling the spread", caption: "The floor plans claim the entire spread. No subordinate images compete. Scale is hierarchy: full-page drawings declare importance through size alone. The architectural grid becomes the page grid." },
+    { image: "class-pdf/casestudy2-spread-4.jpg", title: "Spread 4: Section and Model Photos", alt: "Facade model photograph and building section with captions", caption: "Minimal text, maximum clarity. A small caption block provides context without competing with the images. Caption size distinguishes it from body text. Every level of the type hierarchy has a defined role and a defined size." },
+    { image: "class-pdf/casestudy2-spread-5.jpg", title: "Spread 5: Unit Plans and Sectional Model", alt: "Three unit floor plans and sectional model photograph", caption: "Three unit plan types occupy precise grid modules on the left, each with a caption aligned to the baseline. The sectional model fills the right page. Forty-eight modules per page, every image in the same structural framework." },
+    { image: "class-pdf/casestudy2-spread-6.jpg", title: "Spread 6: Project Title Page (Flexible Framework)", alt: "Second project divider with title, subtitle, and rendering", caption: "The second project divider repeats the identical typographic system. Consistency across projects proves the type system is a system, not a one-time decision but a rule applied without exception." },
+    { image: "class-pdf/casestudy2-spread-7.jpg", title: "Spread 7: Axonometric Models and Interior", alt: "Four axonometric model views and interior rendering", caption: "Four process models in a 2×2 grid plus one large rendering. High density, high information. This spread compresses. The next spread should release. Alternation of dense and open creates rhythm." },
+    { image: "class-pdf/casestudy2-spread-8.jpg", title: "Spread 8: Process Models and Site Axonometric", alt: "Four model iterations and labeled site axonometric", caption: "The dominant element is the site axonometric, claiming more than half the spread. Subordinate elements (four small models) occupy a 2×2 grid on the left. Hierarchy is unambiguous: one anchor, four supporting images." },
+    { image: "class-pdf/casestudy2-spread-9.jpg", title: "Spread 9: Interior Model and Floor Plans", alt: "Interior model photo and two floor plans with legends", caption: "Dense information organized by the same six-column, eight-row grid. The baseline grid keeps plan labels, legends, and captions vertically aligned even when content density is high." },
+    { image: "class-pdf/casestudy2-spread-10.jpg", title: "Spread 10: Model Photos and Building Sections", alt: "Physical model ceiling photo, facade detail, and building sections", caption: "Four elements across two pages. The photographs anchor the top half; the sections anchor the bottom. Left-right pairing connects the physical model to its drawn equivalent." },
+    { image: "class-pdf/casestudy2-spread-11.jpg", title: "Spread 11: Physical Model and Exterior Rendering", alt: "Physical model and exterior rendering side by side", caption: "Physical model on the left, digital rendering on the right. Left page shows process (how the massing was resolved); right page shows outcome (the finished corner). Reading direction becomes narrative structure: from making to made." },
+    { image: "class-pdf/casestudy2-spread-12.jpg", title: "Spread 12: The Intentional Grid Break", alt: "Full-bleed interior rendering of building center", caption: "A full-bleed interior rendering with no text, no captions, no visible grid. The break is earned: after eleven spreads of structured argument, the final image lets the viewer inhabit the space. A full-bleed on the first spread is not a break; it is an absence of structure." },
+  ],
   casestudy: [
     { image: "class-pdf/casestudy-spread-1.jpg", title: "Spread 1: Exposition", alt: "Terrain model and project abstract", caption: "Keyword: 'eroding terrain.' Act I: exposition. Image type: concept. The terrain model opens the storyboard; at skim speed, a reviewer knows this project is about ground shaped by force." },
     { image: "class-pdf/casestudy-spread-2.jpg", title: "Spread 2: Rising Action", alt: "Aerial site photo and detail terrain model", caption: "Keywords: 'Alpine,' 'terrain.' Act II: rising action. Image types: context + process. The aerial photograph establishes scale; the detail model introduces the method of working with erosion." },
@@ -1163,6 +1177,25 @@ const CASE_STUDY = {
 **Image Types as Evidence.** Concept: the terrain model (Spread 1), establishing erosion as the governing idea before any building appears. Context: the aerial site photograph (Spread 2), grounding the project in the glaciated alpine landscape between Gstaad and Les Diablerets. Process: the detail terrain model (Spread 2) showing the architectural incision, the building sections (Spreads 3 and 4) showing ramped circulation descending into slope, and the physical model (Spread 4) with the roof emerging as a geometric cut in the snow. Outcome: the interior gallery renderings and floor plans (Spread 5), demonstrating the resolved spatial experience of inhabiting eroded ground. Each type appears where it belongs in the narrative arc.
 
 **Storyboarding the Spreads.** Each of the five spreads advances the argument without repeating the previous one. Spread 1 establishes the thesis through terrain. Spread 2 grounds it in site and shows the first incision. Spreads 3 and 4 develop the architecture through renderings and sections at increasing resolution. Spread 5 resolves with inhabited space. The two-track reading works: at skim speed, the terrain-to-gallery arc is legible from images alone; at study speed, the sections and plans reveal the spatial logic of embedding into eroded ground. If the five spreads tell the story without the statement, the storyboard is finished.`,
+  keyInsight: null,
+};
+
+// Case study 2 content (Part II)
+const CASE_STUDY_2 = {
+  id: "casestudy2",
+  title: "Case Study: Grid Systems in Practice",
+  part: "Part II Conclusion",
+  overview: `This portfolio by Case Study 2 contains two projects across twelve spreads. What follows is a reading of those spreads through the four modules of Part II, showing how grid systems, composition, and pacing operate in a real portfolio.
+
+**Grid Systems.** The portfolio uses a six-column, eight-row modular grid with a twelve-point baseline. Every spread in the portfolio obeys this structure. Spread 1, the Generative Housing title page, demonstrates the full typographic hierarchy: project title in bold serif, italic subtitle, body text at reading size, and credits stepped down to caption scale. Spread 6 repeats the identical system for the second project, Flexible Framework. The repetition is the proof: the grid is not a one-time decision but a rule applied across the entire document. Margins, column widths, and gutter dimensions remain constant from the first page to the last.
+
+**Building the Grid.** The twelve-point baseline governs every line of text across all twelve spreads. On Spread 2, caption text aligns to the baseline below the rendering; the ground floor plan fills the right page within the same column structure. On Spread 5, three unit plan types occupy precise grid modules on the left, each with a caption snapped to the baseline, while the sectional model photograph fills the right page. On Spread 9, a model interior sits beside two floor plans with color-coded legends, all organized by the six-column, eight-row framework. The baseline keeps plan labels, legends, and captions vertically aligned even when content density varies. The grid is invisible to the viewer. Its effects are not.
+
+**Spread Composition.** Every spread makes four decisions: dominance, left-right distribution, scaling, and whitespace. Spread 8 demonstrates information density as composition: four process models occupy a 2×2 grid on the left while a labeled site axonometric claims more than half the spread on the right. Hierarchy is unambiguous. Spread 11 uses left-right reading direction as narrative structure: physical model on the left (process, how the massing was resolved), digital rendering on the right (outcome, the finished corner). From making to made. Spread 3 takes a different approach: the residential floor plan claims the entire spread. No subordinate images compete. Scale is hierarchy.
+
+**Variation and Pacing.** A portfolio that repeats the same layout on every page is not disciplined. It is monotonous. This portfolio alternates between dense spreads and open ones. Spread 7 compresses: four axonometric views plus one large rendering. High density, high information. Spread 1, which follows a project divider, releases: title, subtitle, body text, one hero image, generous whitespace. The grid is present but mostly empty, and that restraint communicates authority. Spread 12 earns the right to break the grid entirely: a full-bleed interior rendering with no text, no captions, no visible structure. After eleven spreads of disciplined argument, the final image lets the viewer inhabit the space. The break works because it is earned.
+
+**The Grid as Argument.** Across twelve spreads, the grid does three things simultaneously. It creates visual consistency so the reviewer trusts the work. It creates flexibility so different content types (plans, models, renderings, text) coexist without collision. And it creates rhythm so the portfolio sustains attention from first spread to last. The grid is not decoration. It is the infrastructure that makes the portfolio's argument legible.`,
   keyInsight: null,
 };
 
@@ -1427,6 +1460,7 @@ export default function PortfolioGuide() {
   let view = "landing";
   let activeModule = null;
   let isCaseStudy = false;
+  let isCaseStudy2 = false;
   let diagramModuleId = null;
 
   if (route === "#/about") {
@@ -1434,6 +1468,9 @@ export default function PortfolioGuide() {
   } else if (route === "#/casestudy") {
     view = "casestudy";
     isCaseStudy = true;
+  } else if (route === "#/casestudy2") {
+    view = "casestudy2";
+    isCaseStudy2 = true;
   } else if (route.startsWith("#/diagrams/")) {
     const rawId = route.split("/")[2];
     diagramModuleId = /^\d+$/.test(rawId) ? parseInt(rawId, 10) : rawId;
@@ -1524,6 +1561,25 @@ export default function PortfolioGuide() {
                     <span style={{ fontSize: 10, color: T.textFaint, minWidth: 20, fontWeight: 400, letterSpacing: "0.02em" }}></span>
                     <span style={{ fontSize: 12, color: T.text, fontWeight: 400, letterSpacing: "0.01em" }}>
                       {CASE_STUDY.title}
+                    </span>
+                  </div>
+                )}
+                {/* Case Study 2 after Part II */}
+                {partKey === "part2" && (
+                  <div
+                    onClick={() => navigate("#/casestudy2")}
+                    style={{
+                      display: "flex", alignItems: "baseline", gap: 14,
+                      padding: "9px 0", borderBottom: `1px solid ${T.border}`,
+                      cursor: "pointer", transition: "opacity 0.2s ease",
+                      fontStyle: "italic",
+                    }}
+                    onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.5"; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; }}
+                  >
+                    <span style={{ fontSize: 10, color: T.textFaint, minWidth: 20, fontWeight: 400, letterSpacing: "0.02em" }}></span>
+                    <span style={{ fontSize: 12, color: T.text, fontWeight: 400, letterSpacing: "0.01em" }}>
+                      {CASE_STUDY_2.title}
                     </span>
                   </div>
                 )}
@@ -1683,13 +1739,112 @@ export default function PortfolioGuide() {
     );
   }
 
+  // ─── Case Study 2 View ───
+  if (isCaseStudy2) {
+    const paragraphs = CASE_STUDY_2.overview.split("\n\n");
+    const diagrams = DIAGRAM_MAP.casestudy2 || [];
+
+    return (
+      <div style={{ minHeight: "100vh", background: T.bg, fontFamily: T.sans, display: "flex", flexDirection: "column" }}>
+        <header style={{
+          padding: "20px 40px", display: "flex", justifyContent: "space-between", alignItems: "center",
+          borderBottom: `1px solid ${T.border}`, position: "sticky", top: 0, background: T.bg, zIndex: 50,
+        }}>
+          <button onClick={handleBack} style={{
+            background: "none", border: "none", fontSize: 10, color: T.textMuted, cursor: "pointer",
+            fontFamily: T.sans, letterSpacing: "0.06em", textTransform: "uppercase", padding: 0,
+          }}>← Portfolio Workshop</button>
+          <div style={{ display: "flex", gap: 2, flexWrap: "nowrap", overflowX: "auto", justifyContent: "flex-end" }}>
+            {MODULES.map((m) => (
+              <button key={m.id} onClick={() => handleNavClick(m)} style={{
+                width: 24, height: 24, display: "flex", alignItems: "center", justifyContent: "center",
+                background: "transparent", color: T.textFaint, border: "none", fontSize: 9, fontFamily: T.sans,
+                fontWeight: 400, cursor: "pointer", borderRadius: 1, transition: "all 0.15s ease", fontVariantNumeric: "tabular-nums",
+                letterSpacing: "0.02em", flexShrink: 0,
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = T.text; }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = T.textFaint; }}
+              >{String(m.id).padStart(2, "0")}</button>
+            ))}
+          </div>
+        </header>
+
+        <div style={{
+          flex: 1, padding: "56px 40px 80px",
+          maxWidth: 520, width: "100%", margin: "0 auto",
+          opacity: visible ? 1 : 0, transition: "opacity 0.22s ease",
+        }}>
+          <div style={{ fontSize: 9, letterSpacing: "0.1em", textTransform: "uppercase", color: T.textFaint, fontWeight: 400, marginBottom: 10 }}>
+            Case Study
+          </div>
+          <h1 style={{ fontSize: 16, fontWeight: 500, lineHeight: 1.4, color: T.text, margin: "0 0 20px", letterSpacing: "0.01em" }}>
+            {CASE_STUDY_2.title}
+          </h1>
+          <div style={{ width: 24, height: 1, background: T.text, marginBottom: 32 }} />
+
+          {paragraphs.map((p, i) => (
+            <p key={i} style={{ fontSize: 13, lineHeight: 1.8, color: T.textMid, margin: "0 0 16px", letterSpacing: "0.01em" }}>{p}</p>
+          ))}
+
+          {CASE_STUDY_2.keyInsight && (
+            <div style={{ borderLeft: `2px solid ${T.text}`, paddingLeft: 16, marginBottom: 40, marginTop: 28 }}>
+              <p style={{ fontSize: 13, lineHeight: 1.8, color: T.text, fontStyle: "italic", margin: 0, letterSpacing: "0.01em" }}>{CASE_STUDY_2.keyInsight}</p>
+            </div>
+          )}
+
+          {/* Diagram hyperlinks */}
+          {diagrams.length > 0 && (
+            <div style={{ marginTop: 32 }}>
+              <span
+                onClick={() => navigate("#/diagrams/casestudy2")}
+                style={{
+                  fontSize: 12, color: T.steel, cursor: "pointer",
+                  borderBottom: `1px solid ${T.steel}40`, paddingBottom: 2,
+                  transition: "color 0.15s ease, border-color 0.15s ease",
+                  fontFamily: T.sans, letterSpacing: "0.01em", lineHeight: 1.8,
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = T.steelLight; e.currentTarget.style.borderColor = `${T.steelLight}`; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = T.steel; e.currentTarget.style.borderColor = `${T.steel}40`; }}
+              >
+                View all 12 spreads
+              </span>
+            </div>
+          )}
+
+          {/* Prev / Next */}
+          <div style={{ display: "flex", justifyContent: "space-between", marginTop: 48, paddingTop: 20, borderTop: `1px solid ${T.border}` }}>
+            <button onClick={() => navigate(`#/module/${PARTS.part2.modules[PARTS.part2.modules.length - 1]}`)} style={{
+              background: "none", border: "none", fontSize: 10, color: T.textMuted, cursor: "pointer", fontFamily: T.sans, padding: 0, textAlign: "left", letterSpacing: "0.02em",
+            }}>
+              <span style={{ display: "block", fontSize: 8, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 3, color: T.textFaint }}>Previous</span>
+              {String(MODULE_POSITION[PARTS.part2.modules[PARTS.part2.modules.length - 1]]).padStart(2, "0")}: {MODULES.find(m => m.id === PARTS.part2.modules[PARTS.part2.modules.length - 1])?.title}
+            </button>
+            <button onClick={() => navigate(`#/module/${PARTS.part3.modules[0]}`)} style={{
+              background: "none", border: "none", fontSize: 10, color: T.textMuted, cursor: "pointer", fontFamily: T.sans, padding: 0, textAlign: "right", letterSpacing: "0.02em",
+            }}>
+              <span style={{ display: "block", fontSize: 8, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 3, color: T.textFaint }}>Next</span>
+              {String(MODULE_POSITION[PARTS.part3.modules[0]]).padStart(2, "0")}: {MODULES.find(m => m.id === PARTS.part3.modules[0])?.title}
+            </button>
+          </div>
+        </div>
+
+      <footer style={{ padding: "28px 40px", display: "flex", justifyContent: "space-between", fontSize: 9, color: T.textFaint, fontFamily: T.sans, letterSpacing: "0.04em" }}>
+        <span>Kent State University · CAED</span>
+        <a href="https://thresholdarch.com" target="_blank" rel="noopener noreferrer" style={{ color: T.textFaint, textDecoration: "none" }}>thresholdarch.com</a>
+      </footer>
+
+      </div>
+    );
+  }
+
   // ─── Diagram Gallery View ───
   if (view === "diagrams" && diagramModuleId !== null) {
     const diagrams = DIAGRAM_MAP[diagramModuleId] || [];
     const isCaseStudyDiagrams = diagramModuleId === "casestudy";
+    const isCaseStudy2Diagrams = diagramModuleId === "casestudy2";
     const isSpreads = diagramModuleId === "1spreads";
-    const backHash = isCaseStudyDiagrams ? "#/casestudy" : isSpreads ? "#/module/1" : `#/module/${diagramModuleId}`;
-    const moduleLabel = isCaseStudyDiagrams ? "Case Study" : isSpreads ? "Case Study Spreads" : `Module ${String(MODULE_POSITION[diagramModuleId] || diagramModuleId).padStart(2, "0")}`;
+    const backHash = isCaseStudyDiagrams ? "#/casestudy" : isCaseStudy2Diagrams ? "#/casestudy2" : isSpreads ? "#/module/1" : `#/module/${diagramModuleId}`;
+    const moduleLabel = isCaseStudyDiagrams ? "Case Study" : isCaseStudy2Diagrams ? "Case Study 2" : isSpreads ? "Case Study Spreads" : `Module ${String(MODULE_POSITION[diagramModuleId] || diagramModuleId).padStart(2, "0")}`;
 
     return (
       <DiagramSlideshow
