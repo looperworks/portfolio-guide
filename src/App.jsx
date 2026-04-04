@@ -30,11 +30,11 @@ const PARTS = {
   },
   part2: {
     title: "Grid",
-    modules: [8, 9, 10, 11],
+    modules: [8, 9, 14, 15],
   },
   part3: {
     title: "Production",
-    modules: [12, 13],
+    modules: [10, 11, 12, 13],
   },
 };
 
@@ -1140,6 +1140,36 @@ Final Production: Separate optimized PDFs (print at 300 DPI, CMYK and digital at
 
 Peer Review: Before finalizing, have two to three trusted colleagues or mentors review the portfolio. Ask them to spend thirty seconds on an initial scan, then take five minutes for deeper reading. Ask: "What story do you think this designer cares about?" Their answer should match your intended position. If not, the portfolio is not yet communicating clearly. Revise and test again.`,
     keyInsight: `The audit is not the last step. It is the first honest reading of your own work.`,
+  },
+  {
+    id: 14,
+    title: "Spread Composition: The Two-Page Unit",
+    part: "Grid",
+    overview: `The spread — not the page — is the fundamental unit of portfolio composition. A reviewer never sees a single page in isolation. Every spread presents a left-right relationship, a visual weight distribution, and a hierarchy of elements that either advances the argument or stalls it. The grid establishes where things can go; spread composition determines what goes where and why.
+
+Three compositional decisions govern every spread. First, the dominant element: which image or drawing anchors the viewer's eye. A spread without a clear dominant reads as a catalogue — equal-weight images competing for attention, none winning. One element should claim at least forty percent of the spread area. The remaining elements are subordinate: they support, explain, or contextualize the dominant. In Nick McIntosh's portfolio, the full-bleed floor plan on Spread 3 is unmistakable — the architectural grid becomes the page grid, and no other element competes.
+
+Second, the left-right relationship. Western readers enter a spread from the upper left. The left page sets context; the right page delivers the primary content or resolution. Placing a site plan on the left and a building rendering on the right creates a spatial logic the eye follows naturally — from environment to intervention. Reversing this order forces the viewer to work backward. The convention is not rigid, but departing from it should be intentional and legible. A process sequence (sketches left, final model right) or a before-and-after pair (existing conditions left, proposed design right) exploits left-right reading direction as narrative structure.
+
+Third, image scaling. Scale is hierarchy. A full-bleed image declares importance through size alone. An inset image — framed by whitespace or margin — declares importance through isolation and breathing room. A quadrant layout (four images per spread) implies comparison or sequence. The grid modules from the previous units determine which of these strategies are available: a six-column modular grid accommodates a dominant two-thirds / subordinate one-third split, a 50/50 mirror, or a full-bleed with caption overlay. The choice is not aesthetic preference — it is an argument about what matters most on that spread.
+
+Whitespace is not leftover space. Active whitespace — margins, gutters, and deliberate voids — creates the visual breathing room that separates a considered portfolio from a packed one. Samara describes margins as elements that establish tension, focus attention, and act as resting places for the eye. In an architecture portfolio, whitespace around a section drawing gives the drawing room to be read as architecture rather than as a graphic element. Crowding images to the margins signals anxiety about content; letting them breathe signals confidence that each image earns its place.`,
+    keyInsight: `The spread is the unit of argument. Every left-right pair should advance a single claim.`,
+  },
+  {
+    id: 15,
+    title: "Variation, Pacing & Breaking the Grid",
+    part: "Grid",
+    overview: `A grid is only successful if the designer uses it to create a dynamic visual narrative rather than a uniform sequence of identical layouts. Samara's principle is direct: once the grid is in place, sort the material spread by spread, storyboard the sequence, and test whether the rhythm of dark and light, dense and open, creates a reading experience that sustains attention across the full portfolio. A grid that produces the same layout on every page is not disciplined — it is monotonous.
+
+Pacing is the rhythm of density across sequential spreads. A portfolio that opens with five consecutive image-heavy spreads exhausts the viewer before the argument lands. Alternation is the solution: a dense technical spread (plans, sections, details filling the grid modules) followed by a spread with a single dominant image and generous whitespace. The storyboard test makes this visible — print thumbnail spreads and pin them to the wall. If the sequence reads as a flat gray band of equal density, the pacing needs work. If it reads as a rhythm of compression and release, tension and resolution, the grid is doing its narrative job.
+
+Three types of intentional grid breaks serve architecture portfolios. The full-bleed image breaks every grid rule at once — no margins, no columns, no modules. It works as punctuation: a section divider, a project opener, or a closing image that lets the viewer inhabit the space after eleven spreads of structured argument. Nick McIntosh's Spread 12 — a full-bleed interior rendering with no text, no captions, no grid — demonstrates this: the break is earned because every preceding spread obeyed the grid. A full-bleed on the first spread is not a break; it is an absence of structure.
+
+The oversized element crosses column or module boundaries to signal hierarchy. A rendering that spans four of six columns while text occupies two is not a grid violation — it is a grid interpretation. The element still aligns to column edges; it simply occupies more modules than its neighbors. This is variation within the grid, not departure from it. The Princeton Architecture lecture poster in Samara's collection shows this at the extreme: column remnants remain visible even as elements overlap and shift, maintaining structural memory while creating compositional energy.
+
+The third type is the deliberate void — a spread or half-spread left intentionally empty or minimal. A project title page with only a name, a one-line statement, and a single image uses the grid's full capacity by choosing to fill only a fraction of it. Restraint is the most difficult grid decision because it requires confidence that less content communicates more authority. Every grid break should pass a simple test: can a reviewer see that the break is intentional? If it looks like an accident — an image that drifts off the baseline, a caption that floats between columns — the break undermines rather than reinforces the argument. Break the grid for a reason the viewer can name.`,
+    keyInsight: `A grid that produces the same layout on every page is not disciplined. It is monotonous.`,
   },
 ];
 // Case study content
