@@ -1,0 +1,126 @@
+<svg font-family="'Circular Std','Inter','Helvetica Neue',Arial,sans-serif" viewBox="-20 0 880 720" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      text { font-family: 'Circular Std','Inter','Helvetica Neue',Arial,sans-serif; }
+      .title-main { font-size: 11px; font-weight: 600; fill: #1A1A1A; }
+      .title-label { font-size: 11px; font-weight: 400; fill: #777; letter-spacing: 0.5px; }
+      .dimension-label { font-size: 11px; font-weight: 500; fill: #333; }
+      .dimension-unit { font-size: 11px; font-weight: 400; fill: #777; }
+      .baseline-label { font-size: 11px; font-weight: 500; fill: #3B7DD8; }
+      .grid-line { stroke: #F2F2F2; stroke-width: 0.5; }
+      .grid-line-bold { stroke: #CCC; stroke-width: 1; }
+      .dimension-line { stroke: #333; stroke-width: 1; }
+      .margin-line { stroke: #E85D3A; stroke-width: 1; stroke-dasharray: 2,2; }
+      .gutter-line { stroke: #3B7DD8; stroke-width: 0.5; stroke-dasharray: 1,1; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="700" fill="#FFFFFF"/>
+
+  <!-- Header -->
+<text x="40" y="50" class="title-main">Page Setup: All Measurements</text>
+
+  <!-- Page bounds with margin indicators -->
+
+  <!-- Left dimension bracket and labels -->
+  <line x1="50" y1="75" x2="50" y2="575" class="dimension-line"/>
+  <line x1="45" y1="75" x2="50" y2="75" class="dimension-line"/>
+  <line x1="45" y1="575" x2="50" y2="575" class="dimension-line"/>
+  <text x="18" y="330" class="dimension-label" style="text-anchor: end; writing-mode: tb; glyph-orientation-vertical: 0;">840pt / 70 BU</text>
+
+  <!-- Top margin indicator -->
+  <line x1="60" y1="90" x2="740" y2="90" class="margin-line"/>
+  <text x="65" y="85" class="dimension-unit" fill="#E85D3A">36pt (3 BU) — Top Margin</text>
+
+  <!-- Page area background -->
+  <rect x="60" y="100" width="680" height="500" fill="#FAFAFA" stroke="#1A1A1A" stroke-width="1.5"/>
+
+  <!-- Baseline grid (12pt = 1pt visual, scaled) -->
+  <!-- Each 12pt baseline = 5.7 pixels in viewBox (500/87.5 ≈ 5.7) -->
+  <!-- 87.5 baseline units total for 500pt height -->
+
+  <!-- Grid lines for baseline visualization -->
+  <line x1="60" y1="105.7" x2="740" y2="105.7" class="grid-line"/>
+  <line x1="60" y1="111.4" x2="740" y2="111.4" class="grid-line"/>
+  <line x1="60" y1="117.1" x2="740" y2="117.1" class="grid-line"/>
+  <line x1="60" y1="122.8" x2="740" y2="122.8" class="grid-line"/>
+  <line x1="60" y1="128.5" x2="740" y2="128.5" class="grid-line"/>
+  <line x1="60" y1="134.2" x2="740" y2="134.2" class="grid-line"/>
+  <line x1="60" y1="139.9" x2="740" y2="139.9" class="grid-line"/>
+  <line x1="60" y1="145.6" x2="740" y2="145.6" class="grid-line"/>
+
+  <!-- Module 1 -->
+  <rect x="65" y="100" width="670" height="91.4" fill="none" stroke="#CCC" stroke-width="0.5"/>
+  <text x="745" y="151" class="baseline-label">7 lines (84pt)</text>
+
+  <!-- Gutter after module 1 -->
+  <line x1="60" y1="191.4" x2="740" y2="191.4" class="gutter-line"/>
+  <text x="745" y="196" class="baseline-label" style="font-size: 11px;">1 gutter (12pt)</text>
+
+  <!-- Module 2 -->
+  <line x1="60" y1="197.1" x2="740" y2="197.1" class="grid-line"/>
+  <line x1="60" y1="202.8" x2="740" y2="202.8" class="grid-line"/>
+  <line x1="60" y1="208.5" x2="740" y2="208.5" class="grid-line"/>
+  <line x1="60" y1="214.2" x2="740" y2="214.2" class="grid-line"/>
+  <line x1="60" y1="219.9" x2="740" y2="219.9" class="grid-line"/>
+  <line x1="60" y1="225.6" x2="740" y2="225.6" class="grid-line"/>
+  <line x1="60" y1="231.3" x2="740" y2="231.3" class="grid-line"/>
+  <rect x="65" y="197.1" width="670" height="91.4" fill="none" stroke="#CCC" stroke-width="0.5"/>
+  <text x="745" y="248" class="baseline-label">Module 2</text>
+
+  <!-- Gutter after module 2 -->
+  <line x1="60" y1="288.5" x2="740" y2="288.5" class="gutter-line"/>
+
+  <!-- Module 3 -->
+  <line x1="60" y1="294.2" x2="740" y2="294.2" class="grid-line"/>
+  <line x1="60" y1="299.9" x2="740" y2="299.9" class="grid-line"/>
+  <line x1="60" y1="305.6" x2="740" y2="305.6" class="grid-line"/>
+  <line x1="60" y1="311.3" x2="740" y2="311.3" class="grid-line"/>
+  <line x1="60" y1="317.0" x2="740" y2="317.0" class="grid-line"/>
+  <line x1="60" y1="322.7" x2="740" y2="322.7" class="grid-line"/>
+  <line x1="60" y1="328.4" x2="740" y2="328.4" class="grid-line"/>
+  <rect x="65" y="294.2" width="670" height="91.4" fill="none" stroke="#CCC" stroke-width="0.5"/>
+  <text x="745" y="345" class="baseline-label">Module 3</text>
+
+  <!-- Gutter after module 3 -->
+  <line x1="60" y1="385.6" x2="740" y2="385.6" class="gutter-line"/>
+
+  <!-- Module 4 -->
+  <line x1="60" y1="391.3" x2="740" y2="391.3" class="grid-line"/>
+  <line x1="60" y1="397.0" x2="740" y2="397.0" class="grid-line"/>
+  <line x1="60" y1="402.7" x2="740" y2="402.7" class="grid-line"/>
+  <line x1="60" y1="408.4" x2="740" y2="408.4" class="grid-line"/>
+  <line x1="60" y1="414.1" x2="740" y2="414.1" class="grid-line"/>
+  <line x1="60" y1="419.8" x2="740" y2="419.8" class="grid-line"/>
+  <line x1="60" y1="425.5" x2="740" y2="425.5" class="grid-line"/>
+  <rect x="65" y="391.3" width="670" height="91.4" fill="none" stroke="#CCC" stroke-width="0.5"/>
+  <text x="745" y="442" class="baseline-label">Module 4</text>
+
+  <!-- Gutter after module 4 -->
+  <line x1="60" y1="482.7" x2="740" y2="482.7" class="gutter-line"/>
+
+  <!-- Module 5 begins -->
+  <line x1="60" y1="488.4" x2="740" y2="488.4" class="grid-line"/>
+
+  <!-- Bottom margin indicator -->
+  <line x1="60" y1="600" x2="740" y2="600" class="margin-line"/>
+  <text x="65" y="615" class="dimension-unit" fill="#E85D3A">48pt (4 BU) — Bottom Margin</text>
+
+  <!-- Right dimension bracket -->
+  <line x1="750" y1="100" x2="750" y2="600" class="dimension-line"/>
+  <line x1="750" y1="100" x2="755" y2="100" class="dimension-line"/>
+  <line x1="750" y1="600" x2="755" y2="600" class="dimension-line"/>
+  <text x="765" y="355" class="dimension-label">500pt / 41.67 BU</text>
+
+  <!-- Page width dimensions -->
+  <line x1="60" y1="640" x2="740" y2="640" class="dimension-line"/>
+  <line x1="60" y1="635" x2="60" y2="640" class="dimension-line"/>
+  <line x1="740" y1="635" x2="740" y2="640" class="dimension-line"/>
+  <text x="400" y="655" class="dimension-label" style="text-anchor: middle;">600pt page width (50 BU)</text>
+
+  <!-- Info boxes at bottom -->
+  <rect x="40" y="670" width="720" height="25" fill="#F2F2F2" rx="2" stroke="#CCC" stroke-width="0.5"/>
+  <text x="50" y="683" class="dimension-label">Page: 600×840pt | Top: 36pt (3BU) | Bottom: 48pt (4BU) | 8 Modules of 7 lines content + 1 gutter | Baseline: 12pt</text>
+
+</svg>

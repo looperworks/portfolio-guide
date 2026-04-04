@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Circular Std','Inter','Helvetica Neue',Arial,sans-serif">
+  <defs>
+    <style>
+      .title { font-size: 16px; fill: #1A1A1A; font-weight: 600; }
+      .subtitle { font-size: 11px; fill: #999; letter-spacing: 2px; }
+      .panel-title { font-size: 11px; fill: #1A1A1A; font-weight: 600; }
+      .panel-desc { font-size: 11px; fill: #999; }
+      .grid-line { stroke: #D0D0D0; stroke-width: 0.5; }
+      .grid-line-strong { stroke: #BBB; stroke-width: 0.75; stroke-dasharray: 3,2; }
+      .content-block { fill: #E8E8E8; }
+      .content-text { stroke: #CCC; stroke-width: 1; }
+      .content-img { fill: #E0E0E0; }
+      .page-bg { fill: #FAFAFA; stroke: #D0D0D0; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <rect width="800" height="500" fill="white"/>
+<text x="400" y="54" text-anchor="middle" class="title">Common Types of Grids</text>
+
+  <!-- \u2550\u2550\u2550 MANUSCRIPT \u2550\u2550\u2550 -->
+  <g transform="translate(20,80)">
+    <text x="85" y="12" text-anchor="middle" class="panel-title">Manuscript</text>
+    <text x="85" y="26" text-anchor="middle" class="panel-desc">Single text column</text>
+
+    <rect x="10" y="40" width="150" height="200" class="page-bg" rx="1"/>
+    <!-- Margins -->
+    <rect x="35" y="60" width="100" height="160" fill="none" stroke="#E0E0E0" stroke-width="0.5" stroke-dasharray="3,2"/>
+    <!-- Text lines -->
+    <g opacity="0.6">
+      <line x1="35" y1="68" x2="135" y2="68" class="content-text"/>
+      <line x1="35" y1="78" x2="135" y2="78" class="content-text"/>
+      <line x1="35" y1="88" x2="135" y2="88" class="content-text"/>
+      <line x1="35" y1="98" x2="120" y2="98" class="content-text"/>
+      <line x1="35" y1="114" x2="135" y2="114" class="content-text"/>
+      <line x1="35" y1="124" x2="135" y2="124" class="content-text"/>
+      <line x1="35" y1="134" x2="135" y2="134" class="content-text"/>
+      <line x1="35" y1="144" x2="135" y2="144" class="content-text"/>
+      <line x1="35" y1="154" x2="110" y2="154" class="content-text"/>
+      <line x1="35" y1="170" x2="135" y2="170" class="content-text"/>
+      <line x1="35" y1="180" x2="135" y2="180" class="content-text"/>
+      <line x1="35" y1="190" x2="135" y2="190" class="content-text"/>
+      <line x1="35" y1="200" x2="135" y2="200" class="content-text"/>
+      <line x1="35" y1="210" x2="100" y2="210" class="content-text"/>
+    </g>
+    <text x="85" y="268" text-anchor="middle" class="panel-desc">Books, theses,</text>
+    <text x="85" y="280" text-anchor="middle" class="panel-desc">long-form writing</text>
+  </g>
+
+  <!-- \u2550\u2550\u2550 COLUMN \u2550\u2550\u2550 -->
+  <g transform="translate(205,80)">
+    <text x="85" y="12" text-anchor="middle" class="panel-title">Column</text>
+    <text x="85" y="26" text-anchor="middle" class="panel-desc">Vertical divisions</text>
+
+    <rect x="10" y="40" width="150" height="200" class="page-bg" rx="1"/>
+    <!-- Column lines -->
+    <line x1="30" y1="55" x2="30" y2="225" class="grid-line-strong"/>
+    <line x1="78" y1="55" x2="78" y2="225" class="grid-line-strong"/>
+    <line x1="90" y1="55" x2="90" y2="225" class="grid-line-strong"/>
+    <line x1="140" y1="55" x2="140" y2="225" class="grid-line-strong"/>
+    <!-- Content: image spanning left col -->
+    <rect x="30" y="58" width="48" height="40" class="content-img" rx="1"/>
+    <!-- Text in right col -->
+    <g opacity="0.6">
+      <line x1="90" y1="62" x2="140" y2="62" class="content-text"/>
+      <line x1="90" y1="70" x2="140" y2="70" class="content-text"/>
+      <line x1="90" y1="78" x2="140" y2="78" class="content-text"/>
+      <line x1="90" y1="86" x2="130" y2="86" class="content-text"/>
+    </g>
+    <!-- Text both cols below -->
+    <g opacity="0.6">
+      <line x1="30" y1="110" x2="78" y2="110" class="content-text"/>
+      <line x1="30" y1="118" x2="78" y2="118" class="content-text"/>
+      <line x1="30" y1="126" x2="78" y2="126" class="content-text"/>
+      <line x1="30" y1="134" x2="65" y2="134" class="content-text"/>
+      <line x1="90" y1="110" x2="140" y2="110" class="content-text"/>
+      <line x1="90" y1="118" x2="140" y2="118" class="content-text"/>
+      <line x1="90" y1="126" x2="140" y2="126" class="content-text"/>
+      <line x1="90" y1="134" x2="140" y2="134" class="content-text"/>
+      <line x1="90" y1="142" x2="125" y2="142" class="content-text"/>
+    </g>
+    <!-- Full-width image -->
+    <rect x="30" y="156" width="110" height="50" class="content-img" rx="1"/>
+    <text x="85" y="268" text-anchor="middle" class="panel-desc">Magazines,</text>
+    <text x="85" y="280" text-anchor="middle" class="panel-desc">editorial layouts</text>
+  </g>
+
+  <!-- \u2550\u2550\u2550 MODULAR \u2550\u2550\u2550 -->
+  <g transform="translate(390,80)">
+    <text x="85" y="12" text-anchor="middle" class="panel-title">Modular</text>
+    <text x="85" y="26" text-anchor="middle" class="panel-desc">Columns + rows</text>
+
+    <rect x="10" y="40" width="150" height="200" class="page-bg" rx="1"/>
+    <!-- Grid: 3 cols x 4 rows -->
+    <!-- Column lines -->
+    <line x1="28" y1="55" x2="28" y2="225" class="grid-line-strong"/>
+    <line x1="63" y1="55" x2="63" y2="225" class="grid-line-strong"/>
+    <line x1="72" y1="55" x2="72" y2="225" class="grid-line-strong"/>
+    <line x1="107" y1="55" x2="107" y2="225" class="grid-line-strong"/>
+    <line x1="116" y1="55" x2="116" y2="225" class="grid-line-strong"/>
+    <line x1="142" y1="55" x2="142" y2="225" class="grid-line-strong"/>
+    <!-- Row lines -->
+    <line x1="28" y1="55" x2="142" y2="55" class="grid-line-strong"/>
+    <line x1="28" y1="93" x2="142" y2="93" class="grid-line-strong"/>
+    <line x1="28" y1="100" x2="142" y2="100" class="grid-line-strong"/>
+    <line x1="28" y1="138" x2="142" y2="138" class="grid-line-strong"/>
+    <line x1="28" y1="145" x2="142" y2="145" class="grid-line-strong"/>
+    <line x1="28" y1="183" x2="142" y2="183" class="grid-line-strong"/>
+    <line x1="28" y1="190" x2="142" y2="190" class="grid-line-strong"/>
+    <line x1="28" y1="225" x2="142" y2="225" class="grid-line-strong"/>
+    <!-- Content blocks -->
+    <rect x="28" y="55" width="35" height="38" fill="#E0E4ED" rx="1"/>
+    <rect x="72" y="55" width="70" height="38" fill="#E0E0E0" rx="1"/>
+    <!-- Text lines in modules -->
+    <g opacity="0.5">
+      <line x1="28" y1="106" x2="63" y2="106" class="content-text"/>
+      <line x1="28" y1="114" x2="63" y2="114" class="content-text"/>
+      <line x1="28" y1="122" x2="55" y2="122" class="content-text"/>
+      <line x1="72" y1="106" x2="142" y2="106" class="content-text"/>
+      <line x1="72" y1="114" x2="142" y2="114" class="content-text"/>
+      <line x1="72" y1="122" x2="142" y2="122" class="content-text"/>
+      <line x1="72" y1="130" x2="130" y2="130" class="content-text"/>
+    </g>
+    <rect x="28" y="145" width="114" height="38" fill="#E0E0E0" rx="1"/>
+    <g opacity="0.5">
+      <line x1="28" y1="196" x2="107" y2="196" class="content-text"/>
+      <line x1="28" y1="204" x2="107" y2="204" class="content-text"/>
+      <line x1="28" y1="212" x2="90" y2="212" class="content-text"/>
+    </g>
+    <text x="85" y="268" text-anchor="middle" class="panel-desc">Architectural portfolios,</text>
+    <text x="85" y="280" text-anchor="middle" class="panel-desc">catalogs</text>
+  </g>
+
+  <!-- \u2550\u2550\u2550 HIERARCHICAL \u2550\u2550\u2550 -->
+  <g transform="translate(575,80)">
+    <text x="95" y="12" text-anchor="middle" class="panel-title">Hierarchical</text>
+    <text x="95" y="26" text-anchor="middle" class="panel-desc">Content-driven</text>
+
+    <rect x="10" y="40" width="170" height="200" class="page-bg" rx="1"/>
+    <!-- Irregular content blocks -->
+    <rect x="20" y="50" width="100" height="18" fill="#D8D8D8" rx="1"/>
+    <rect x="20" y="75" width="60" height="70" fill="#E0E0E0" rx="1"/>
+    <rect x="90" y="75" width="80" height="35" fill="#EAEAEA" rx="1"/>
+    <g opacity="0.5">
+      <line x1="90" y1="120" x2="170" y2="120" class="content-text"/>
+      <line x1="90" y1="128" x2="170" y2="128" class="content-text"/>
+      <line x1="90" y1="136" x2="155" y2="136" class="content-text"/>
+    </g>
+    <rect x="20" y="155" width="150" height="10" fill="#E8E8E8" rx="1"/>
+    <g opacity="0.5">
+      <line x1="20" y1="180" x2="80" y2="180" class="content-text"/>
+      <line x1="20" y1="188" x2="80" y2="188" class="content-text"/>
+      <line x1="20" y1="196" x2="65" y2="196" class="content-text"/>
+    </g>
+    <rect x="100" y="175" width="70" height="50" fill="#E0E0E0" rx="1"/>
+    <text x="95" y="268" text-anchor="middle" class="panel-desc">Websites,</text>
+    <text x="95" y="280" text-anchor="middle" class="panel-desc">experimental posters</text>
+  </g>
+
+  <!-- Bottom note -->
+  <text x="400" y="420" text-anchor="middle" font-size="11" fill="#999" font-style="italic">For architectural portfolios, the modular grid (third from left) is the recommended system.</text>
+
+  <!-- Highlight bracket under modular -->
+  <line x1="400" y1="365" x2="550" y2="365" stroke="#1A1A1A" stroke-width="1.5"/>
+  <text x="475" y="380" text-anchor="middle" font-size="11" fill="#1A1A1A" font-weight="600" letter-spacing="1">RECOMMENDED</text>
+</svg>

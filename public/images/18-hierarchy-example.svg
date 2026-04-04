@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 535" font-family="'Circular Std','Inter','Helvetica Neue',Arial,sans-serif">
+  <defs>
+    <style>
+      text { fill: #333; }
+      .label { font-size: 11px; fill: #777; }
+      .label-bold { font-size: 11px; fill: #1A1A1A; font-weight: 600; }
+      .title { font-size: 16px; fill: #1A1A1A; font-weight: 600; }
+      .subtitle { font-size: 11px; fill: #999; letter-spacing: 2px; text-transform: uppercase; }
+      .grid-col { stroke: #3B7DD8; stroke-width: 0.75; stroke-dasharray: 4,3; }
+      .grid-row { stroke: #E85D3A; stroke-width: 0.75; stroke-dasharray: 4,3; }
+      .margin-line { stroke: #BBB; stroke-width: 1; stroke-dasharray: 6,4; }
+      .page-border { fill: #FAFAFA; stroke: #D0D0D0; stroke-width: 1.5; }
+      .module-fill { fill: #F0F4FA; stroke: none; }
+      .callout-line { stroke: #333; stroke-width: 0.75; }
+      .callout-dot { fill: #333; }
+      .dim-line { stroke: #BBB; stroke-width: 0.75; }
+      .accent-blue { fill: #3B7DD8; }
+      .accent-red { fill: #E85D3A; }
+      .white-text { font-size: 11px; fill: #FFF; font-weight: 600; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="2000" height="2000" fill="white"/>
+
+
+  <text x="400" y="32" text-anchor="middle" class="title">Visual Hierarchy in Practice</text>
+
+  <!-- Page preview -->
+  <rect x="50" y="55" width="370" height="440" fill="white" stroke="#D0D0D0" stroke-width="1.5" rx="3"/>
+
+  <!-- Level 1: Title -->
+  <rect x="70" y="90" width="330" height="44" fill="#1A1A1A" rx="3"/>
+  <text x="86" y="118" class="white-text">Level 1: Title</text>
+
+  <!-- Level 2: Subtitle -->
+  <rect x="70" y="175" width="330" height="36" fill="#777" rx="3"/>
+  <text x="86" y="199" class="white-text">Level 2: Subtitle</text>
+
+  <!-- Level 3: Body -->
+  <line x1="70" y1="260" x2="380" y2="260" stroke="#333" stroke-width="1.2"/>
+  <line x1="70" y1="274" x2="375" y2="274" stroke="#333" stroke-width="1.2"/>
+  <line x1="70" y1="288" x2="370" y2="288" stroke="#333" stroke-width="1.2"/>
+  <line x1="70" y1="302" x2="365" y2="302" stroke="#333" stroke-width="1.2"/>
+  <line x1="70" y1="316" x2="360" y2="316" stroke="#333" stroke-width="1.2"/>
+
+  <!-- Level 4: Caption -->
+  <line x1="70" y1="400" x2="320" y2="400" stroke="#BBB" stroke-width="0.7"/>
+  <line x1="70" y1="414" x2="310" y2="414" stroke="#BBB" stroke-width="0.7"/>
+
+  <!-- Right annotations -->
+  <line x1="410" y1="112" x2="450" y2="112" stroke="#BBB" stroke-width="0.5" stroke-dasharray="3,3"/>
+  <text x="460" y="102" class="label-bold">Level 1: Title</text>
+  <text x="460" y="116" class="label">Largest, boldest &#x2014; draws the eye first</text>
+  <rect x="460" y="124" width="12" height="12" fill="#E85D3A" rx="2"/>
+  <text x="478" y="134" class="label-bold">24pt</text>
+
+  <line x1="410" y1="193" x2="450" y2="193" stroke="#BBB" stroke-width="0.5" stroke-dasharray="3,3"/>
+  <text x="460" y="185" class="label-bold">Level 2: Subtitle</text>
+  <text x="460" y="199" class="label">Medium weight, secondary emphasis</text>
+  <rect x="460" y="207" width="12" height="12" fill="#E85D3A" rx="2"/>
+  <text x="478" y="217" class="label-bold">16pt</text>
+
+  <line x1="410" y1="288" x2="450" y2="288" stroke="#BBB" stroke-width="0.5" stroke-dasharray="3,3"/>
+  <text x="460" y="278" class="label-bold">Level 3: Body</text>
+  <text x="460" y="292" class="label">Standard size for comfortable reading</text>
+  <rect x="460" y="300" width="10" height="10" fill="#E85D3A" rx="2"/>
+  <text x="478" y="310" class="label-bold">10pt</text>
+
+  <line x1="410" y1="407" x2="450" y2="407" stroke="#BBB" stroke-width="0.5" stroke-dasharray="3,3"/>
+  <text x="460" y="397" class="label-bold">Level 4: Caption</text>
+  <text x="460" y="411" class="label">Smallest, lightest &#x2014; minimal weight</text>
+  <rect x="460" y="419" width="8" height="8" fill="#E85D3A" rx="1"/>
+  <text x="478" y="427" class="label-bold">8pt</text>
+
+  <text x="400" y="515" text-anchor="middle" class="label">Size, weight, and contrast work together to create visual hierarchy.</text>
+
+</svg>

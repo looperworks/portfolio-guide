@@ -1,0 +1,184 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Circular Std','Inter','Helvetica Neue',Arial,sans-serif">
+  <defs>
+    <style>
+      .title { font-size: 16px; fill: #1A1A1A; font-weight: 600; }
+      .subtitle { font-size: 11px; fill: #999; letter-spacing: 2px; }
+      .panel-title { font-size: 11px; fill: #1A1A1A; font-weight: 600; }
+      .panel-sub { font-size: 11px; letter-spacing: 1.5px; }
+      .label { font-size: 11px; fill: #777; }
+      .baseline-good { stroke: #E85D3A; stroke-width: 0.3; opacity: 0.4; }
+      .baseline-bad { stroke: #E85D3A; stroke-width: 0.3; opacity: 0.4; }
+      .text-good { fill: #666; }
+      .text-bad { fill: #666; }
+      .page-bg { fill: #FAFAFA; stroke: #D0D0D0; stroke-width: 1; }
+      .col-div { stroke: #DDD; stroke-width: 0.5; stroke-dasharray: 4,3; }
+      .drift-line { stroke: #CC3333; stroke-width: 0.75; stroke-dasharray: 2,2; }
+      .check { fill: #2E7D32; }
+      .cross { fill: #CC3333; }
+    </style>
+  </defs>
+
+  <rect width="800" height="500" fill="white"/>
+<text x="400" y="54" text-anchor="middle" class="title">Common Mistake: Baseline Drift</text>
+
+  <!-- \u2550\u2550\u2550 LEFT: CORRECT \u2550\u2550\u2550 -->
+  <g transform="translate(30,75)">
+    <text x="165" y="12" text-anchor="middle" class="panel-title">With Baseline Grid</text>
+    <text x="165" y="26" text-anchor="middle" class="panel-sub check" style="fill:#2E7D32">ALIGNED</text>
+
+    <rect x="10" y="40" width="310" height="340" class="page-bg" rx="1"/>
+
+    <!-- Baseline grid lines -->
+    <g class="baseline-good">
+      <line x1="30" y1="70" x2="300" y2="70"/>
+      <line x1="30" y1="86" x2="300" y2="86"/>
+      <line x1="30" y1="102" x2="300" y2="102"/>
+      <line x1="30" y1="118" x2="300" y2="118"/>
+      <line x1="30" y1="134" x2="300" y2="134"/>
+      <line x1="30" y1="150" x2="300" y2="150"/>
+      <line x1="30" y1="166" x2="300" y2="166"/>
+      <line x1="30" y1="182" x2="300" y2="182"/>
+      <line x1="30" y1="198" x2="300" y2="198"/>
+      <line x1="30" y1="214" x2="300" y2="214"/>
+      <line x1="30" y1="230" x2="300" y2="230"/>
+      <line x1="30" y1="246" x2="300" y2="246"/>
+      <line x1="30" y1="262" x2="300" y2="262"/>
+      <line x1="30" y1="278" x2="300" y2="278"/>
+      <line x1="30" y1="294" x2="300" y2="294"/>
+      <line x1="30" y1="310" x2="300" y2="310"/>
+      <line x1="30" y1="326" x2="300" y2="326"/>
+      <line x1="30" y1="342" x2="300" y2="342"/>
+      <line x1="30" y1="358" x2="300" y2="358"/>
+    </g>
+
+    <!-- Column divider -->
+    <line x1="165" y1="60" x2="165" y2="370" class="col-div"/>
+
+    <!-- Left column text (on baselines) -->
+    <g class="text-good">
+      <rect x="30" y="67" width="125" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="30" y="83" width="125" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="30" y="99" width="125" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="30" y="115" width="100" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="30" y="147" width="125" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="30" y="163" width="125" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="30" y="179" width="125" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="30" y="195" width="90" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="30" y="227" width="125" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="30" y="243" width="125" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="30" y="259" width="125" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="30" y="275" width="80" height="2.5" rx="0.5" fill="#888"/>
+    </g>
+
+    <!-- Right column text (on SAME baselines) -->
+    <g class="text-good">
+      <rect x="175" y="67" width="115" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="175" y="83" width="115" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="175" y="99" width="115" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="175" y="115" width="115" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="175" y="131" width="80" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="175" y="147" width="115" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="175" y="163" width="115" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="175" y="179" width="115" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="175" y="195" width="115" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="175" y="211" width="60" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="175" y="227" width="115" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="175" y="243" width="115" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="175" y="259" width="115" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="175" y="275" width="115" height="2.5" rx="0.5" fill="#888"/>
+    </g>
+
+    <!-- Alignment indicators (green) -->
+    <g opacity="0.6">
+      <line x1="305" y1="67" x2="315" y2="67" stroke="#2E7D32" stroke-width="1.5"/>
+      <line x1="305" y1="83" x2="315" y2="83" stroke="#2E7D32" stroke-width="1.5"/>
+      <line x1="305" y1="147" x2="315" y2="147" stroke="#2E7D32" stroke-width="1.5"/>
+      <line x1="305" y1="227" x2="315" y2="227" stroke="#2E7D32" stroke-width="1.5"/>
+    </g>
+
+    <text x="165" y="395" text-anchor="middle" class="label">Baselines align across columns.</text>
+    <text x="165" y="408" text-anchor="middle" class="label">The page feels stable and resolved.</text>
+  </g>
+
+  <!-- \u2550\u2550\u2550 RIGHT: INCORRECT \u2550\u2550\u2550 -->
+  <g transform="translate(420,75)">
+    <text x="165" y="12" text-anchor="middle" class="panel-title">Without Baseline Grid</text>
+    <text x="165" y="26" text-anchor="middle" class="panel-sub cross" style="fill:#CC3333">DRIFTING</text>
+
+    <rect x="10" y="40" width="310" height="340" class="page-bg" rx="1"/>
+
+    <!-- Faded baseline reference -->
+    <g opacity="0.15">
+      <line x1="30" y1="70" x2="300" y2="70" stroke="#E85D3A" stroke-width="0.3"/>
+      <line x1="30" y1="86" x2="300" y2="86" stroke="#E85D3A" stroke-width="0.3"/>
+      <line x1="30" y1="102" x2="300" y2="102" stroke="#E85D3A" stroke-width="0.3"/>
+      <line x1="30" y1="118" x2="300" y2="118" stroke="#E85D3A" stroke-width="0.3"/>
+      <line x1="30" y1="134" x2="300" y2="134" stroke="#E85D3A" stroke-width="0.3"/>
+      <line x1="30" y1="150" x2="300" y2="150" stroke="#E85D3A" stroke-width="0.3"/>
+      <line x1="30" y1="166" x2="300" y2="166" stroke="#E85D3A" stroke-width="0.3"/>
+      <line x1="30" y1="182" x2="300" y2="182" stroke="#E85D3A" stroke-width="0.3"/>
+      <line x1="30" y1="198" x2="300" y2="198" stroke="#E85D3A" stroke-width="0.3"/>
+      <line x1="30" y1="214" x2="300" y2="214" stroke="#E85D3A" stroke-width="0.3"/>
+      <line x1="30" y1="230" x2="300" y2="230" stroke="#E85D3A" stroke-width="0.3"/>
+      <line x1="30" y1="246" x2="300" y2="246" stroke="#E85D3A" stroke-width="0.3"/>
+    </g>
+
+    <!-- Column divider -->
+    <line x1="165" y1="60" x2="165" y2="370" class="col-div"/>
+
+    <!-- Left column text (on baselines \u2014 OK) -->
+    <g>
+      <rect x="30" y="67" width="125" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="30" y="83" width="125" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="30" y="99" width="125" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="30" y="115" width="100" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="30" y="147" width="125" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="30" y="163" width="125" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="30" y="179" width="125" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="30" y="195" width="90" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="30" y="227" width="125" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="30" y="243" width="125" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="30" y="259" width="125" height="2.5" rx="0.5" fill="#888"/>
+    </g>
+
+    <!-- Right column text (DRIFTED \u2014 not on baselines) -->
+    <g>
+      <rect x="175" y="70" width="115" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="175" y="87" width="115" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="175" y="104" width="115" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="175" y="121" width="115" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="175" y="138" width="80" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="175" y="155" width="115" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="175" y="172" width="115" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="175" y="189" width="115" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="175" y="206" width="115" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="175" y="223" width="60" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="175" y="240" width="115" height="2.5" rx="0.5" fill="#888"/>
+      <rect x="175" y="257" width="115" height="2.5" rx="0.5" fill="#888"/>
+    </g>
+
+    <!-- Drift indicators (red lines showing misalignment) -->
+    <g class="drift-line">
+      <line x1="155" y1="67" x2="175" y2="70"/>
+      <line x1="155" y1="83" x2="175" y2="87"/>
+      <line x1="155" y1="147" x2="175" y2="155"/>
+      <line x1="155" y1="227" x2="175" y2="240"/>
+    </g>
+
+    <!-- Red X indicators -->
+    <g opacity="0.6">
+      <line x1="305" y1="65" x2="315" y2="73" stroke="#CC3333" stroke-width="1.5"/>
+      <line x1="315" y1="65" x2="305" y2="73" stroke="#CC3333" stroke-width="1.5"/>
+      <line x1="305" y1="145" x2="315" y2="157" stroke="#CC3333" stroke-width="1.5"/>
+      <line x1="315" y1="145" x2="305" y2="157" stroke="#CC3333" stroke-width="1.5"/>
+      <line x1="305" y1="229" x2="315" y2="243" stroke="#CC3333" stroke-width="1.5"/>
+      <line x1="315" y1="229" x2="305" y2="243" stroke="#CC3333" stroke-width="1.5"/>
+    </g>
+
+    <text x="165" y="395" text-anchor="middle" class="label" fill="#CC3333">Baselines drift between columns.</text>
+    <text x="165" y="408" text-anchor="middle" class="label" fill="#CC3333">The page feels unresolved and unprofessional.</text>
+  </g>
+
+  <!-- Bottom caption -->
+  <text x="400" y="492" text-anchor="middle" font-size="11" fill="#999" font-style="italic">Always pair your modular grid with a baseline grid to maintain vertical register across columns.</text>
+</svg>

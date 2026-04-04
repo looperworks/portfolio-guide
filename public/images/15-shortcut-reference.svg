@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 510" font-family="'Circular Std','Inter','Helvetica Neue',Arial,sans-serif">
+  <defs>
+    <style>
+      text { fill: #333; }
+      .label { font-size: 11px; fill: #777; }
+      .label-bold { font-size: 11px; fill: #1A1A1A; font-weight: 600; }
+      .title { font-size: 16px; fill: #1A1A1A; font-weight: 600; }
+      .subtitle { font-size: 11px; fill: #999; letter-spacing: 2px; text-transform: uppercase; }
+      .grid-col { stroke: #3B7DD8; stroke-width: 0.75; stroke-dasharray: 4,3; }
+      .grid-row { stroke: #E85D3A; stroke-width: 0.75; stroke-dasharray: 4,3; }
+      .margin-line { stroke: #BBB; stroke-width: 1; stroke-dasharray: 6,4; }
+      .page-border { fill: #FAFAFA; stroke: #D0D0D0; stroke-width: 1.5; }
+      .module-fill { fill: #F0F4FA; stroke: none; }
+      .callout-line { stroke: #333; stroke-width: 0.75; }
+      .callout-dot { fill: #333; }
+      .dim-line { stroke: #BBB; stroke-width: 0.75; }
+      .accent-blue { fill: #3B7DD8; }
+      .accent-red { fill: #E85D3A; }
+      .white-text { font-size: 11px; fill: #FFF; font-weight: 600; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="2000" height="2000" fill="white"/>
+
+
+  <text x="400" y="36" text-anchor="middle" class="title">Quick Reference: Essential Shortcuts</text>
+  <line x1="40" y1="48" x2="760" y2="48" stroke="#D0D0D0" stroke-width="0.5"/>
+
+  <!-- Header row -->
+  <text x="60" y="72" class="label" fill="#E85D3A" font-weight="600">Action</text>
+  <text x="380" y="72" text-anchor="middle" class="label" fill="#E85D3A" font-weight="600">Mac</text>
+  <text x="640" y="72" text-anchor="middle" class="label" fill="#E85D3A" font-weight="600">Windows</text>
+  <line x1="40" y1="80" x2="760" y2="80" stroke="#D0D0D0" stroke-width="0.5"/>
+
+  <rect x="40" y="85" width="720" height="50" fill="#FAFAFA" rx="2"/>
+  <text x="60" y="107" class="label-bold">Preview Mode</text>
+  <rect x="376" y="93" width="26" height="24" fill="#FAFAFA" stroke="#D0D0D0" rx="4"/>
+  <text x="380" y="107" text-anchor="middle" class="label-bold">W</text>
+  <rect x="636" y="93" width="26" height="24" fill="#FAFAFA" stroke="#D0D0D0" rx="4"/>
+  <text x="640" y="107" text-anchor="middle" class="label-bold">W</text>
+  <rect x="40" y="135" width="720" height="50" fill="white" rx="2"/>
+  <text x="60" y="157" class="label-bold">Open Preferences</text>
+  <rect x="360" y="143" width="58" height="24" fill="#FAFAFA" stroke="#D0D0D0" rx="4"/>
+  <text x="380" y="157" text-anchor="middle" class="label-bold">Cmd+K</text>
+  <rect x="616" y="143" width="66" height="24" fill="#FAFAFA" stroke="#D0D0D0" rx="4"/>
+  <text x="640" y="157" text-anchor="middle" class="label-bold">Ctrl+K</text>
+  <rect x="40" y="185" width="720" height="50" fill="#FAFAFA" rx="2"/>
+  <text x="60" y="207" class="label-bold">Show/Hide Baseline Grid</text>
+  <rect x="344" y="193" width="90" height="24" fill="#FAFAFA" stroke="#D0D0D0" rx="4"/>
+  <text x="380" y="207" text-anchor="middle" class="label-bold">Opt+Cmd+'</text>
+  <rect x="600" y="193" width="98" height="24" fill="#FAFAFA" stroke="#D0D0D0" rx="4"/>
+  <text x="640" y="207" text-anchor="middle" class="label-bold">Alt+Ctrl+'</text>
+  <rect x="40" y="235" width="720" height="50" fill="white" rx="2"/>
+  <text x="60" y="257" class="label-bold">Show/Hide Guides</text>
+  <rect x="360" y="243" width="58" height="24" fill="#FAFAFA" stroke="#D0D0D0" rx="4"/>
+  <text x="380" y="257" text-anchor="middle" class="label-bold">Cmd+;</text>
+  <rect x="616" y="243" width="66" height="24" fill="#FAFAFA" stroke="#D0D0D0" rx="4"/>
+  <text x="640" y="257" text-anchor="middle" class="label-bold">Ctrl+;</text>
+  <rect x="40" y="285" width="720" height="50" fill="#FAFAFA" rx="2"/>
+  <text x="60" y="307" class="label-bold">Snap to Guides</text>
+  <rect x="336" y="293" width="106" height="24" fill="#FAFAFA" stroke="#D0D0D0" rx="4"/>
+  <text x="380" y="307" text-anchor="middle" class="label-bold">Shift+Cmd+;</text>
+  <rect x="592" y="293" width="114" height="24" fill="#FAFAFA" stroke="#D0D0D0" rx="4"/>
+  <text x="640" y="307" text-anchor="middle" class="label-bold">Shift+Ctrl+;</text>
+  <rect x="40" y="335" width="720" height="50" fill="white" rx="2"/>
+  <text x="60" y="357" class="label-bold">Place File</text>
+  <rect x="360" y="343" width="58" height="24" fill="#FAFAFA" stroke="#D0D0D0" rx="4"/>
+  <text x="380" y="357" text-anchor="middle" class="label-bold">Cmd+D</text>
+  <rect x="616" y="343" width="66" height="24" fill="#FAFAFA" stroke="#D0D0D0" rx="4"/>
+  <text x="640" y="357" text-anchor="middle" class="label-bold">Ctrl+D</text>
+  <rect x="40" y="385" width="720" height="50" fill="#FAFAFA" rx="2"/>
+  <text x="60" y="407" class="label-bold">Fit Spread in Window</text>
+  <rect x="344" y="393" width="90" height="24" fill="#FAFAFA" stroke="#D0D0D0" rx="4"/>
+  <text x="380" y="407" text-anchor="middle" class="label-bold">Opt+Cmd+0</text>
+  <rect x="600" y="393" width="98" height="24" fill="#FAFAFA" stroke="#D0D0D0" rx="4"/>
+  <text x="640" y="407" text-anchor="middle" class="label-bold">Alt+Ctrl+0</text>
+  <rect x="40" y="435" width="720" height="50" fill="white" rx="2"/>
+  <text x="60" y="457" class="label-bold">Create Guides</text>
+  <rect x="336" y="443" width="106" height="24" fill="#FAFAFA" stroke="#D0D0D0" rx="4"/>
+  <text x="380" y="457" text-anchor="middle" class="label-bold">Layout Menu</text>
+  <rect x="596" y="443" width="106" height="24" fill="#FAFAFA" stroke="#D0D0D0" rx="4"/>
+  <text x="640" y="457" text-anchor="middle" class="label-bold">Layout Menu</text>
+
+
+</svg>
