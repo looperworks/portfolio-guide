@@ -200,83 +200,65 @@ function DiagramCompression() {
 }
 
 function DiagramCompressionWorked() {
-  /* Spacing system: all measurements derived from base unit */
-  const cx = 200;          /* center axis */
-  const p = 12;            /* inner padding (all sides) */
-  const labelH = 11;       /* box top → label baseline */
-  const gapLB = 11;        /* label baseline → first body baseline */
-  const lh = 10;           /* body line height */
-  const botPad = 9;        /* last baseline → box bottom */
-  const arrowGap = 16;     /* box bottom → next box top */
-  const aw = 4;            /* arrow triangle half-width */
+  /* All boxes share the same left edge; widths decrease to show compression.
+     viewBox matches other diagrams at 420 wide. */
+  const L = 30;            /* shared left edge */
+  const p = 12;            /* inner padding */
+  const labelY = 12;       /* box top → label baseline */
+  const bodyY = 24;        /* box top → first body baseline */
+  const lh = 11;           /* body line height */
+  const bot = 10;          /* last baseline → box bottom */
+  const gap = 18;          /* box bottom → next box top */
+  const aw = 4;            /* arrow half-width */
+  const acx = 210;         /* arrow center x */
 
-  /* Step 1: Paragraph — 340w */
-  const s1y = 36;
-  const s1w = 340; const s1x = cx - s1w / 2;
-  const s1h = labelH + gapLB + lh * 3 + botPad;
+  const s1y = 38; const s1w = 360; const s1h = bodyY + lh * 3 + bot;
+  const s2y = s1y + s1h + gap; const s2w = 300; const s2h = bodyY + lh + bot;
+  const s3y = s2y + s2h + gap; const s3w = 200; const s3h = 42;
+  const s4y = s3y + s3h + gap; const s4w = 240; const s4h = bodyY + lh + bot;
+  const totalH = s4y + s4h + 26;
 
-  /* Step 2: Sentence — 280w */
-  const s2y = s1y + s1h + arrowGap;
-  const s2w = 280; const s2x = cx - s2w / 2;
-  const s2h = labelH + gapLB + lh + botPad;
-
-  /* Step 3: Word — 160w */
-  const s3y = s2y + s2h + arrowGap;
-  const s3w = 160; const s3x = cx - s3w / 2;
-  const s3h = labelH + 16 + botPad;
-
-  /* Step 4: Thread — 200w */
-  const s4y = s3y + s3h + arrowGap;
-  const s4w = 200; const s4x = cx - s4w / 2;
-  const s4h = labelH + gapLB + lh + botPad;
-
-  const Arrow = ({ from }) => {
-    const y1 = from;
-    const y2 = from + arrowGap;
-    const mid = (y1 + y2) / 2;
-    return (<g>
-      <line x1={cx} y1={y1 + 2} x2={cx} y2={y2 - 2} stroke={T.border} strokeWidth="0.75" />
-      <polygon points={`${cx - aw},${y2 - 5} ${cx + aw},${y2 - 5} ${cx},${y2 - 1}`} fill={T.border} />
-    </g>);
-  };
+  const Arrow = ({ from, cx: arrowX }) => (<g>
+    <line x1={arrowX} y1={from + 3} x2={arrowX} y2={from + gap - 4} stroke={T.border} strokeWidth="0.75" />
+    <polygon points={`${arrowX - aw},${from + gap - 6} ${arrowX + aw},${from + gap - 6} ${arrowX},${from + gap - 2}`} fill={T.border} />
+  </g>);
 
   return (
-    <svg viewBox={`0 0 400 ${s4y + s4h + 24}`} style={{ width: "100%", height: "auto" }}>
-      {/* Title block */}
-      <text x={cx} y="13" textAnchor="middle" fontSize="6.5" fontFamily={T.sans} fontWeight="700" fill={T.textMid} letterSpacing="0.1em">WORKED EXAMPLE: COMPRESSION EXERCISE</text>
-      <text x={cx} y="24" textAnchor="middle" fontSize="5.5" fontFamily={T.sans} fill={T.textLight} fontStyle="italic">Harvard GSD — Advanced Studio — Alpine Museum</text>
+    <svg viewBox={`0 0 420 ${totalH}`} style={{ width: "100%", height: "auto" }}>
+      <text x="210" y="14" textAnchor="middle" fontSize="7" fontFamily={T.sans} fontWeight="600" fill={T.textMid} letterSpacing="0.1em">WORKED EXAMPLE: COMPRESSION EXERCISE</text>
+      <text x="210" y="26" textAnchor="middle" fontSize="6" fontFamily={T.sans} fill={T.textLight} fontStyle="italic">Harvard GSD — Advanced Studio — Alpine Museum</text>
 
-      {/* Step 1 */}
-      <rect x={s1x} y={s1y} width={s1w} height={s1h} rx="3" fill="#fff" stroke={T.border} strokeWidth="0.75" />
-      <text x={s1x + p} y={s1y + labelH} fontSize="5.5" fontFamily={T.sans} fontWeight="700" fill={T.textLight} letterSpacing="0.06em">STEP 1 — ONE PARAGRAPH</text>
-      <text x={s1x + p} y={s1y + labelH + gapLB} fontSize="6.5" fontFamily={T.sans} fill={T.text}>The design converts a decommissioned Cold War bunker into</text>
-      <text x={s1x + p} y={s1y + labelH + gapLB + lh} fontSize="6.5" fontFamily={T.sans} fill={T.text}>an Alpine museum by cutting into eroding mountainside terrain,</text>
-      <text x={s1x + p} y={s1y + labelH + gapLB + lh * 2} fontSize="6.5" fontFamily={T.sans} fill={T.text}>creating a continuous path that makes geological time visible</text>
-      <text x={s1x + p} y={s1y + labelH + gapLB + lh * 3} fontSize="6.5" fontFamily={T.sans} fill={T.text}>as visitors move between landscape and gallery.</text>
-      <Arrow from={s1y + s1h} />
+      {/* Step 1: Paragraph — full width */}
+      <rect x={L} y={s1y} width={s1w} height={s1h} rx="3" fill="#fff" stroke={T.border} strokeWidth="0.75" />
+      <text x={L + p} y={s1y + labelY} fontSize="5.5" fontFamily={T.sans} fontWeight="700" fill={T.textLight} letterSpacing="0.06em">STEP 1 — ONE PARAGRAPH</text>
+      <text x={L + p} y={s1y + bodyY} fontSize="7" fontFamily={T.sans} fill={T.text}>The design converts a decommissioned Cold War bunker</text>
+      <text x={L + p} y={s1y + bodyY + lh} fontSize="7" fontFamily={T.sans} fill={T.text}>into an Alpine museum by cutting into eroding mountainside</text>
+      <text x={L + p} y={s1y + bodyY + lh * 2} fontSize="7" fontFamily={T.sans} fill={T.text}>terrain, creating a continuous path that makes geological</text>
+      <text x={L + p} y={s1y + bodyY + lh * 3} fontSize="7" fontFamily={T.sans} fill={T.text}>time visible as visitors move between landscape and gallery.</text>
+      <Arrow from={s1y + s1h} cx={L + s1w / 2} />
 
-      {/* Step 2 */}
-      <rect x={s2x} y={s2y} width={s2w} height={s2h} rx="3" fill="#fff" stroke={T.border} strokeWidth="0.75" />
-      <text x={s2x + p} y={s2y + labelH} fontSize="5.5" fontFamily={T.sans} fontWeight="700" fill={T.textLight} letterSpacing="0.06em">STEP 2 — ONE SENTENCE</text>
-      <text x={s2x + p} y={s2y + labelH + gapLB} fontSize="6.5" fontFamily={T.sans} fill={T.text}>An Alpine museum embeds into eroding terrain to make</text>
-      <text x={s2x + p} y={s2y + labelH + gapLB + lh} fontSize="6.5" fontFamily={T.sans} fill={T.text}>climate change a spatial experience.</text>
-      <Arrow from={s2y + s2h} />
+      {/* Step 2: Sentence — narrower */}
+      <rect x={L} y={s2y} width={s2w} height={s2h} rx="3" fill="#fff" stroke={T.border} strokeWidth="0.75" />
+      <text x={L + p} y={s2y + labelY} fontSize="5.5" fontFamily={T.sans} fontWeight="700" fill={T.textLight} letterSpacing="0.06em">STEP 2 — ONE SENTENCE</text>
+      <text x={L + p} y={s2y + bodyY} fontSize="7" fontFamily={T.sans} fill={T.text}>An Alpine museum embeds into eroding terrain to</text>
+      <text x={L + p} y={s2y + bodyY + lh} fontSize="7" fontFamily={T.sans} fill={T.text}>make climate change a spatial experience.</text>
+      <Arrow from={s2y + s2h} cx={L + s2w / 2} />
 
-      {/* Step 3 */}
-      <rect x={s3x} y={s3y} width={s3w} height={s3h} rx="3" fill="#fff" stroke={T.text} strokeWidth="1.25" />
-      <text x={cx} y={s3y + labelH} textAnchor="middle" fontSize="5.5" fontFamily={T.sans} fontWeight="700" fill={T.textLight} letterSpacing="0.06em">STEP 3 — ONE WORD</text>
-      <text x={cx} y={s3y + labelH + 16} textAnchor="middle" fontSize="14" fontFamily={T.sans} fontWeight="700" fill={T.text} letterSpacing="0.04em">Erosion</text>
-      <Arrow from={s3y + s3h} />
+      {/* Step 3: One Word — narrow, centered text, bold border */}
+      <rect x={L} y={s3y} width={s3w} height={s3h} rx="3" fill="#fff" stroke={T.text} strokeWidth="1.25" />
+      <text x={L + s3w / 2} y={s3y + 14} textAnchor="middle" fontSize="5.5" fontFamily={T.sans} fontWeight="700" fill={T.textLight} letterSpacing="0.06em">STEP 3 — ONE WORD</text>
+      <text x={L + s3w / 2} y={s3y + 32} textAnchor="middle" fontSize="15" fontFamily={T.sans} fontWeight="700" fill={T.text} letterSpacing="0.04em">Erosion</text>
+      <Arrow from={s3y + s3h} cx={L + s3w / 2} />
 
-      {/* Step 4 */}
-      <rect x={s4x} y={s4y} width={s4w} height={s4h} rx="3" fill={T.navy} />
-      <text x={cx} y={s4y + labelH} textAnchor="middle" fontSize="5.5" fontFamily={T.sans} fontWeight="700" fill="rgba(255,255,255,0.5)" letterSpacing="0.06em">STEP 4 — THREAD TEST</text>
-      <text x={cx} y={s4y + labelH + gapLB} textAnchor="middle" fontSize="7.5" fontFamily={T.sans} fontWeight="600" fill="#fff">Erosion → landscape · structure</text>
-      <text x={cx} y={s4y + labelH + gapLB + lh} textAnchor="middle" fontSize="7.5" fontFamily={T.sans} fontWeight="600" fill="#fff">materiality · visitor path</text>
+      {/* Step 4: Thread Test — navy */}
+      <rect x={L} y={s4y} width={s4w} height={s4h} rx="3" fill={T.navy} />
+      <text x={L + s4w / 2} y={s4y + labelY} textAnchor="middle" fontSize="5.5" fontFamily={T.sans} fontWeight="700" fill="rgba(255,255,255,0.5)" letterSpacing="0.06em">STEP 4 — THREAD TEST</text>
+      <text x={L + s4w / 2} y={s4y + bodyY} textAnchor="middle" fontSize="7.5" fontFamily={T.sans} fontWeight="600" fill="#fff">Erosion → landscape · structure</text>
+      <text x={L + s4w / 2} y={s4y + bodyY + lh} textAnchor="middle" fontSize="7.5" fontFamily={T.sans} fontWeight="600" fill="#fff">materiality · visitor path</text>
 
       {/* Compression line */}
-      <line x1={s1x} y1={s4y + s4h + 12} x2={s1x + s1w} y2={s4y + s4h + 12} stroke={T.coral} strokeWidth="0.75" strokeDasharray="2,4" />
-      <text x={s1x + s1w} y={s4y + s4h + 22} textAnchor="end" fontSize="5.5" fontFamily={T.sans} fontWeight="500" fill={T.coral}>COMPRESSION →</text>
+      <line x1={L} y1={s4y + s4h + 14} x2={L + s1w} y2={s4y + s4h + 14} stroke={T.coral} strokeWidth="0.75" strokeDasharray="2,4" />
+      <text x={L + s1w} y={s4y + s4h + 24} textAnchor="end" fontSize="5.5" fontFamily={T.sans} fontWeight="500" fill={T.coral}>COMPRESSION →</text>
     </svg>
   );
 }
