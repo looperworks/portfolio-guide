@@ -964,7 +964,7 @@ A portfolio is read at two speeds. At skim speed, the cover, image hierarchy, an
 Different audiences read for different evidence. An academic reviewer looks for process: sketches, diagrams, and failed iterations that reveal how you think through a problem. A large firm looks for resolution: polished deliverables and technical range that demonstrate you can produce at a professional standard. A boutique studio looks for alignment: a design sensibility and point of view that signal you would be a collaborator, not just a pair of hands. Knowing what each audience evaluates for is the difference between a page that documents and a page that argues.
 
 Every architecture portfolio shares a common anatomy: cover, table of contents, project spreads, and supplemental material. Within each project spread, four image types perform distinct roles: concept, process, outcome, and context. Later modules develop these categories and their sequencing in detail. Throughout Part I, we return to a single portfolio (an Alpine Museum project from Harvard GSD) to show how each principle operates in practice. The full case study appears at the end of Part I. Design the reading, not just the work.`,
-    keyInsight: `"A portfolio is not an archive of everything you have produced. It is an argument."`,
+    keyInsight: `A portfolio is not an archive of everything you have produced. It is an argument.`,
   },
   {
     id: 2,
@@ -981,7 +981,7 @@ Every architecture portfolio shares a common anatomy: cover, table of contents, 
 **The Thread Test:** Repeat the exercise for every project in the portfolio. Write the core words side by side. When the same word keeps surfacing, you have found your Red Thread. When the words scatter, the portfolio lacks a unifying position and needs one.
 
 When you can name your lens, you can use it to curate, sequence, and edit with precision. The exercise turns a vague sense of what your work is about into a single word you can test against every project. See Diagram 02 for a worked example applying this exercise to the Alpine Museum portfolio analyzed in the Case Study at the end of Part I.`,
-    keyInsight: `"Compression is not reduction. It is clarification."`,
+    keyInsight: `Compression is not reduction. It is clarification.`,
   },
   {
     id: 3,
@@ -996,7 +996,7 @@ When you can name your lens, you can use it to curate, sequence, and edit with p
 **Resolution:** the closing projects demonstrate that your thinking has arrived somewhere. The work should feel resolved: technically precise, professionally aware, and intentionally positioned. A reviewer should leave the final spread with a clear sense of your direction, not just your skill.
 
 Building a narrative takes three steps. First, write a position statement: your design point of view in one sentence. Second, map your projects to the arc, deciding which opens, which develops complexity, and which resolves. Third, sequence images within each project so they advance the argument spread by spread. The result is an explicit, editable structure you can test, revise, and defend.`,
-    keyInsight: null,
+    keyInsight: `Sequence is not chronology. It is rhetoric.`,
   },
   {
     id: 4,
@@ -1013,7 +1013,7 @@ The middle projects build case through evidence, complexity, and range. Each adv
 The closing project should be the most resonant (the piece that makes viewers feel that the entire portfolio was leading to that moment). This is the final statement. A reviewer should exit the portfolio thinking "I understand what this designer cares about," not "That was a nice project."
 
 Precedent study sharpens sequencing instincts. Award-winning portfolios, such as those recognized by the RIBA President's Medals, reveal how experienced designers apply the initials-and-finals principle intuitively. In small-group critique, examine published portfolios for narrative structure, visual consistency, project sequencing, and clarity of intent. Note which sequencing decisions land and why. That editorial eye is what you bring back to your own work.`,
-    keyInsight: `"The first impression sets the frame. The last impression sets the memory."`,
+    keyInsight: `The first impression sets the frame. The last impression sets the memory.`,
   },
   {
     id: 5,
@@ -1030,7 +1030,7 @@ Outcome: The final rendering, the technical drawing, the detail section. Outcome
 Context: The site photograph, the street elevation, the existing condition. Context images ground the work in real-world constraints and opportunities. Without context, even the most elegant proposal reads as autonomous fancy.
 
 The sequence matters. Concept first. Context second. Process and Outcome weave together based on the project's narrative logic. A portfolio that leads with Outcome is a catalog. A portfolio that sequences concept → context → process → outcome is an argument.`,
-    keyInsight: `"Every image should earn its place. If you cannot articulate what it communicates, remove it."`,
+    keyInsight: `Every image should earn its place. If you cannot articulate what it communicates, remove it.`,
   },
   {
     id: 6,
@@ -1043,7 +1043,7 @@ Two-paragraph format: Paragraph one covers context, intent, and thesis in four t
 The concept sentence is the compressed version: one line a reviewer reads in five seconds. This sentence should distill the position you are testing and make it specific and testable. It becomes the key insight for this project (the single claim that ties all images to one idea).
 
 Once written, check your statement against the Red Thread. Does this project address the same fundamental question as your other work? Does it extend the argument into new territory? If a statement describes a one-off experiment with no connection to the larger portfolio position, ask whether the project belongs in the portfolio at all.`,
-    keyInsight: `"Strong statements are specific. They make a testable claim. They are worth arguing about."`,
+    keyInsight: `Strong statements are specific. They make a testable claim. They are worth arguing about.`,
   },
   {
     id: 7,
@@ -1064,7 +1064,7 @@ Storyboarding Method: Print all project images as small thumbnails (3×5 or 4×6
 The Two-Track Reading System ensures the portfolio works at both speeds. Track 1 - Skim (30–90 seconds): Large images, clear hierarchy, minimal text. Track 2 - Study (5–15 minutes): Captions, process, analytical detail. Text and image should complete each other rather than duplicate. The image shows what cannot be said. The text says what cannot be shown.
 
 The constructing narrative exercise puts this into practice. Working with seven spreads in InDesign, arrange your strongest project as a complete visual sequence: opening spread with concept image, two to three development spreads with process and context images, and a closing spread with outcome images. This is the proof-of-concept (testing whether your storyboard holds on real pages before committing to full portfolio production).`,
-    keyInsight: `"A sequence is not a collection. Each image should advance, not repeat."`,
+    keyInsight: `A sequence is not a collection. Each image should advance, not repeat.`,
   },
   {
     id: 8,
