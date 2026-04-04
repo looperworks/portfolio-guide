@@ -1649,7 +1649,7 @@ export default function PortfolioGuide() {
 
           {CASE_STUDY.keyInsight && (
             <div style={{ borderLeft: `2px solid ${T.text}`, paddingLeft: 16, marginBottom: 40, marginTop: 28 }}>
-              <p style={{ fontSize: 11, lineHeight: 1.7, color: T.text, fontStyle: "italic", margin: 0, letterSpacing: "0.01em" }}>{CASE_STUDY.keyInsight}</p>
+              <p style={{ fontSize: 13, lineHeight: 1.8, color: T.text, fontStyle: "italic", margin: 0, letterSpacing: "0.01em" }}>{CASE_STUDY.keyInsight}</p>
             </div>
           )}
 
@@ -1773,7 +1773,7 @@ export default function PortfolioGuide() {
 
         {mod.keyInsight && (
           <div style={{ borderLeft: `2px solid ${T.text}`, paddingLeft: 16, marginBottom: 40, marginTop: 28 }}>
-            <p style={{ fontSize: 11, lineHeight: 1.7, color: T.text, fontStyle: "italic", margin: 0, letterSpacing: "0.01em" }}>{mod.keyInsight}</p>
+            <p style={{ fontSize: 13, lineHeight: 1.8, color: T.text, fontStyle: "italic", margin: 0, letterSpacing: "0.01em" }}>{mod.keyInsight}</p>
           </div>
         )}
 
