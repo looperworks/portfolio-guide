@@ -857,11 +857,11 @@ const DIAGRAM_MAP = {
     { image: "class-pdf/class1-portfolio-anatomy.png", title: "Portfolio Anatomy", alt: "Portfolio document structure — Cover, Inside Front Cover, TOC, Section Divider, Introduction Pages, Project Pages, Resume, Back Cover" },
   ],
   "1spreads": [
-    { image: "class-pdf/casestudy-spread-1.jpg", title: "Spread 1 — Terrain Model + Abstract", alt: "Opening spread: terrain model photographed in dramatic light alongside project abstract and site aerial" },
-    { image: "class-pdf/casestudy-spread-2.jpg", title: "Spread 2 — Site + Incision", alt: "Aerial site photograph of alpine landscape paired with detail terrain model showing ramped cut into slope" },
-    { image: "class-pdf/casestudy-spread-3.jpg", title: "Spread 3 — Renderings + Section", alt: "Winter approach rendering, night entry rendering as glowing slit in terrain, and full building section below grade" },
-    { image: "class-pdf/casestudy-spread-4.jpg", title: "Spread 4 — Model + Section", alt: "Roof emerging as geometric cut in snow, visitors on ramped descent, and second building section" },
-    { image: "class-pdf/casestudy-spread-5.jpg", title: "Spread 5 — Galleries + Plans", alt: "Interior gallery renderings showing visitors in exhibition spaces, with first and second floor plans" },
+    { image: "class-pdf/casestudy-spread-1.jpg", title: "Spread 1", alt: "Terrain model and project abstract" },
+    { image: "class-pdf/casestudy-spread-2.jpg", title: "Spread 2", alt: "Aerial site photo and detail terrain model" },
+    { image: "class-pdf/casestudy-spread-3.jpg", title: "Spread 3", alt: "Winter renderings and building section" },
+    { image: "class-pdf/casestudy-spread-4.jpg", title: "Spread 4", alt: "Model photo, approach rendering, and section" },
+    { image: "class-pdf/casestudy-spread-5.jpg", title: "Spread 5", alt: "Gallery interiors and floor plans" },
   ],
   2: [
     { component: DiagramCompression, title: "The Compression Exercise" },
@@ -1813,7 +1813,7 @@ export default function PortfolioGuide() {
               onMouseEnter={(e) => { e.currentTarget.style.color = T.steelLight; e.currentTarget.style.borderColor = `${T.steelLight}`; }}
               onMouseLeave={(e) => { e.currentTarget.style.color = T.steel; e.currentTarget.style.borderColor = `${T.steel}40`; }}
             >
-              Case Study Spreads — {DIAGRAM_MAP["1spreads"].map((d) => d.title).join(", ")}
+              Case Study — Erosion Portfolio (5 Spreads)
             </span>
           </div>
         )}
