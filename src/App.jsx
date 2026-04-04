@@ -1455,7 +1455,7 @@ export default function PortfolioGuide() {
     isCaseStudy = true;
   } else if (route.startsWith("#/diagrams/")) {
     const rawId = route.split("/")[2];
-    diagramModuleId = (rawId === "casestudy" || isNaN(parseInt(rawId, 10))) ? rawId : parseInt(rawId, 10);
+    diagramModuleId = /^\d+$/.test(rawId) ? parseInt(rawId, 10) : rawId;
     view = "diagrams";
   } else if (route.startsWith("#/module/")) {
     const id = parseInt(route.split("/")[2], 10);
