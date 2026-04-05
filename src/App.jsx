@@ -1082,6 +1082,7 @@ function DiagramSlideshow({ diagrams, moduleLabel, backHash }) {
                       maxWidth: "100%", maxHeight: "100%",
                       display: "block", objectFit: "contain",
                       userSelect: "none",
+                      clipPath: "inset(2px)",
                     }}
                   />
                 ) : DiagramComp ? (
