@@ -330,17 +330,18 @@ function DiagramChecklist() {
     { name: "Grid Compliance", items: "Baseline lock · Module snap · Consistent margins · Intentional breaks", color: T.coral },
     { name: "Visual Hierarchy", items: "Focal point · Size contrast · Tonal contrast · Consistent hierarchy", color: T.gold },
     { name: "Typography", items: "Two typefaces · Personality fit · Legibility · Refined spacing", color: T.steel || "#5a7a8a" },
+    { name: "Skill Coverage", items: "Design dev · Technical · Fabrication · Drawing · Research · Writing", color: T.steelLight || "#6d8d9d" },
   ];
   return (
-    <svg viewBox="0 0 420 110" style={{ width: "100%", height: "auto" }}>
-      <text x="210" y="14" textAnchor="middle" fontSize="7" fontFamily={T.sans} fontWeight="600" fill={T.textMid} letterSpacing="0.12em">FIVE-CATEGORY AUDIT FRAMEWORK</text>
+    <svg viewBox="0 0 500 110" style={{ width: "100%", height: "auto" }}>
+      <text x="250" y="14" textAnchor="middle" fontSize="7" fontFamily={T.sans} fontWeight="600" fill={T.textMid} letterSpacing="0.12em">SIX-CATEGORY AUDIT FRAMEWORK</text>
       {levels.map((l, i) => (
         <g key={i}>
-          <rect x={4 + i * 83} y="24" width="79" height="72" rx="3" fill="#fff" stroke={l.color} strokeWidth="1.5" />
-          <rect x={4 + i * 83} y="24" width="79" height="18" rx="3" fill={l.color} opacity="0.1" />
-          <text x={43 + i * 83} y="37" textAnchor="middle" fontSize="6" fontFamily={T.sans} fontWeight="600" fill={l.color}>{l.name}</text>
+          <rect x={4 + i * 82} y="24" width="78" height="72" rx="3" fill="#fff" stroke={l.color} strokeWidth="1.5" />
+          <rect x={4 + i * 82} y="24" width="78" height="18" rx="3" fill={l.color} opacity="0.1" />
+          <text x={43 + i * 82} y="37" textAnchor="middle" fontSize="6" fontFamily={T.sans} fontWeight="600" fill={l.color}>{l.name}</text>
           {l.items.split(" · ").map((item, j) => (
-            <text key={j} x={43 + i * 83} y={50 + j * 9} textAnchor="middle" fontSize="5.5" fontFamily={T.sans} fill={T.textLight}>{item}</text>
+            <text key={j} x={43 + i * 82} y={50 + j * 9} textAnchor="middle" fontSize="5.5" fontFamily={T.sans} fill={T.textLight}>{item}</text>
           ))}
         </g>
       ))}
@@ -818,7 +819,9 @@ The fourth is whitespace. Whitespace is not leftover space. It is a designed ele
 
 The fifth is composite logic. A composite spread layers multiple media types on a single surface: physical model photographs alongside analytical line drawings, massing studies next to geometric diagrams, hand-cast artifacts beside digital iterations. The challenge is not filling the grid but orchestrating different kinds of visual evidence so they read as a unified argument rather than a collage. Each image type carries different information: a photograph proves materiality, a diagram explains geometry, an iteration sequence proves rigor. When they share a spread, the viewer reads across media types, synthesizing evidence the way a juror synthesizes testimony. The grid organizes placement; composite logic organizes meaning. A spread with four images of the same type is a comparison. A spread with four images of different types is an argument.
 
-Composite logic operates in two ways. The first is compositing across images: discrete photographs, diagrams, and drawings placed in separate grid modules, each retaining its own frame but contributing to a shared reading. The second is compositing within a single drawing: site photography, technical line work, and collage notation layered into one hybrid image that cannot be decomposed into separate grid elements. The first strategy relies on the grid to organize the reading order. The second relies on the internal composition of the drawing itself. Both are valid; the choice depends on whether the argument is about relationships between evidence types or about the simultaneity of conditions within a single view.`,
+Composite logic operates in two ways. The first is compositing across images: discrete photographs, diagrams, and drawings placed in separate grid modules, each retaining its own frame but contributing to a shared reading. The second is compositing within a single drawing: site photography, technical line work, and collage notation layered into one hybrid image that cannot be decomposed into separate grid elements. The first strategy relies on the grid to organize the reading order. The second relies on the internal composition of the drawing itself. Both are valid; the choice depends on whether the argument is about relationships between evidence types or about the simultaneity of conditions within a single view.
+
+**Try this now:** Open your strongest project spread. Name the dominant element. Identify the left-right relationship. Measure the whitespace: is it designed or leftover? If the spread has more than three images, label each by type (photograph, diagram, drawing, rendering). Does the combination argue or accumulate?`,
     keyInsight: `The spread is the unit of argument. Every left-right pair should advance a single claim.`,
   },
   {
@@ -835,7 +838,9 @@ Composite logic operates in two ways. The first is compositing across images: di
 
 **Grid Break 3: The Deliberate Void.** A project title page with only a name, a one-line statement, and a single image uses the grid's full capacity by choosing to fill only a fraction of it. In Case Study 2, Spread 6 does this for the second project: title, subtitle, body text, one rendering, and the rest of the page is empty. Restraint is the most difficult grid decision because it requires confidence that less content communicates more authority.
 
-Every grid break should pass one test: can a reviewer see that the break is intentional? If it looks like an accident (an image drifting off the baseline, a caption floating between columns), the break undermines the argument. Break the grid for a reason the viewer can name.`,
+Every grid break should pass one test: can a reviewer see that the break is intentional? If it looks like an accident (an image drifting off the baseline, a caption floating between columns), the break undermines the argument. Break the grid for a reason the viewer can name.
+
+**Try this now:** Print thumbnail versions of your portfolio spreads and lay them side by side. Squint. Does the sequence alternate between dense and open, or does it flatten into a uniform gray band? Circle any three consecutive spreads that feel the same weight. Those are the pacing problems. Then find one spread where you could earn a grid break: a full-bleed, an oversized element, or a deliberate void. What would it punctuate?`,
     keyInsight: `A grid that produces the same layout on every page is not disciplined. It is monotonous.`,
   },
 ];
@@ -869,7 +874,7 @@ const CASE_STUDY_2 = {
   id: "casestudy2",
   title: "Case Study 2: Grid Systems in Practice",
   part: "Part II Conclusion",
-  overview: `This portfolio contains two projects across twelve spreads. What follows is a reading of those spreads through the four modules of Part II, showing how grid systems, composition, and pacing operate in a real portfolio.
+  overview: `This portfolio contains two projects across twelve spreads. What follows is a reading of those spreads through the five modules of Part II, showing how grid systems, composition, and pacing operate in a real portfolio.
 
 **Grid Systems.** The portfolio uses a six-column, eight-row modular grid with a twelve-point baseline. Every spread in the portfolio obeys this structure. Spread 1, the Generative Housing title page, demonstrates the full typographic hierarchy: project title in bold serif, italic subtitle, body text at reading size, and credits stepped down to caption scale. Spread 6 repeats the identical system for the second project, Flexible Framework. The repetition is the proof: the grid is not a one-time decision but a rule applied across the entire document. Margins, column widths, and gutter dimensions remain constant from the first page to the last.
 
@@ -902,7 +907,7 @@ function navigate(hash) {
 /* ─── About content ─── */
 const ABOUT_TEXT = [
   "Portfolio as Narrative is the companion resource for ARCH 66995: Portfolio, a studio-style course at Kent State University's College of Architecture and Environmental Design. The course guides architecture students in developing academic portfolios that synthesize design concepts and communicate architectural thinking to faculty and professional audiences.",
-  "The guide covers fifteen modules across three parts. Part I (Narrative) teaches position statements, keyword-driven graphic outlines, the three-act narrative arc (setup, confrontation, resolution), four image types as evidence (concept, context, process, outcome), and storyboarding. Part II (Grid) covers grid systems, the twelve-point modular grid, InDesign setup, spread composition, and variation and pacing. Part III (Production) addresses cover and table of contents design, typographic systems, color and tonal unity, and a five-category self-editing audit. Two case studies (one tracing a Harvard GSD project through all Part I principles, another analyzing a twelve-spread portfolio through Part II's grid and composition framework) provide extended worked examples.",
+  "The guide covers fifteen modules across three parts. Part I (Narrative) teaches position statements, keyword-driven graphic outlines, the three-act narrative arc (setup, confrontation, resolution), four image types as evidence (concept, context, process, outcome), and storyboarding. Part II (Grid) covers grid systems, the twelve-point modular grid, InDesign setup, spread composition, and variation and pacing. Part III (Production) addresses typographic systems, color and tonal unity, cover and table of contents design, and a six-category self-editing audit. Two case studies (one tracing a Harvard GSD project through all Part I principles, another analyzing a twelve-spread portfolio through Part II's grid and composition framework) provide extended worked examples.",
   "Every module pairs instructional prose with captioned reference diagrams and concludes with a hands-on activity prompt. The course follows a fifteen-week cumulative structure, from portfolio foundations and audience analysis through storyboarding, grid application, and typographic systems, to final production, peer critique, and portfolio presentation. Assignments build progressively toward a fully resolved academic portfolio.",
   "Whether you are preparing for graduate school applications, professional interviews, or scholarship reviews, the framework here applies. A portfolio is not a binder. It is an argument, and this guide shows you how to build one.",
 ];
@@ -970,6 +975,15 @@ function InteractiveChecklist({ moduleId }) {
         "Body typeface highly legible at small sizes",
         "Type sizes, weights, and styles used consistently throughout",
         "Letter-spacing and line-height refined for readability",
+      ]
+    },
+    {
+      level: "Project-Skill Coverage",
+      color: T.steelLight || "#6d8d9d",
+      items: [
+        "Each project mapped against competencies it demonstrates (design development, technical, fabrication, drawing, research, writing)",
+        "No single competency column is empty across all projects",
+        "Gaps acknowledged in statement or addressed by adding a project",
       ]
     },
   ];
