@@ -163,6 +163,47 @@ function DiagramWeakVsStrong() {
 
 /* ─── Shared diagrams (used across multiple modules) ─── */
 
+function DiagramSequenceStructures() {
+  const structures = [
+    { name: "Linear", desc: "Chronological progression", steps: ["Site", "Concept", "Development", "Resolution"], arrows: true },
+    { name: "Comparative", desc: "Before ↔ After pairs", steps: ["Existing", "Proposed", "Existing", "Proposed"], arrows: false, pairs: true },
+    { name: "Thematic", desc: "Organized by principle", steps: ["Threshold", "Threshold", "Threshold", "Threshold"], arrows: false, labels: ["Project A", "Project B", "Project C", "Project D"] },
+  ];
+  return (
+    <svg viewBox="0 0 420 140" style={{ width: "100%", height: "auto" }}>
+      <text x="210" y="14" textAnchor="middle" fontSize="7" fontFamily={T.sans} fontWeight="600" fill={T.textMid} letterSpacing="0.12em">THREE SEQUENCE STRUCTURES</text>
+      {structures.map((s, si) => {
+        const gx = 10 + si * 140;
+        return (
+          <g key={si}>
+            <rect x={gx} y="24" width="126" height="108" rx="3" fill="#fff" stroke={T.border} strokeWidth="1" />
+            <rect x={gx} y="24" width="126" height="20" rx="3" fill={T.navy} />
+            <text x={gx + 63} y="38" textAnchor="middle" fontSize="7" fontFamily={T.sans} fontWeight="600" fill="#fff" letterSpacing="0.06em">{s.name}</text>
+            <text x={gx + 63} y="54" textAnchor="middle" fontSize="6" fontFamily={T.sans} fill={T.textMuted} fontStyle="italic">{s.desc}</text>
+            {s.steps.map((step, i) => {
+              const bx = gx + 8 + i * 30;
+              const by = 64;
+              const fillColor = s.pairs && i % 2 === 0 ? T.bgAlt : s.pairs && i % 2 === 1 ? T.navyLight : T.navy;
+              const textColor = s.pairs && i % 2 === 0 ? T.textMid : "#fff";
+              const opacity = s.pairs && i % 2 === 0 ? 1 : 0.7;
+              return (
+                <g key={i}>
+                  <rect x={bx} y={by} width="26" height="30" rx="2" fill={fillColor} opacity={s.name === "Thematic" ? 0.15 : opacity} stroke={s.name === "Thematic" ? T.navy : "none"} strokeWidth={s.name === "Thematic" ? 0.5 : 0} />
+                  <text x={bx + 13} y={by + 17} textAnchor="middle" fontSize="5" fontFamily={T.sans} fontWeight="500" fill={s.name === "Thematic" ? T.navy : textColor}>{step}</text>
+                  {s.labels && <text x={bx + 13} y={by + 42} textAnchor="middle" fontSize="4.5" fontFamily={T.sans} fill={T.textMuted}>{s.labels[i]}</text>}
+                  {s.arrows && i < 3 && <text x={bx + 28} y={by + 17} fontSize="6" fill={T.textMuted}>→</text>}
+                  {s.pairs && i % 2 === 0 && i < 3 && <text x={bx + 28} y={by + 17} fontSize="6" fill={T.textMuted}>↔</text>}
+                </g>
+              );
+            })}
+            {s.name === "Thematic" && <text x={gx + 63} y={119} textAnchor="middle" fontSize="5" fontFamily={T.sans} fill={T.textMuted}>One principle across projects</text>}
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
+
 function DiagramTypography() {
   const categories = [
     { cat: "Modernist", fonts: "Helvetica · Futura · DIN · Univers", use: "Neutral, versatile" },
@@ -425,6 +466,7 @@ const DIAGRAM_MAP = {
   ],
 
   7: [
+    { component: DiagramSequenceStructures, title: "Three Sequence Structures", caption: "Three ways to unfold images across spreads. Linear narrative follows chronology: site to concept to development to resolution. Comparative narrative pairs before and after, existing and proposed. Thematic narrative organizes around a recurring design principle rather than time. Choose based on what the project argues, not on when the work was produced." },
     { image: "class-pdf/class3-structural-frame.jpg", title: "Concept: The Structural Idea", alt: "Bare timber structural frame on concrete base", caption: "The storyboard starts here. This image declares the governing idea: a timber frame on a concrete plinth. Before program, before materials, before detail. A student sequencing this project must decide: does the concept image open the portfolio, or does it appear after context? The answer depends on the argument." },
     { image: "class-pdf/class3-labeled-axonometric.jpg", title: "Context: Program and Organization", alt: "Annotated bird's-eye axonometric with program labels", caption: "The labeled axonometric maps every program zone: exhibition, education, maker space, loading dock, building center. It provides the information a reviewer needs to understand scale and ambition. In storyboard terms, this image sets the stage. It belongs early, before the design unfolds." },
     { image: "class-pdf/class3-massing-model.jpg", title: "Process: Massing Iteration", alt: "Physical massing model in wood and translucent resin", caption: "One of four massing iterations. Process images prove that the design was developed, not arrived at. The storyboard question: how many iterations to show? One communicates refinement. Four communicates rigor. The answer depends on how much of the story is about the search versus the solution." },
@@ -694,7 +736,7 @@ Line spacing matters more than most students expect. Tight leading works for cap
     id: 11,
     title: "Cover and Table of Contents",
     part: "Grid",
-    overview: `The cover is the first design decision a reviewer encounters, and it frames every page that follows. A cover does not decorate; it declares. It announces the portfolio's design position before the first project appears through typography, image selection, composition, and restraint. Seven cover typologies recur across professional and academic portfolios: Pure Minimal, Dark Ground, Hero Image, Bleed + Band, Collage, Grid Pattern, and Abstract Line. Each suits a different portfolio personality. Pure Minimal signals focus and confidence. Hero Image leads with a single defining moment. Grid Pattern implies systems thinking. The choice should reinforce the same Red Thread that runs through the project sequence.
+    overview: `With your typographic system and color palette established, the cover becomes the first surface where those decisions appear. The cover is the first design decision a reviewer encounters, and it frames every page that follows. A cover does not decorate; it declares. It announces the portfolio's design position before the first project appears through typography, image selection, composition, and restraint. Seven cover typologies recur across professional and academic portfolios: Pure Minimal, Dark Ground, Hero Image, Bleed + Band, Collage, Grid Pattern, and Abstract Line. Each suits a different portfolio personality. Pure Minimal signals focus and confidence. Hero Image leads with a single defining moment. Grid Pattern implies systems thinking. The choice should reinforce the same Red Thread that runs through the project sequence.
 
 The table of contents extends the cover's visual language into informational architecture. How you organize and present the contents signals what you value: visual richness, textual clarity, or a balance of both. Thumbnail formats pair small images with project titles, giving reviewers a visual preview. Text-only formats maintain clean legibility, suited for portfolios exceeding thirty pages. Hybrid formats combine selected images with structured text. The TOC is not filler between cover and content; it is the reader's first act of navigation, and its design teaches the reviewer how to move through your work.
 
@@ -702,7 +744,7 @@ Page numbering is a small decision with outsized consequences for consistency. A
 
 The Case Study 2 portfolio demonstrates several of these principles at once: a consistent title-page format across both projects, with the same typographic system, image placement, and text structure applied to Generative Housing and Flexible Framework. The repetition is not redundancy; it is information architecture. A reviewer encountering the second project divider already knows where to find the statement, the credits, and the hero image, and can focus entirely on content rather than navigation.
 
-**Try this now:** Sketch three cover options for your portfolio, each using a different typology from the seven above. Which one reinforces your Red Thread? Show all three to a classmate and ask which one they would open first.`,
+**Try this now:** Sketch three cover options for your portfolio, each using a different typology from the seven above. Which one reinforces your Red Thread? Show all three to a classmate and ask which one they would open first. Then open three architecture portfolios online and classify each table of contents by type: thumbnail gallery, text index, literary chapter, column cards, narrative hybrid, or illustrated grid. Which format best matches your portfolio's length and structure?`,
     keyInsight: `The cover is the first design decision a reviewer encounters. Make it argue.`,
   },
   {
@@ -753,7 +795,9 @@ Third, create parent page templates. A parent page is a master layout that autom
 
 Fourth, build the structural grid. In Layout > Margins and Columns, set six columns with twelve-point gutters. Then add eight rows with twelve-point gutters via Layout > Create Guides. This produces forty-eight modules per page. Set the baseline grid to start at zero points relative to the top of the page, incrementing every twelve points. The order matters: baseline grid first, then margins, then columns and rows, because each step depends on the previous one.
 
-Finally, memorize five keyboard shortcuts before your first production session: Preview mode (W), baseline grid visibility (Ctrl/Cmd + Alt + '), guide toggling (Ctrl/Cmd + ;), snap-to-guides (Ctrl/Cmd + Shift + ;), and fit-spread-in-window (Ctrl/Cmd + Alt + 0). These eliminate the mouse travel that slows layout work to a crawl.`,
+Finally, memorize five keyboard shortcuts before your first production session: Preview mode (W), baseline grid visibility (Ctrl/Cmd + Alt + '), guide toggling (Ctrl/Cmd + ;), snap-to-guides (Ctrl/Cmd + Shift + ;), and fit-spread-in-window (Ctrl/Cmd + Alt + 0). These eliminate the mouse travel that slows layout work to a crawl.
+
+**Try this now:** Open InDesign and create a new document at 600×840 points. Set the baseline grid to 12 points starting at zero. Define margins (36pt top, 48pt bottom, 36pt inside, 36pt outside). Add six columns with 12pt gutters and eight rows with 12pt gutters. Toggle the baseline grid on (Ctrl/Cmd + Alt + ') and verify every guideline aligns to a 12pt increment. If any measurement does not divide evenly by 12, find the error before placing any content.`,
     keyInsight: `Build the grid in order: baseline grid, margins, columns, rows. Each step depends on the one before it.`,
   },
   {
