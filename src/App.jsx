@@ -1288,13 +1288,13 @@ function WorksheetView({ visible, handleBack }) {
     <div style={{ minHeight: "100vh", background: T.bg, fontFamily: T.sans, display: "flex", flexDirection: "column" }}>
       <header style={{ padding: "20px 40px", display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: `1px solid ${T.border}`, position: "sticky", top: 0, background: T.bg, zIndex: 50 }}>
         <button onClick={handleBack} style={{ background: "none", border: "none", fontSize: 10, color: T.textMuted, cursor: "pointer", fontFamily: T.sans, letterSpacing: "0.06em", textTransform: "uppercase", padding: 0 }}>← Portfolio Workshop</button>
-        <span style={{ fontSize: 9, color: T.textFaint, letterSpacing: "0.06em", textTransform: "uppercase" }}>Worksheet</span>
+        <span style={{ fontSize: 9, color: T.textFaint, letterSpacing: "0.06em", textTransform: "uppercase" }}>Exercise</span>
       </header>
 
       <div style={{ flex: 1, padding: "56px 40px 120px", maxWidth: 520, width: "100%", margin: "0 auto", boxSizing: "border-box", opacity: visible ? 1 : 0, transition: "opacity 0.22s ease" }}>
 
         <div style={{ marginBottom: 40 }}>
-          <div style={{ fontSize: 9, letterSpacing: "0.1em", textTransform: "uppercase", color: T.textFaint, fontWeight: 400, marginBottom: 10 }}>Workshop Exercise</div>
+          <div style={{ fontSize: 9, letterSpacing: "0.1em", textTransform: "uppercase", color: T.textFaint, fontWeight: 400, marginBottom: 10 }}>Exercise</div>
           <h1 style={{ fontSize: 16, fontWeight: 500, lineHeight: 1.4, color: T.text, margin: "0 0 8px", letterSpacing: "0.01em" }}>From Thread to Spread</h1>
           <p style={{ fontSize: 12, color: T.textLight, margin: "0 0 20px", letterSpacing: "0.01em", lineHeight: 1.6 }}>Building your portfolio argument — from a project idea to a sequenced, image-mapped outline.</p>
           <div style={{ width: 24, height: 1, background: T.text, marginBottom: 24 }} />
@@ -1402,8 +1402,8 @@ export default function PortfolioGuide() {
 
   if (route === "#/about") {
     view = "about";
-  } else if (route === "#/worksheet") {
-    view = "worksheet";
+  } else if (route === "#/exercise") {
+    view = "exercise";
   } else if (route === "#/casestudy") {
     view = "casestudy";
     isCaseStudy = true;
@@ -1537,7 +1537,7 @@ export default function PortfolioGuide() {
             <div style={{ marginTop: 28 }}>
               <span style={{ fontSize: 9, letterSpacing: "0.1em", textTransform: "uppercase", color: T.textFaint, fontWeight: 500, marginBottom: 0, display: "block" }}>Exercise</span>
               <div
-                onClick={() => navigate("#/worksheet")}
+                onClick={() => navigate("#/exercise")}
                 style={{
                   display: "flex", alignItems: "baseline", gap: 14,
                   padding: "9px 0", borderBottom: `1px solid ${T.border}`,
@@ -1562,7 +1562,7 @@ export default function PortfolioGuide() {
   }
 
   // ─── Worksheet ───
-  if (view === "worksheet") {
+  if (view === "exercise") {
     return <WorksheetView visible={visible} handleBack={handleBack} />;
   }
 
