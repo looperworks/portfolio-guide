@@ -1296,7 +1296,7 @@ function WorksheetView({ visible, handleBack }) {
         <div style={{ marginBottom: 40 }}>
           <div style={{ fontSize: 9, letterSpacing: "0.1em", textTransform: "uppercase", color: T.textFaint, fontWeight: 400, marginBottom: 10 }}>Exercise</div>
           <h1 style={{ fontSize: 16, fontWeight: 500, lineHeight: 1.4, color: T.text, margin: "0 0 8px", letterSpacing: "0.01em" }}>From Thread to Spread</h1>
-          <p style={{ fontSize: 12, color: T.textLight, margin: "0 0 20px", letterSpacing: "0.01em", lineHeight: 1.6 }}>Building your portfolio argument — from a project idea to a sequenced, image-mapped outline.</p>
+          <p style={{ fontSize: 12, color: T.textLight, margin: "0 0 20px", letterSpacing: "0.01em", lineHeight: 1.6 }}>Work through each step to turn one studio project into a portfolio-ready outline.</p>
           <div style={{ width: 24, height: 1, background: T.text, marginBottom: 24 }} />
           <div>
             <span style={labelStyle}>Your Name</span>
@@ -1314,7 +1314,7 @@ function WorksheetView({ visible, handleBack }) {
 
         <WSection>
           <StepHeader num={2} title="Write the Full Statement" />
-          <p style={{ fontSize: 13, lineHeight: 1.8, color: T.textMid, margin: "0 0 16px", letterSpacing: "0.01em" }}>In one paragraph, describe what you were actually investigating — not what you built, but what question drove the design.</p>
+          <p style={{ fontSize: 13, lineHeight: 1.8, color: T.textMid, margin: "0 0 16px", letterSpacing: "0.01em" }}>Now look at your description above. Cross out every noun that names a building element. What's left is closer to what you were actually investigating. Write that as one paragraph — the question behind the project, not the project itself.</p>
           <Example label="Case Study 1"><em>"This project investigated how existing alpine infrastructure can be repurposed to make the effects of climate change visible and publicly accessible. Situated between Gstaad and Les Diablerets in the Swiss Alps, the design converts a decommissioned military bunker at Col du Pillon into an Alpine Museum. The building embeds into the mountainside, using ramped circulation and carved ground planes to create a continuous path between the landscape above and gallery spaces below."</em></Example>
           <span style={labelStyle}>Your project statement (one paragraph)</span>
           <textarea value={form.fullStatement} onChange={set("fullStatement")} placeholder="This project investigated how..." style={taStyle} onFocus={e => e.target.style.borderColor = T.navy} onBlur={e => e.target.style.borderColor = T.border} />
@@ -1322,7 +1322,7 @@ function WorksheetView({ visible, handleBack }) {
 
         <WSection>
           <StepHeader num={3} title="Compress" />
-          <p style={{ fontSize: 13, lineHeight: 1.8, color: T.textMid, margin: "0 0 16px", letterSpacing: "0.01em" }}>Distill your paragraph into a single sentence that makes a claim. Then find the one word that recurs across your work.</p>
+          <p style={{ fontSize: 13, lineHeight: 1.8, color: T.textMid, margin: "0 0 16px", letterSpacing: "0.01em" }}>Crush your paragraph to one sentence. It should argue something, not describe something. Then find the one word that keeps showing up across your projects — that's your lens.</p>
           <Example label="Case Study 1"><strong style={{ color: T.text, fontWeight: 600 }}>One sentence:</strong> <em>"The Alpine Museum embeds into eroding terrain to make the invisible trajectory of climate change a spatial experience visitors move through."</em><br /><strong style={{ color: T.text, fontWeight: 600 }}>One word:</strong> <em>Erosion.</em></Example>
           <div style={{ marginBottom: 12 }}><span style={labelStyle}>Concept sentence</span><textarea value={form.oneSentence} onChange={set("oneSentence")} placeholder="Not 'This project explores light.' Instead: 'The pavilion uses directed apertures to...'" style={taShort} onFocus={e => e.target.style.borderColor = T.navy} onBlur={e => e.target.style.borderColor = T.border} /></div>
           <div><span style={labelStyle}>One word (your Red Thread)</span><input type="text" value={form.oneWord} onChange={set("oneWord")} placeholder="e.g., Erosion, Threshold, Porosity" style={{ ...inputStyle, maxWidth: 240 }} onFocus={e => e.target.style.borderColor = T.navy} onBlur={e => e.target.style.borderColor = T.border} /></div>
@@ -1330,7 +1330,7 @@ function WorksheetView({ visible, handleBack }) {
 
         <WSection>
           <StepHeader num={4} title="From Keywords to Outline" />
-          <p style={{ fontSize: 13, lineHeight: 1.8, color: T.textMid, margin: "0 0 16px", letterSpacing: "0.01em" }}>Go back to your concept sentence. Circle every keyword. Each one demands a specific drawing type. Map them below.</p>
+          <p style={{ fontSize: 13, lineHeight: 1.8, color: T.textMid, margin: "0 0 16px", letterSpacing: "0.01em" }}>Go back to your concept sentence. Identify every keyword. Each one points to a drawing you'll need in the portfolio. Map them below.</p>
           <Example label="Case Study 1"><em>"embeds into eroding terrain"</em> → terrain models, site sections<br /><em>"Alpine"</em> → site context photos, aerial views<br /><em>"climate change"</em> → environmental overlays, seasonal renderings<br /><em>"spatial experience"</em> → interior renderings, circulation diagrams</Example>
           <table style={{ width: "100%", borderCollapse: "collapse", margin: "16px 0 8px" }}>
             <thead><tr>{["Keyword", "Drawing / Image Needed", "Image Type"].map((h, i) => (<th key={i} style={{ fontSize: 8, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: T.textMuted, fontFamily: T.sans, padding: "8px 8px", textAlign: "left", borderBottom: `1px solid ${T.text}` }}>{h}</th>))}</tr></thead>
@@ -1341,7 +1341,7 @@ function WorksheetView({ visible, handleBack }) {
 
         <WSection>
           <StepHeader num={5} title="Sequence the Narrative Arc" />
-          <p style={{ fontSize: 13, lineHeight: 1.8, color: T.textMid, margin: "0 0 16px", letterSpacing: "0.01em" }}>Arrange your images into the three-act structure. What should the viewer feel at each stage?</p>
+          <p style={{ fontSize: 13, lineHeight: 1.8, color: T.textMid, margin: "0 0 16px", letterSpacing: "0.01em" }}>Put your images in order using the three-act arc. What should someone feel flipping through this?</p>
           <Example label="Case Study 1"><strong style={{ color: T.text, fontWeight: 600 }}>Act I:</strong> Terrain model (Concept). Landscape as raw material.<br /><strong style={{ color: T.text, fontWeight: 600 }}>Act II:</strong> Aerial (Context) + erosion detail + winter rendering + section. Tension builds.<br /><strong style={{ color: T.text, fontWeight: 600 }}>Act III:</strong> Summer rendering (Outcome) + plan (Process). Building inhabits landscape.<br /><strong style={{ color: T.text, fontWeight: 600 }}>Technical Proof:</strong> Details, material specs, structural logic.</Example>
           {[["Act I — Setup", "actI", "What images open your project? What world are you establishing?"],
             ["Act II — Confrontation", "actII", "What makes the problem feel real? Where does tension build?"],
@@ -1352,7 +1352,7 @@ function WorksheetView({ visible, handleBack }) {
 
         <WSection>
           <StepHeader num={6} title="Image Type Audit" />
-          <p style={{ fontSize: 13, lineHeight: 1.8, color: T.textMid, margin: "0 0 16px", letterSpacing: "0.01em" }}>Count how many images fall into each type. A balanced academic portfolio should be heaviest on Process.</p>
+          <p style={{ fontSize: 13, lineHeight: 1.8, color: T.textMid, margin: "0 0 16px", letterSpacing: "0.01em" }}>Look at the image types you assigned above. Count them up. For academic review, lean into Process — that's where reviewers spend the most time.</p>
           <Example label="Case Study 1"><em>Concept: 1 · Context: 2 · Process: 2 · Outcome: 2</em> — balanced, with Process and Context supporting the argument.</Example>
           <table style={{ width: "100%", borderCollapse: "collapse", margin: "16px 0" }}>
             <thead><tr>{["Image Type", "Count", "Which Images?"].map((h, i) => (<th key={i} style={{ fontSize: 8, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: T.textMuted, fontFamily: T.sans, padding: "8px 8px", textAlign: "left", borderBottom: `1px solid ${T.text}` }}>{h}</th>))}</tr></thead>
@@ -1364,7 +1364,7 @@ function WorksheetView({ visible, handleBack }) {
 
         <WSection last>
           <StepHeader num={7} title="Seven-Spread Outline" />
-          <p style={{ fontSize: 13, lineHeight: 1.8, color: T.textMid, margin: "0 0 16px", letterSpacing: "0.01em" }}>If this project gets seven spreads, what goes on each one? Each spread is a beat in the story.</p>
+          <p style={{ fontSize: 13, lineHeight: 1.8, color: T.textMid, margin: "0 0 16px", letterSpacing: "0.01em" }}>If this project gets seven spreads, what goes on each one? Each spread does one job.</p>
           <Example label="Case Study 1"><strong style={{ color: T.text, fontWeight: 600 }}>1 (Setup):</strong> Terrain model — landscape as raw material<br /><strong style={{ color: T.text, fontWeight: 600 }}>2:</strong> Site map + erosion detail — alpine erosion at scale<br /><strong style={{ color: T.text, fontWeight: 600 }}>3 (Confrontation):</strong> Section + winter photo + rendering — building carves in<br /><strong style={{ color: T.text, fontWeight: 600 }}>4:</strong> Full-width embedded section — erosion made accessible<br /><strong style={{ color: T.text, fontWeight: 600 }}>5 (Resolution):</strong> Interior gallery + floor plans — erosion made inhabitable</Example>
           <table style={{ width: "100%", borderCollapse: "collapse", margin: "16px 0" }}>
             <thead><tr><th style={{ fontSize: 8, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: T.textMuted, fontFamily: T.sans, padding: "8px 8px", textAlign: "center", borderBottom: `1px solid ${T.text}`, width: 36 }}>#</th><th style={{ fontSize: 8, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: T.textMuted, fontFamily: T.sans, padding: "8px 8px", textAlign: "left", borderBottom: `1px solid ${T.text}`, width: 110 }}>Arc Beat</th><th style={{ fontSize: 8, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: T.textMuted, fontFamily: T.sans, padding: "8px 8px", textAlign: "left", borderBottom: `1px solid ${T.text}` }}>Images + Narrative Job</th></tr></thead>
