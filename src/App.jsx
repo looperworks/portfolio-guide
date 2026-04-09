@@ -1221,6 +1221,26 @@ function DiagramSlideshow({ diagrams, moduleLabel, backHash }) {
   );
 }
 
+/* ─── Shared Worksheet Components (must live outside WorksheetView to avoid remount on state change) ─── */
+const WStepHeader = ({ num, title }) => (
+  <div style={{ marginBottom: 6 }}>
+    <span style={{ fontSize: 9, letterSpacing: "0.1em", textTransform: "uppercase", color: T.textFaint, fontWeight: 400, fontFamily: T.sans }}>Step {String(num).padStart(2, "0")}</span>
+    <h2 style={{ fontSize: 16, fontWeight: 500, color: T.text, margin: "6px 0 0", letterSpacing: "0.01em", fontFamily: T.sans }}>{title}</h2>
+    <div style={{ width: 24, height: 1, background: T.text, marginTop: 12, marginBottom: 20 }} />
+  </div>
+);
+
+const WExample = ({ label, children }) => (
+  <div style={{ borderLeft: `2px solid ${T.text}`, paddingLeft: 16, margin: "20px 0" }}>
+    <div style={{ fontSize: 8, letterSpacing: "0.1em", textTransform: "uppercase", color: T.textMuted, fontWeight: 600, fontFamily: T.sans, marginBottom: 6 }}>Example — {label}</div>
+    <div style={{ fontSize: 12, lineHeight: 1.8, color: T.textMid, fontFamily: T.sans, letterSpacing: "0.01em" }}>{children}</div>
+  </div>
+);
+
+const WSection = ({ children, last }) => (
+  <div style={{ marginBottom: last ? 0 : 48, paddingBottom: last ? 0 : 48, borderBottom: last ? "none" : `1px solid ${T.border}` }}>{children}</div>
+);
+
 /* ─── Worksheet View ─── */
 function WorksheetView({ visible, handleBack, backLabel }) {
   const [form, setForm] = useState({
@@ -1238,12 +1258,12 @@ function WorksheetView({ visible, handleBack, backLabel }) {
     { kw: "", drawing: "", type: "" },
     { kw: "", drawing: "", type: "" },
   ]);
-  const [spreadRows] = useState([1,2,3,4,5,6,7].map(n => ({ num: n, beat: "", content: "" })));
+  const [spreadRows, setSpreadRows] = useState([1,2,3,4,5,6,7].map(n => ({ num: n, beat: "", content: "" })));
   const [exporting, setExporting] = useState(false);
 
   const set = (k) => (e) => setForm(f => ({ ...f, [k]: e.target.value }));
   const setKw = (i, k) => (e) => setKwRows(r => r.map((row, j) => j === i ? { ...row, [k]: e.target.value } : row));
-  const setSpread = (i, k) => (e) => { spreadRows[i][k] = e.target.value; };
+  const setSpread = (i, k) => (e) => setSpreadRows(r => r.map((row, j) => j === i ? { ...row, [k]: e.target.value } : row));
 
   const inputStyle = { fontFamily: T.sans, fontSize: 13, color: T.text, background: T.bg, border: `1px solid ${T.border}`, borderRadius: 2, padding: "10px 12px", width: "100%", boxSizing: "border-box", outline: "none" };
   const taStyle = { ...inputStyle, resize: "vertical", minHeight: 80 };
@@ -1290,25 +1310,6 @@ function WorksheetView({ visible, handleBack, backLabel }) {
     setExporting(false);
   };
 
-  const StepHeader = ({ num, title }) => (
-    <div style={{ marginBottom: 6 }}>
-      <span style={{ fontSize: 9, letterSpacing: "0.1em", textTransform: "uppercase", color: T.textFaint, fontWeight: 400, fontFamily: T.sans }}>Step {String(num).padStart(2, "0")}</span>
-      <h2 style={{ fontSize: 16, fontWeight: 500, color: T.text, margin: "6px 0 0", letterSpacing: "0.01em", fontFamily: T.sans }}>{title}</h2>
-      <div style={{ width: 24, height: 1, background: T.text, marginTop: 12, marginBottom: 20 }} />
-    </div>
-  );
-
-  const Example = ({ label, children }) => (
-    <div style={{ borderLeft: `2px solid ${T.text}`, paddingLeft: 16, margin: "20px 0" }}>
-      <div style={{ fontSize: 8, letterSpacing: "0.1em", textTransform: "uppercase", color: T.textMuted, fontWeight: 600, fontFamily: T.sans, marginBottom: 6 }}>Example — {label}</div>
-      <div style={{ fontSize: 12, lineHeight: 1.8, color: T.textMid, fontFamily: T.sans, letterSpacing: "0.01em" }}>{children}</div>
-    </div>
-  );
-
-  const WSection = ({ children, last }) => (
-    <div style={{ marginBottom: last ? 0 : 48, paddingBottom: last ? 0 : 48, borderBottom: last ? "none" : `1px solid ${T.border}` }}>{children}</div>
-  );
-
   const selectStyle = { fontFamily: T.sans, fontSize: 11, color: T.text, background: "transparent", border: "none", padding: "9px 4px", width: "100%", cursor: "pointer", outline: "none" };
 
   return (
@@ -1333,33 +1334,33 @@ function WorksheetView({ visible, handleBack, backLabel }) {
         </div>
 
         <WSection>
-          <StepHeader num={1} title="Choose Your Project" />
+          <WStepHeader num={1} title="Choose Your Project" />
           <p style={{ fontSize: 13, lineHeight: 1.8, color: T.textMid, margin: "0 0 16px", letterSpacing: "0.01em" }}>Pick one studio project you want to include in your portfolio. Name it and write 2–3 sentences describing what you designed. Need help choosing? Revisit <a href="#/module/2" style={{ color: T.text, textDecoration: "underline", textUnderlineOffset: 2 }}>Module 02</a>.</p>
-          <Example label="Case Study 01"><em>Après Ski — Alpine Museum.</em> A proposal to convert a decommissioned military bunker at Col du Pillon in the Swiss Alps into an Alpine Museum. The building embeds into the mountainside, using ramped circulation and carved ground planes to connect landscape above with gallery spaces below.</Example>
+          <WExample label="Case Study 01"><em>Après Ski — Alpine Museum.</em> A proposal to convert a decommissioned military bunker at Col du Pillon in the Swiss Alps into an Alpine Museum. The building embeds into the mountainside, using ramped circulation and carved ground planes to connect landscape above with gallery spaces below.</WExample>
           <div style={{ marginBottom: 12 }}><span style={labelStyle}>Project title</span><input type="text" value={form.projectTitle} onChange={set("projectTitle")} placeholder="e.g., Après Ski — Alpine Museum" style={inputStyle} onFocus={e => e.target.style.borderColor = T.navy} onBlur={e => e.target.style.borderColor = T.border} /></div>
           <div><span style={labelStyle}>Brief description</span><textarea value={form.projectDesc} onChange={set("projectDesc")} placeholder="What did you design? Where? For whom?" style={taShort} onFocus={e => e.target.style.borderColor = T.navy} onBlur={e => e.target.style.borderColor = T.border} /></div>
         </WSection>
 
         <WSection>
-          <StepHeader num={2} title="Write the Full Statement" />
+          <WStepHeader num={2} title="Write the Full Statement" />
           <p style={{ fontSize: 13, lineHeight: 1.8, color: T.textMid, margin: "0 0 16px", letterSpacing: "0.01em" }}>Now look at your description above. Cross out every noun that names a building element: walls, ramps, galleries, roofs. What's left is closer to what you were actually investigating. Write that as one paragraph: the question behind the project, not the project itself.</p>
-          <Example label="Case Study 01"><em>"This project investigated how existing alpine infrastructure can be repurposed to make the effects of climate change visible and publicly accessible. Situated between Gstaad and Les Diablerets in the Swiss Alps, the design converts a decommissioned military bunker at Col du Pillon into an Alpine Museum. The building embeds into the mountainside, using ramped circulation and carved ground planes to create a continuous path between the landscape above and gallery spaces below."</em></Example>
+          <WExample label="Case Study 01"><em>"This project investigated how existing alpine infrastructure can be repurposed to make the effects of climate change visible and publicly accessible. Situated between Gstaad and Les Diablerets in the Swiss Alps, the design converts a decommissioned military bunker at Col du Pillon into an Alpine Museum. The building embeds into the mountainside, using ramped circulation and carved ground planes to create a continuous path between the landscape above and gallery spaces below."</em></WExample>
           <span style={labelStyle}>Your project statement (one paragraph)</span>
           <textarea value={form.fullStatement} onChange={set("fullStatement")} placeholder="This project investigated how..." style={taStyle} onFocus={e => e.target.style.borderColor = T.navy} onBlur={e => e.target.style.borderColor = T.border} />
         </WSection>
 
         <WSection>
-          <StepHeader num={3} title="Compress to One Sentence, One Word" />
+          <WStepHeader num={3} title="Compress to One Sentence, One Word" />
           <p style={{ fontSize: 13, lineHeight: 1.8, color: T.textMid, margin: "0 0 16px", letterSpacing: "0.01em" }}>This is the compression exercise from the workshop (<a href="#/module/4" style={{ color: T.text, textDecoration: "underline", textUnderlineOffset: 2 }}>Module 04</a>). Crush your paragraph to one sentence that argues something, not describes something. Then find the one word that keeps showing up across your projects. That's your red thread.</p>
-          <Example label="Case Study 01"><strong style={{ color: T.text, fontWeight: 600 }}>Weak:</strong> <em>"This project explores how a bunker can become a museum."</em> (Describes. Does not argue.)<br /><strong style={{ color: T.text, fontWeight: 600 }}>Strong:</strong> <em>"The Alpine Museum embeds into eroding terrain to make the invisible trajectory of climate change a spatial experience visitors move through."</em> (Argues. Every word earns its place.)<br /><strong style={{ color: T.text, fontWeight: 600 }}>One word:</strong> <em>Erosion.</em></Example>
+          <WExample label="Case Study 01"><strong style={{ color: T.text, fontWeight: 600 }}>Weak:</strong> <em>"This project explores how a bunker can become a museum."</em> (Describes. Does not argue.)<br /><strong style={{ color: T.text, fontWeight: 600 }}>Strong:</strong> <em>"The Alpine Museum embeds into eroding terrain to make the invisible trajectory of climate change a spatial experience visitors move through."</em> (Argues. Every word earns its place.)<br /><strong style={{ color: T.text, fontWeight: 600 }}>One word:</strong> <em>Erosion.</em></WExample>
           <div style={{ marginBottom: 12 }}><span style={labelStyle}>Concept sentence</span><textarea value={form.oneSentence} onChange={set("oneSentence")} placeholder="Not 'This project explores light.' Instead: 'The pavilion uses directed apertures to...'" style={taShort} onFocus={e => e.target.style.borderColor = T.navy} onBlur={e => e.target.style.borderColor = T.border} /></div>
           <div><span style={labelStyle}>One word (your Red Thread)</span><input type="text" value={form.oneWord} onChange={set("oneWord")} placeholder="e.g., Erosion, Threshold, Porosity" style={{ ...inputStyle, maxWidth: 240 }} onFocus={e => e.target.style.borderColor = T.navy} onBlur={e => e.target.style.borderColor = T.border} /></div>
         </WSection>
 
         <WSection>
-          <StepHeader num={4} title="From Keywords to Outline" />
+          <WStepHeader num={4} title="From Keywords to Outline" />
           <p style={{ fontSize: 13, lineHeight: 1.8, color: T.textMid, margin: "0 0 16px", letterSpacing: "0.01em" }}>Go back to your concept sentence. Identify every keyword. Each one points to a drawing you'll need in the portfolio. Map them below, and tag each with an image type (<a href="#/module/5" style={{ color: T.text, textDecoration: "underline", textUnderlineOffset: 2 }}>Module 05</a>).</p>
-          <Example label="Case Study 01"><em>"embeds into eroding terrain"</em> → terrain models, site sections<br /><em>"Alpine"</em> → site context photos, aerial views<br /><em>"climate change"</em> → environmental overlays, seasonal renderings<br /><em>"spatial experience"</em> → interior renderings, circulation diagrams</Example>
+          <WExample label="Case Study 01"><em>"embeds into eroding terrain"</em> → terrain models, site sections<br /><em>"Alpine"</em> → site context photos, aerial views<br /><em>"climate change"</em> → environmental overlays, seasonal renderings<br /><em>"spatial experience"</em> → interior renderings, circulation diagrams</WExample>
           <table style={{ width: "100%", borderCollapse: "collapse", margin: "16px 0 8px" }}>
             <thead><tr>{["Keyword", "Drawing / Image Needed", "Image Type"].map((h, i) => (<th key={i} style={{ fontSize: 8, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: T.textMuted, fontFamily: T.sans, padding: "8px 8px", textAlign: "left", borderBottom: `1px solid ${T.text}` }}>{h}</th>))}</tr></thead>
             <tbody>{kwRows.map((row, i) => (<tr key={i} style={{ borderBottom: `1px solid ${T.border}` }}><td><input type="text" value={row.kw} onChange={setKw(i, "kw")} placeholder="keyword" style={cellInput} onFocus={e => e.target.style.background = T.bgAlt} onBlur={e => e.target.style.background = "transparent"} /></td><td><input type="text" value={row.drawing} onChange={setKw(i, "drawing")} placeholder="drawing type" style={cellInput} onFocus={e => e.target.style.background = T.bgAlt} onBlur={e => e.target.style.background = "transparent"} /></td><td><select value={row.type} onChange={setKw(i, "type")} style={selectStyle}><option value="">—</option><option>Concept</option><option>Context</option><option>Process</option><option>Outcome</option></select></td></tr>))}</tbody>
@@ -1368,9 +1369,9 @@ function WorksheetView({ visible, handleBack, backLabel }) {
         </WSection>
 
         <WSection>
-          <StepHeader num={5} title="Image Type Audit" />
+          <WStepHeader num={5} title="Image Type Audit" />
           <p style={{ fontSize: 13, lineHeight: 1.8, color: T.textMid, margin: "0 0 16px", letterSpacing: "0.01em" }}>Look at the image types you just assigned in the table above. Count them up. A portfolio heavy on Outcome images but light on Process is a common gap. For academic review, Process is where reviewers spend the most time. Not sure what these types mean? See <a href="#/module/5" style={{ color: T.text, textDecoration: "underline", textUnderlineOffset: 2 }}>Module 05</a>.</p>
-          <Example label="Case Study 01"><em>Concept: 1 · Context: 2 · Process: 2 · Outcome: 2.</em> Balanced, with Process and Context supporting the argument.</Example>
+          <WExample label="Case Study 01"><em>Concept: 1 · Context: 2 · Process: 2 · Outcome: 2.</em> Balanced, with Process and Context supporting the argument.</WExample>
           <table style={{ width: "100%", borderCollapse: "collapse", margin: "16px 0" }}>
             <thead><tr>{["Image Type", "Count", "Which Images?"].map((h, i) => (<th key={i} style={{ fontSize: 8, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: T.textMuted, fontFamily: T.sans, padding: "8px 8px", textAlign: "left", borderBottom: `1px solid ${T.text}` }}>{h}</th>))}</tr></thead>
             <tbody>{["Concept", "Context", "Process", "Outcome"].map(t => (<tr key={t} style={{ borderBottom: `1px solid ${T.border}` }}><td style={{ padding: "9px 8px", fontSize: 12, fontWeight: 500, fontFamily: T.sans, width: 90 }}>{t}</td><td style={{ width: 50 }}><input type="text" value={form[`count${t}`]} onChange={set(`count${t}`)} placeholder="0" style={{ ...cellInput, textAlign: "center" }} onFocus={e => e.target.style.background = T.bgAlt} onBlur={e => e.target.style.background = "transparent"} /></td><td><input type="text" value={form[`list${t}`]} onChange={set(`list${t}`)} placeholder={`e.g., ${t === "Concept" ? "site model, diagram" : t === "Context" ? "aerial, site plan" : t === "Process" ? "section, iteration models" : "rendering, final plan"}`} style={cellInput} onFocus={e => e.target.style.background = T.bgAlt} onBlur={e => e.target.style.background = "transparent"} /></td></tr>))}</tbody>
@@ -1381,9 +1382,9 @@ function WorksheetView({ visible, handleBack, backLabel }) {
         </WSection>
 
         <WSection>
-          <StepHeader num={6} title="Sequence the Narrative Arc" />
+          <WStepHeader num={6} title="Sequence the Narrative Arc" />
           <p style={{ fontSize: 13, lineHeight: 1.8, color: T.textMid, margin: "0 0 16px", letterSpacing: "0.01em" }}>The arc tells you what order. Step 7 will tell you what fits on each page. For now, assign your images to acts based on what they argue, not where they were produced. See <a href="#/module/6" style={{ color: T.text, textDecoration: "underline", textUnderlineOffset: 2 }}>Module 06</a>.</p>
-          <Example label="Case Study 01"><strong style={{ color: T.text, fontWeight: 600 }}>Act I:</strong> Terrain model (Concept). Landscape as raw material.<br /><strong style={{ color: T.text, fontWeight: 600 }}>Act II:</strong> Aerial (Context) + erosion detail + winter rendering + section. Tension builds.<br /><strong style={{ color: T.text, fontWeight: 600 }}>Act III:</strong> Summer rendering (Outcome) + plan (Process). Building inhabits landscape.<br /><strong style={{ color: T.text, fontWeight: 600 }}>Technical Proof:</strong> Details, material specs, structural logic.</Example>
+          <WExample label="Case Study 01"><strong style={{ color: T.text, fontWeight: 600 }}>Act I:</strong> Terrain model (Concept). Landscape as raw material.<br /><strong style={{ color: T.text, fontWeight: 600 }}>Act II:</strong> Aerial (Context) + erosion detail + winter rendering + section. Tension builds.<br /><strong style={{ color: T.text, fontWeight: 600 }}>Act III:</strong> Summer rendering (Outcome) + plan (Process). Building inhabits landscape.<br /><strong style={{ color: T.text, fontWeight: 600 }}>Technical Proof:</strong> Details, material specs, structural logic.</WExample>
           {[["Act I — Setup", "actI", "What images open your project? What world are you establishing?"],
             ["Act II — Confrontation", "actII", "What makes the problem feel real? Where does tension build?"],
             ["Act III — Resolution", "actIII", "How does the design respond? What's the payoff?"],
@@ -1392,12 +1393,12 @@ function WorksheetView({ visible, handleBack, backLabel }) {
         </WSection>
 
         <WSection last>
-          <StepHeader num={7} title="Seven-Spread Outline" />
+          <WStepHeader num={7} title="Seven-Spread Outline" />
           <p style={{ fontSize: 13, lineHeight: 1.8, color: T.textMid, margin: "0 0 16px", letterSpacing: "0.01em" }}>The arc from Step 6 set the narrative order. Now assign images to physical pages. Each spread does one job.</p>
-          <Example label="Case Study 01"><strong style={{ color: T.text, fontWeight: 600 }}>1 (Setup):</strong> Terrain model — landscape as raw material<br /><strong style={{ color: T.text, fontWeight: 600 }}>2:</strong> Site map + erosion detail — alpine erosion at scale<br /><strong style={{ color: T.text, fontWeight: 600 }}>3 (Confrontation):</strong> Section + winter photo + rendering — building carves in<br /><strong style={{ color: T.text, fontWeight: 600 }}>4:</strong> Full-width embedded section — erosion made accessible<br /><strong style={{ color: T.text, fontWeight: 600 }}>5 (Resolution):</strong> Interior gallery + floor plans — erosion made inhabitable</Example>
+          <WExample label="Case Study 01"><strong style={{ color: T.text, fontWeight: 600 }}>1 (Setup):</strong> Terrain model — landscape as raw material<br /><strong style={{ color: T.text, fontWeight: 600 }}>2:</strong> Site map + erosion detail — alpine erosion at scale<br /><strong style={{ color: T.text, fontWeight: 600 }}>3 (Confrontation):</strong> Section + winter photo + rendering — building carves in<br /><strong style={{ color: T.text, fontWeight: 600 }}>4:</strong> Full-width embedded section — erosion made accessible<br /><strong style={{ color: T.text, fontWeight: 600 }}>5 (Resolution):</strong> Interior gallery + floor plans — erosion made inhabitable</WExample>
           <table style={{ width: "100%", borderCollapse: "collapse", margin: "16px 0" }}>
             <thead><tr><th style={{ fontSize: 8, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: T.textMuted, fontFamily: T.sans, padding: "8px 8px", textAlign: "center", borderBottom: `1px solid ${T.text}`, width: 36 }}>#</th><th style={{ fontSize: 8, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: T.textMuted, fontFamily: T.sans, padding: "8px 8px", textAlign: "left", borderBottom: `1px solid ${T.text}`, width: 110 }}>Arc Beat</th><th style={{ fontSize: 8, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: T.textMuted, fontFamily: T.sans, padding: "8px 8px", textAlign: "left", borderBottom: `1px solid ${T.text}` }}>Images + Narrative Job</th></tr></thead>
-            <tbody>{spreadRows.map((row, i) => (<tr key={i} style={{ borderBottom: `1px solid ${T.border}` }}><td style={{ padding: "9px 8px", fontSize: 12, fontFamily: T.sans, textAlign: "center", color: T.textLight }}>{row.num}</td><td><select defaultValue="" onChange={setSpread(i, "beat")} style={selectStyle}><option value="">—</option><option>Setup</option><option>Confrontation</option><option>Turning Point</option><option>Resolution</option><option>Technical Proof</option></select></td><td><input type="text" defaultValue="" onChange={setSpread(i, "content")} placeholder="What images? What story beat?" style={cellInput} onFocus={e => e.target.style.background = T.bgAlt} onBlur={e => e.target.style.background = "transparent"} /></td></tr>))}</tbody>
+            <tbody>{spreadRows.map((row, i) => (<tr key={i} style={{ borderBottom: `1px solid ${T.border}` }}><td style={{ padding: "9px 8px", fontSize: 12, fontFamily: T.sans, textAlign: "center", color: T.textLight }}>{row.num}</td><td><select value={row.beat} onChange={setSpread(i, "beat")} style={selectStyle}><option value="">—</option><option>Setup</option><option>Confrontation</option><option>Turning Point</option><option>Resolution</option><option>Technical Proof</option></select></td><td><input type="text" value={row.content} onChange={setSpread(i, "content")} placeholder="What images? What story beat?" style={cellInput} onFocus={e => e.target.style.background = T.bgAlt} onBlur={e => e.target.style.background = "transparent"} /></td></tr>))}</tbody>
           </table>
         </WSection>
 
@@ -1428,14 +1429,6 @@ function Exercise02View({ visible, handleBack, backLabel }) {
 
   const labelStyle = { fontSize: 9, letterSpacing: "0.08em", textTransform: "uppercase", color: T.textMuted, fontWeight: 500, fontFamily: T.sans, display: "block", marginBottom: 6 };
 
-  const StepHeader = ({ num, title }) => (
-    <div style={{ marginBottom: 6 }}>
-      <span style={{ fontSize: 9, letterSpacing: "0.1em", textTransform: "uppercase", color: T.textFaint, fontWeight: 400, fontFamily: T.sans }}>Step {String(num).padStart(2, "0")}</span>
-      <h2 style={{ fontSize: 16, fontWeight: 500, color: T.text, margin: "6px 0 0", letterSpacing: "0.01em", fontFamily: T.sans }}>{title}</h2>
-      <div style={{ width: 24, height: 1, background: T.text, marginTop: 12, marginBottom: 20 }} />
-    </div>
-  );
-
   const Ref = ({ mod, label }) => (
     <a href={`#/module/${mod}`} style={{ color: T.text, textDecoration: "underline", textUnderlineOffset: 2, fontSize: 11, fontFamily: T.sans, letterSpacing: "0.01em" }}>{label || `Module ${String(mod).padStart(2, "0")}`}</a>
   );
@@ -1445,17 +1438,6 @@ function Exercise02View({ visible, handleBack, backLabel }) {
       <input type="checkbox" checked={!!checks[id]} onChange={() => toggle(id)} style={{ marginTop: 3, accentColor: T.text }} />
       <span style={{ fontSize: 12, lineHeight: 1.7, color: checks[id] ? T.textLight : T.textMid, fontFamily: T.sans, letterSpacing: "0.01em", textDecoration: checks[id] ? "line-through" : "none" }}>{children}</span>
     </label>
-  );
-
-  const Example = ({ label, children }) => (
-    <div style={{ borderLeft: `2px solid ${T.text}`, paddingLeft: 16, margin: "20px 0" }}>
-      <div style={{ fontSize: 8, letterSpacing: "0.1em", textTransform: "uppercase", color: T.textMuted, fontWeight: 600, fontFamily: T.sans, marginBottom: 6 }}>Example — {label}</div>
-      <div style={{ fontSize: 12, lineHeight: 1.8, color: T.textMid, fontFamily: T.sans, letterSpacing: "0.01em" }}>{children}</div>
-    </div>
-  );
-
-  const WSection = ({ children, last }) => (
-    <div style={{ marginBottom: last ? 0 : 48, paddingBottom: last ? 0 : 48, borderBottom: last ? "none" : `1px solid ${T.border}` }}>{children}</div>
   );
 
   const totalChecks = Object.keys(checks).length > 0 ? Object.values(checks).filter(Boolean).length : 0;
@@ -1482,9 +1464,9 @@ function Exercise02View({ visible, handleBack, backLabel }) {
         </div>
 
         <WSection>
-          <StepHeader num={1} title="Document Setup" />
+          <WStepHeader num={1} title="Document Setup" />
           <p style={{ fontSize: 13, lineHeight: 1.8, color: T.textMid, margin: "0 0 16px", letterSpacing: "0.01em" }}>Create a new document. The page proportion is 5:7, which echoes the Golden Section. All measurements derive from a single value: 12 points. See <Ref mod={8} label="Module 08: Building the Grid" />.</p>
-          <Example label="Case Study 02"><em>600 × 840 pt.</em> Facing pages on. Intent: Print. 840 ÷ 12 = 70 baseline units per page. Every margin, gutter, and row height is a multiple of 12.</Example>
+          <WExample label="Case Study 02"><em>600 × 840 pt.</em> Facing pages on. Intent: Print. 840 ÷ 12 = 70 baseline units per page. Every margin, gutter, and row height is a multiple of 12.</WExample>
           <div style={{ margin: "16px 0" }}>
             <Check id="doc-size">Set page size to 600 × 840 points (or your chosen 5:7 proportion)</Check>
             <Check id="doc-facing">Turn on Facing Pages</Check>
@@ -1494,9 +1476,9 @@ function Exercise02View({ visible, handleBack, backLabel }) {
         </WSection>
 
         <WSection>
-          <StepHeader num={2} title="Margins" />
+          <WStepHeader num={2} title="Margins" />
           <p style={{ fontSize: 13, lineHeight: 1.8, color: T.textMid, margin: "0 0 16px", letterSpacing: "0.01em" }}>Margins set the distance between content and page edge. Every value is a multiple of 12. The bottom margin is larger than the top. This grounds content on the page. See <Ref mod={9} label="Module 09: InDesign Setup" />.</p>
-          <Example label="Case Study 02"><em>Top: 36 pt (3 × 12). Bottom: 48 pt (4 × 12). Inside: 36 pt. Outside: 36 pt.</em> The inside margin accounts for binding. The bottom margin is heavier to ground the content.</Example>
+          <WExample label="Case Study 02"><em>Top: 36 pt (3 × 12). Bottom: 48 pt (4 × 12). Inside: 36 pt. Outside: 36 pt.</em> The inside margin accounts for binding. The bottom margin is heavier to ground the content.</WExample>
           <div style={{ margin: "16px 0" }}>
             <Check id="margin-top">Top margin: 36 pt</Check>
             <Check id="margin-bottom">Bottom margin: 48 pt</Check>
@@ -1507,9 +1489,9 @@ function Exercise02View({ visible, handleBack, backLabel }) {
         </WSection>
 
         <WSection>
-          <StepHeader num={3} title="Columns and Rows" />
+          <WStepHeader num={3} title="Columns and Rows" />
           <p style={{ fontSize: 13, lineHeight: 1.8, color: T.textMid, margin: "0 0 16px", letterSpacing: "0.01em" }}>Columns divide the page vertically. Rows (flowlines) divide it horizontally. Together they create modules: the smallest rectangular unit where content is placed. Six columns give you 1/6, 1/3, 1/2, and 2/3 splits. Eight rows give enough vertical zones to separate header, body, and footnote areas. The more modules per page, the more layout options the grid supports.</p>
-          <Example label="Case Study 02"><em>6 columns, 12 pt gutters. 8 rows, 12 pt gutters.</em> This produces 48 modules per page. The same grid accommodates a full-bleed floor plan, a rendering paired with a site plan, and a set of unit types beside a sectional model.</Example>
+          <WExample label="Case Study 02"><em>6 columns, 12 pt gutters. 8 rows, 12 pt gutters.</em> This produces 48 modules per page. The same grid accommodates a full-bleed floor plan, a rendering paired with a site plan, and a set of unit types beside a sectional model.</WExample>
           <div style={{ margin: "16px 0" }}>
             <Check id="col-count">Set 6 columns in Layout → Margins and Columns</Check>
             <Check id="col-gutter">Set column gutter to 12 pt</Check>
@@ -1521,9 +1503,9 @@ function Exercise02View({ visible, handleBack, backLabel }) {
         </WSection>
 
         <WSection>
-          <StepHeader num={4} title="Layer Architecture" />
+          <WStepHeader num={4} title="Layer Architecture" />
           <p style={{ fontSize: 13, lineHeight: 1.8, color: T.textMid, margin: "0 0 16px", letterSpacing: "0.01em" }}>Layers separate content types. You will not accidentally select an image when editing text. Three layers, strict stacking order. See <Ref mod={9} label="Module 09: InDesign Setup" />.</p>
-          <Example label="Case Study 02"><em>01_Text (top). 02_Images (middle). 03_Guides (bottom, locked, non-printing).</em> The guides layer holds placeholder frames and alignment aids that never appear in the exported PDF.</Example>
+          <WExample label="Case Study 02"><em>01_Text (top). 02_Images (middle). 03_Guides (bottom, locked, non-printing).</em> The guides layer holds placeholder frames and alignment aids that never appear in the exported PDF.</WExample>
           <div style={{ margin: "16px 0" }}>
             <Check id="layer-text">Create layer: 01_Text (topmost)</Check>
             <Check id="layer-images">Create layer: 02_Images (middle)</Check>
@@ -1535,9 +1517,9 @@ function Exercise02View({ visible, handleBack, backLabel }) {
         </WSection>
 
         <WSection>
-          <StepHeader num={5} title="Parent Pages" />
+          <WStepHeader num={5} title="Parent Pages" />
           <p style={{ fontSize: 13, lineHeight: 1.8, color: T.textMid, margin: "0 0 16px", letterSpacing: "0.01em" }}>A parent page is a master layout that applies to every child page assigned to it. Build two: one for splash pages, one for content spreads. When you edit a parent, every child page updates instantly. See <Ref mod={9} label="Module 09: InDesign Setup" />.</p>
-          <Example label="Case Study 02"><em>A-Intro:</em> title area, date, page number. Used for project openers and section dividers.<br /><em>B-Project:</em> running header, column grid guides, project title placeholder, binding margin. Used for all content spreads.</Example>
+          <WExample label="Case Study 02"><em>A-Intro:</em> title area, date, page number. Used for project openers and section dividers.<br /><em>B-Project:</em> running header, column grid guides, project title placeholder, binding margin. Used for all content spreads.</WExample>
           <div style={{ margin: "16px 0" }}>
             <Check id="parent-intro">Create parent page A-Intro (title area, date, page number)</Check>
             <Check id="parent-project">Create parent page B-Project (running header, grid guides, title placeholder)</Check>
@@ -1547,9 +1529,9 @@ function Exercise02View({ visible, handleBack, backLabel }) {
         </WSection>
 
         <WSection>
-          <StepHeader num={6} title="Paragraph Styles" />
+          <WStepHeader num={6} title="Paragraph Styles" />
           <p style={{ fontSize: 13, lineHeight: 1.8, color: T.textMid, margin: "0 0 16px", letterSpacing: "0.01em" }}>Four styles cover the full type hierarchy. The critical setting: Align to Grid must be set to All Lines for every style. This locks text to the 12-point baseline. Without it, columns drift out of alignment by the bottom of the spread. See <Ref mod={12} label="Module 12: Typography" />.</p>
-          <Example label="Case Study 02"><em>Title: 24/30 pt. Subtitle: 14/18 pt. Body Text: 10/12 pt. Captions: 8/10 pt.</em> Two typefaces max. Serif for body, sans-serif for headings, or two weights of one family.</Example>
+          <WExample label="Case Study 02"><em>Title: 24/30 pt. Subtitle: 14/18 pt. Body Text: 10/12 pt. Captions: 8/10 pt.</em> Two typefaces max. Serif for body, sans-serif for headings, or two weights of one family.</WExample>
           <div style={{ margin: "16px 0 24px" }}>
             <span style={labelStyle}>Your Typeface Choices</span>
             <Check id="style-font-heading">Heading typeface chosen: _______________</Check>
@@ -1579,7 +1561,7 @@ function Exercise02View({ visible, handleBack, backLabel }) {
         </WSection>
 
         <WSection last>
-          <StepHeader num={7} title="Verify Everything" />
+          <WStepHeader num={7} title="Verify Everything" />
           <p style={{ fontSize: 13, lineHeight: 1.8, color: T.textMid, margin: "0 0 16px", letterSpacing: "0.01em" }}>Before placing any content, confirm the grid is correct. Every measurement should resolve as a whole-number multiple of 12. If anything is off, the error will cascade through every spread. See <Ref mod={11} label="Module 11: Pacing and Grid Breaks" /> for when to break the grid intentionally.</p>
           <div style={{ margin: "16px 0" }}>
             <Check id="verify-baseline">Baseline grid is visible (Cmd + Alt + ')</Check>
